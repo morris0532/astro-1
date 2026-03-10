@@ -1,10 +1,10 @@
 {
-  "name": "astro-component-starter",
+  "name": "jetstream-astro-template",
   "type": "module",
   "version": "1.0.0",
-  "description": "A modern design system built with Astro, featuring design tokens, components, and comprehensive documentation",
-  "keywords": ["design-system", "astro", "components", "css", "design-tokens"],
-  "author": "Your Name",
+  "description": "Jetstream is a polished, high-performance marketing website template for Astro.",
+  "keywords": ["astro", "cloudcannon", "ssg", "astro-theme", "astrojs", "astro-template", "astro-themes", "cloudcannon-themes", "ssg-astro"],
+  "author": "CloudCannon",
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
