@@ -4,8 +4,8 @@ import Page from "@layouts/Page.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  // Skip component docs routes if DISABLE_COMPONENT_LIBRARY is set
-  if (process.env.DISABLE_COMPONENT_LIBRARY === "true") {
+  // Skip component docs routes if DISABLE_COMPONENT_DOCS is set
+  if (process.env.DISABLE_COMPONENT_DOCS === "true") {
     return [
       {
         params: { slug: undefined },
@@ -52,7 +52,7 @@ const { Content } = isDisabled ? { Content: null } : await render(page);
           full docs, examples, and Component Builder.
         </p>
         <p>
-          To include component docs in a static build, run <code>npm run build:with-library</code>.
+          To include component docs in a static build, run <code>npm run build:with-docs</code>.
         </p>
       </section>
     </Page>

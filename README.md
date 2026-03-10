@@ -1,72 +1,67 @@
-# Astro Component Starter
+# Jetstream
 
-A starter template with 40+ Astro components, each built for visual editing in [CloudCannon](https://cloudcannon.com/). You clone it, you own it. Every component is your source code to modify, extend, or delete.
+Jetstream is a polished, high-performance marketing website template for Astro. Browse through a [live demo](#).
 
-All the source code and content is yours, it lives in your repository and you decide when (or if) to pull in future improvements from the core repo.
+![Jetstream template screenshot](public/images/_screenshot.png)
 
-The design is intentionally unbranded so it can morph into any brand you want. Update CSS variables and the entire site shifts to match your colors, fonts, and identity. Components are built on web fundamentals: vanilla CSS, semantic HTML, and a sprinkling of vanilla JS only when something can't be done with CSS alone. Performance and accessibility are baked in from the start.
+[![Deploy to CloudCannon](https://buttons.cloudcannon.com/deploy.svg)](https://app.cloudcannon.com/register#sites/connect/github/cloudcannon/jetstream-astro-template)
 
-## Quick Start
+## Features
+
+- **Modern Architecture**: Built with Astro for optimal performance and minimal JavaScript
+- **Visual Editing**: Visual editing with [CloudCannon](https://cloudcannon.com/) editable regions - edit directly on the pages
+- **Component Library**: Reusable, componentized architecture for better maintainability
+- **Image Optimization**: Astro's built-in image optimization for all images
+- **Accessibility**: Fully accessible navigation and components
+- **Design Tokens**: CSS variables for consistent theming
+- **Blog System**: Complete blog with pagination and category pages
+- **SEO Optimized**: Pre-configured for search engine optimization
+
+## Setup
+
+1. Get a workflow going to see your site's output (with [CloudCannon](https://app.cloudcannon.com/)
+   or Astro locally).
+   
+### Local Development
+
+Jetstream is built with [Astro](https://astro.build/) and modern CSS for a lean, performant development experience.
 
 ```bash
-npx create-astro-component-starter my-site-name
-cd my-site-name
+npm install
 npm run dev
 ```
 
-Your site is now running at `http://localhost:4321`.
+## Site Details
 
-This command scaffolds the latest starter into a local project folder, sets the starter repo as `upstream`, and installs dependencies automatically.
+### Tech Stack
 
-**Make your first change:** Open `src/content/pages/index.md`, change the hero heading, and watch it update in your browser.
+- **Astro**: Static site generation with component islands architecture
+- **CSS**: Modern CSS with custom properties and cascade layers
+- **Lightning CSS**: Fast CSS processing and optimization
+- **TypeScript**: Type-safe component development
 
-## What You'll See
+## Editing
 
-- **Your site** at [localhost:4321](http://localhost:4321), a fully working demo with pages, blog, and navigation
-- **Component docs** at [localhost:4321/component-docs/](http://localhost:4321/component-docs/), documentation, examples, and a visual builder for every component
+Jetstream features advanced visual editing capabilities with CloudCannon's split configuration, allowing for intuitive content management and real-time preview.
 
-## The Three-File Pattern
+### Visual Editing
 
-Every component in this starter ships with three files. This is what makes the system work: developers build components, editors visually manage content.
+- **Live Preview**: See changes instantly as you edit
+- **Component-based**: Edit reusable components directly in context
+- **Split Configuration**: Modern CloudCannon setup for enhanced editing experience
 
-```
-src/components/.../button/
-├── Button.astro                          # The component
-├── button.cloudcannon.inputs.yml         # What editors see and can change
-└── button.cloudcannon.structure-value.yml # Defaults and picker metadata
-```
+### Content Management
 
-## Key Directories
+#### Posts
 
-```
-src/
-├── components/          # All 40+ components (yours to edit)
-│   ├── building-blocks/ # Core UI: buttons, headings, forms, layout wrappers
-│   ├── page-sections/   # Full-width sections: heroes, features, CTAs
-│   └── navigation/      # Header, footer, mobile nav
-├── content/             # Your pages and blog posts (Markdown/MDX)
-├── styles/              # Design tokens, themes, base styles
-│   ├── variables/       # Colors, fonts, spacing, widths
-│   └── themes/          # Light and dark theme definitions
-└── component-docs/   # Built-in docs (can be excluded from production builds)
-```
+- Add, update or remove posts in the _Posts_ collection
+- Automatic pagination and category organization
+- Rich content editing with live preview
 
-## Dev and Build Commands
+#### Site Configuration
 
-| Command                      | Description                                       |
-| ---------------------------- | ------------------------------------------------- |
-| `npm run dev`                | Start the development server                      |
-| `npm run build`              | Build for production (component docs excluded)    |
-| `npm run build:with-library` | Build for production with component docs included |
+- **SEO**: Centralized company information reused across the site
+- **Navigation**: Fully accessible, responsive navigation management
+- **Footer**: Configurable footer elements and links
 
-## Prerequisites
-
-- Node.js >= 24.0.0
-
-## Learn More
-
-Head to the [component docs](http://localhost:4321/component-docs/) in your dev server for a guided tour, examples for every component, and a visual component builder.
-
-## License
-
-MIT
+For more details on the component architecture and development workflow, view the [Astro Component Starter README](https://github.com/CloudCannon/astro-component-starter).

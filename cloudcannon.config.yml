@@ -3,76 +3,276 @@ collections_config:
     path: src/content/pages
     glob:
       - "**/*.md"
+    icon: web
     url: /[full_slug]/
-    icon: laptop_mac
+    disable_url: false
+    description: >-
+      Welcome to the **Pages Collection**! This Collection contains all the
+      standalone pages for your website (e.g., Home, About, Contact).
+
+
+      On **Jetstream**, we've configured all these files to open in
+      CloudCannon's *Visual Editor*. Click on a *File Card* below to open it in
+      the *Visual Editor* and edit any text, image, or component directly on a
+      preview of your webpage. You can also add and reorder content blocks
+      (except on the Search and 404 pages) to take complete control of this
+      template.
     _enabled_editors:
       - visual
-    add_options:
-      - name: Add New Page
-        schema: default
-        icon: pages
-    schemas:
-      default:
-        name: New Page
-        path: .cloudcannon/schemas/page.md
-        remove_extra_inputs: false
-    create:
-      path: "[relative_base_path]/{filename|slugify|lowercase}.md"
-    new_preview_url: /
     _inputs:
       title:
         type: text
         comment: Controls the metadata title for the page.
+        cascade: true
+    add_options:
+      - name: Add New Page
+        icon: pages
+        schema: default
+    create:
+      path: "[relative_base_path]/{filename|slugify|lowercase}.md"
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    new_preview_url: /
+    schemas:
+      default:
+        path: .cloudcannon/schemas/page.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: New Page
   blog:
     path: src/content/blog
     glob:
-      - "**/*.mdx"
-    url: /blog/[full_slug]/
+      - '**/*.mdx'
+    name:
     icon: article
+    url: /blog/[full_slug]/
+    disable_url: false
+    description: >-
+      Welcome to the **Blog Collection**! This *Collection* contains all the
+      blog content for your website.
+
+
+      On **Jetstream**, we've configured all these files to open in
+      CloudCannon's *Content Editor*. Click on a *File Card* below to open it in
+      the *Content Editor* and edit in a clean, Markdown-based interface with a
+      familiar formatting toolbar. When you save files to this *Collection*,
+      CloudCannon will automatically display them on your `/blog/` webpage.
     _enabled_editors:
       - content
-    add_options:
-      - name: Add New Blog Post
-        schema: default
-        icon: article
-    schemas:
-      default:
-        name: New Blog Post
-        path: .cloudcannon/schemas/blog-post.mdx
-        remove_extra_inputs: false
-    create:
-      path: "[relative_base_path]/{filename|slugify|lowercase}.mdx"
-    new_preview_url: /blog/
+      - visual
     _inputs:
       title:
         type: text
+        options:
+          required: true
         comment: The title of the blog post.
+        cascade: false
       description:
-        type: text
+        type: textarea
+        options:
+          required: true
         comment: A brief description of the blog post.
+        cascade: true
       date:
         type: date
+        options:
+          required: true
         comment: The publication date.
+        cascade: true
       author:
-        type: text
-        comment: The author of the blog post.
+        type: select
+        options:
+          allow_empty: true
+          values: collections.team
+          value_key: uuid
+          preview:
+            text:
+              - key: name
+        comment: >-
+          The author of the blog post. Note that author details in the post will
+          not live update, you will need to save abd rebuild.
+        cascade: true
       image:
         type: image
-        comment: Optional image path for the blog post.
         options:
           paths:
             uploads: src/assets/images
-          resize_style: contain
-          width: 1920
-          height: 1280
-      tags:
-        type: array
-        comment: Tags relevant to this post's content.
+          required: true
+        comment: Optional image path for the blog post.
+        cascade: true
+      tag:
+        type: text
+        options:
+          required: true
+        comment: Tag relevant to this post's content.
+        cascade: true
+      counters:
+        options:
+          structures:
+            style: select
+            values:
+              - label: Counter
+                icon:
+                value:
+                  counter: {}
+                  subtext: Counter Subtext
+                _inputs:
+                  counter:
+                    options:
+                      structures:
+                        style: select
+                        values:
+                          - label: Counter
+                            icon: speed
+                            value:
+                              number: 100
+                              prefix: $
+                              suffix: M
+                            _inputs:
+                              number:
+                                type: number
+                                comment: The number to count to.
+                                cascade: true
+                              prefix:
+                                comment: Text immediately before the number.
+                                cascade: true
+                              suffix:
+                                comment: Text immediately after the number.
+                                cascade: true
+                    cascade: true
+                  subtext:
+                    type: markdown
+                    options:
+                      allow_resize: true
+                      allow_custom_markup: false
+                      remove_custom_markup: false
+                      initial_height: 320
+                      bold: true
+                      image_size_attributes: true
+                      italic: true
+                      link: true
+                      underline: true
+                    comment: Optional subtext displayed beneath the counter.
+                    cascade: true
+        cascade: true
+    add_options:
+      - name: Add New Blog Post
+        icon: article
+        schema: default
+    create:
+      path: "[relative_base_path]/{filename|slugify|lowercase}.mdx"
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    schemas:
+      default:
+        path: .cloudcannon/schemas/blog-post.mdx
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: New Blog Post
+  team:
+    path: src/content/team
+    icon: groups
+    disable_url: true
+    description: >-
+      Welcome to the **Team Collection**! This *Collection* contains the data
+      files for each team member's profiles.
+
+
+      On **Jetstream**, we've configured all these files to open in
+      CloudCannon's *Data Editor*. Click on a *File Card* below to open it in
+      the *Data Editor* and edit Markdown in a user-friendly interface. This
+      information populates the Team Members grid on the `/about/` page and the
+      Author field in your Blog *Collection*.
+    preview:
+      text:
+        - key: name
+      subtext:
+        - key: role
+      icon:
+      icon_color:
+      icon_background_color:
+      image:
+      metadata:
+      gallery:
+        text:
+        icon:
+        icon_color:
+        icon_background_color:
+        background_color:
+        image:
+          - key: imageSource
+        fit:
+    _enabled_editors:
+      - data
+    _inputs:
+      uuid:
+        instance_value: UUID
+        hidden: true
+        cascade: true
+      name:
+        type: text
+        comment: The name of the team member.
+        cascade: true
+      role:
+        type: text
+        comment: The role of the team member.
+        cascade: true
+      imageSource:
+        type: image
+        options:
+          paths:
+            uploads: src/assets/images
+        comment: The image source for the team member.
+        cascade: true
+      imageAlt:
+        type: text
+        comment: The alt text for the team member image.
+        cascade: true
+      order:
+        type: number
+        options:
+          min: 1
+          empty_type: "null"
+        comment: Used to sort the team members in the team grid component.
+        cascade: true
+    add_options:
+      - name: Add New Team Member
+        icon: person_edit
+        schema: default
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    schemas:
+      default:
+        path: .cloudcannon/schemas/team-member.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: New Team Member
   data:
     path: src/data
     glob:
-      - "**/*.json"
+      - '**/*.json'
+    name:
     icon: database
+    disable_url: true
+    description: >-
+      Welcome to the **Data Collection**! This *Collection* contains the data
+      files for your website's header, footer, and SEO information
+
+
+      On **Jetstream**, we've configured all these files to open in
+      CloudCannon's *Data Editor*. Click on a *File Card* below to open it in
+      the *Data Editor* and edit Markdown in a user-friendly interface. This
+      information populates every page on your website automatically — you only
+      need to update it in this one location.
     _enabled_editors:
       - data
     _inputs:
@@ -81,30 +281,23 @@ collections_config:
         options:
           paths:
             uploads: src/assets/images
-          resize_style: contain
-          width: 1920
-          height: 1280
+        cascade: true
       image:
         type: image
         options:
           paths:
             uploads: src/assets/images
-          resize_style: contain
-          width: 1920
-          height: 1280
-collection_groups:
-  - heading: Content
-    collections:
-      - pages
-      - blog
-  - heading: Data
-    collections:
-      - data
+        cascade: true
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
 _inputs:
   pageSections:
     comment: The main sections of the page.
+    cascade: true
   logoSource:
     type: image
+    cascade: true
 _select_data:
   icons:
     - id: academic-cap
@@ -793,10 +986,65 @@ _select_data:
       name: X Circle
     - id: x-mark
       name: X Mark
-
-_structures_from_glob:
-  - /.cloudcannon/structures/*.cloudcannon.structures.yml
 _snippets_imports:
   mdx: true
+file_config:
+  - glob: src/content/pages/404.md
+    _inputs:
+      pageSections:
+        hidden: true
+        cascade: true
+      url:
+        hidden: true
+        cascade: true
+      cta.buttonSections:
+        type: array
+        options:
+          structures: _structures.buttonSections
+        comment: Calls-to-action shown beneath the copy block.
+        cascade: true
+      cta.eyebrowIcon:
+        type: object
+        options:
+          structures: _structures.eyebrowIcon
+        comment: Optional icon displayed above the eyebrow.
+        cascade: true
+      cta.eyebrowText:
+        type: text
+        comment: Optional label displayed above the heading.
+        cascade: true
+      cta.heading:
+        type: html
+        options:
+          allow_resize: true
+          allow_custom_markup: false
+          remove_custom_markup: false
+          initial_height: 320
+          image_size_attributes: true
+          styles: .cloudcannon/styles/editor.css
+        comment: Main heading text for the section.
+        cascade: true
+      cta.subtext:
+        type: markdown
+        options:
+          allow_resize: true
+          allow_custom_markup: false
+          remove_custom_markup: false
+          initial_height: 320
+          bold: true
+          image_size_attributes: true
+          italic: true
+          link: true
+          underline: true
+        comment: Optional subtext displayed beneath the heading.
+        cascade: true
+  - glob: src/content/blog/index.md
+    _inputs:
+      pageSections:
+        hidden: true
+        cascade: true
+timezone: Etc/UTC
+_structures_from_glob:
+  - /.cloudcannon/structures/*.cloudcannon.structures.yml
 _snippets_from_glob:
   - /**/*.cloudcannon.snippets.yml

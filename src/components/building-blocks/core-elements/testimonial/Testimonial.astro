@@ -37,124 +37,143 @@ const authorDescriptionDataAttributes = effectiveAuthorDescProp
 ---
 
 <blockquote
-  class:list={["testimonial", className]}
+  class:list={["testimonial", `alignment-${alignX}`, className]}
   {...htmlAttributes}
 >
-  <div class:list={["testimonial-inner", `alignment-${alignX}`]}>
-    <div
-      class="quote"
-      {...textDataAttributes}
-    >
-      <slot>
-        {text && <Fragment set:html={MarkdownText} />}
-      </slot>
-    </div>
-    <div class="author">
-      <Image
-        source={authorImage}
-        alt={authorName}
-        width={100}
-        height={100}
-        class="author-image"
-        data-prop-src="authorImage"
-        data-prop-alt="authorName"
-      />
-      <cite class="author-content">
-        <strong
-          class="name"
-          {...authorNameDataAttributes}
-        >
-          {authorName}
-        </strong>
-        {
-          authorDescription && (
-            <>
-              <br />
-              <span
-                class="description"
-                {...authorDescriptionDataAttributes}
-              >
-                {authorDescription}
-              </span>
-            </>
-          )
-        }
-      </cite>
-    </div>
+  <div
+    class="quote"
+    {...textDataAttributes}
+  >
+    <slot>
+      {text && <Fragment set:html={MarkdownText} />}
+    </slot>
+  </div>
+  <div class="author">
+    <Image
+      source={authorImage}
+      alt={authorName}
+      width={100}
+      height={100}
+      class="author-image"
+      editable={editable}
+      data-prop-src="authorImage"
+      data-prop-alt="authorName"
+    />
+    <cite class="author-content">
+      <strong
+        class="name"
+        {...authorNameDataAttributes}
+      >
+        {authorName}
+      </strong>
+      {
+        authorDescription && (
+          <>
+            <br />
+            <span
+              class="description"
+              {...authorDescriptionDataAttributes}
+            >
+              {authorDescription}
+            </span>
+          </>
+        )
+      }
+    </cite>
   </div>
 </blockquote>
 
-<style>
+<style is:global>
   @layer components {
     .testimonial {
-      border-inline-start: 0;
+      border: none;
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+      justify-content: center;
       margin: 0;
-      margin-top: var(--spacing-lg);
-      padding-inline-start: 0;
+      padding: var(--spacing-md);
 
-      > .testimonial-inner {
-        background: var(--color-bg);
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-md);
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-em-sm);
-        padding: var(--spacing-md);
+      @media (width >= 768px) {
+        gap: var(--spacing-2xl);
+      }
 
-        &.alignment-center {
-          align-items: center;
-          justify-content: center;
+      &.alignment-center {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      > .quote {
+        align-content: center;
+        flex: 1 1 var(--content-width-sm);
+        font-size: var(--font-size-3xl);
+        font-weight: var(--font-weight-bold);
+        margin: 0;
+
+        > p {
+          font-size: var(--font-size-3xl);
+          font-weight: var(--font-weight-bold);
+        }
+
+        @media (width < 1024px) {
           text-align: center;
         }
 
-        > .quote {
-          margin: 0;
-
-          :global(*) {
-            font-size: var(--font-size-2xl);
-          }
-
-          :global(*:first-child) {
-            margin-top: 0;
-          }
-
-          :global(*:last-child) {
-            margin-bottom: 0;
-          }
-
-          :global(*:first-child)::before {
-            content: "\201C";
-          }
-
-          :global(*:last-child)::after {
-            content: "\201D";
-          }
+        *:first-child {
+          margin-top: 0;
         }
 
-        > .author {
-          align-items: center;
-          display: flex;
-          gap: var(--spacing-md);
-          margin-top: var(--spacing-md);
+        *:last-child {
+          margin-bottom: 0;
+        }
 
-          > .author-content {
-            font-style: normal;
-            text-align: start;
+        *:first-child::before {
+          content: "\201C";
+        }
+
+        *:last-child::after {
+          content: "\201D";
+        }
+      }
+
+      > .author {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        gap: var(--spacing-md);
+        width: 25%;
+
+        > .author-content {
+          font-style: normal;
+          text-align: center;
+        }
+
+        > .image.author-image {
+          aspect-ratio: var(--ratio-square);
+          height: 80px;
+          margin-top: 0;
+          overflow: hidden;
+          width: 80px;
+
+          > .image-inner {
+            height: 100%;
+            width: 100%;
           }
 
-          > :global(.author-image) {
-            aspect-ratio: var(--ratio-square);
-            height: 80px;
+          picture {
+            border-radius: var(--radius-full);
+            height: 100%;
+            overflow: hidden;
             width: 80px;
+          }
 
-            :global(picture) {
-              border-radius: var(--radius-full);
-              overflow: hidden;
-            }
-
-            :global(img) {
-              height: 100%;
-            }
+          img {
+            height: 100%;
+            object-fit: cover;
+            width: 80px;
           }
         }
       }

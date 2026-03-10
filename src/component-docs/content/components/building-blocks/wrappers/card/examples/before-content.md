@@ -9,7 +9,7 @@ blocks:
   rounded: true
   beforeContentSections:
     - _component: building-blocks/core-elements/image
-      source: '/src/assets/images/component-docs/dunedin-cliff.jpg'
+      source: '/images/component-docs/dunedin-cliff.jpg'
       alt: 'Dunedin Cliff'
       aspectRatio: widescreen
   contentSections:

@@ -1,14 +1,14 @@
 label: Hero Split
-icon: hero
+icon: title
 description: Prominent section block for landing pages.
 value:
   _component: page-sections/heroes/hero-split
-  eyebrow: Eyebrow text
+  id:
+  title: Our approach
+  eyebrowIcon: {}
+  eyebrowText: Eyebrow text
   heading: Heading text
   subtext: Subtitle placeholder text that will be replaced with actual content.
-  imageSource: /src/assets/images/component-docs/dunedin-cliff.jpg
-  imageAlt: Hero image
-  imageAspectRatio: none
   buttonSections:
     - _component: building-blocks/core-elements/button
       text: My Button
@@ -18,15 +18,23 @@ value:
       iconPosition: before
       variant: primary
       size: md
+  image:
+    source: /src/assets/images/component-docs/dunedin-cliff.jpg
+    alt: Hero image
   reverse: false
+  maxContentWidth: 3xl
+  paddingVertical: 4xl
   colorScheme: inherit
   backgroundColor: base
+  contentBackground: false
+  verticalOffset: {}
+  rounded: false
 preview:
   text:
     - Hero Split
   subtext:
     - key: heading
-  icon: hero
+  icon: title
 picker_preview:
   text: Hero Split
   subtext: Prominent section block for landing pages.

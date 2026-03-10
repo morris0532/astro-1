@@ -10,6 +10,18 @@ ctaForm:
   definitions:
     component_name: CtaForm
     named_args:
+      - editor_key: id
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: eyebrowIcon
+        type: object
+        optional: true
+        remove_empty: true
+      - editor_key: eyebrowText
+        type: string
+        optional: true
+        remove_empty: true
       - editor_key: heading
         type: string
         optional: true
@@ -24,17 +36,20 @@ ctaForm:
         remove_empty: true
       - editor_key: formBlocks
         type: array
-      - editor_key: imageSource
-        type: string
+      - editor_key: buttonSections
+        type: array
         optional: true
-        remove_empty: true
-      - editor_key: imageAlt
-        type: string
-        optional: true
-        remove_empty: true
       - editor_key: reverse
         type: boolean
         optional: true
+      - editor_key: maxContentWidth
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: paddingVertical
+        type: string
+        optional: true
+        remove_empty: true
       - editor_key: colorScheme
         type: string
         optional: true
@@ -43,5 +58,15 @@ ctaForm:
         type: string
         optional: true
         remove_empty: true
+      - editor_key: contentBackground
+        type: boolean
+        optional: true
+      - editor_key: verticalOffset
+        type: object
+        optional: true
+        remove_empty: true
+      - editor_key: rounded
+        type: boolean
+        optional: true
   _inputs_from_glob:
     - /src/components/page-sections/ctas/cta-form/cta-form.cloudcannon.inputs.yml

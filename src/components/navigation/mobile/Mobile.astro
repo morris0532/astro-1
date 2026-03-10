@@ -368,7 +368,7 @@ function createNavItemData(item, level, parentGroupId) {
   });
 </script>
 
-<style>
+<style is:global>
   @layer components {
     .nav-toggle {
       display: none;
@@ -392,10 +392,10 @@ function createNavItemData(item, level, parentGroupId) {
       inset: 0;
       position: fixed;
       transform: translateX(-100%);
-      transition: transform var(--animation-normal) ease-in-out;
+      transition: transform var(--animation-fast) ease-in-out;
       z-index: var(--layer-5);
 
-      :global(.mobile-logo-image) {
+      .mobile-logo-image {
         margin-top: 0 !important;
       }
 
@@ -408,14 +408,13 @@ function createNavItemData(item, level, parentGroupId) {
         padding: var(--spacing-md);
 
         .mobile-logo {
-          :global(svg) {
+          svg {
             height: 100%;
-            max-height: 3em;
             width: 100%;
+            max-height: 3em;
           }
-
-          :global(img),
-          :global(.mobile-logo-image) {
+          img,
+          .mobile-logo-image {
             height: auto;
             max-height: 3em;
             max-width: min(20em, 100%);
@@ -455,7 +454,7 @@ function createNavItemData(item, level, parentGroupId) {
           font-weight: var(--font-weight-semibold);
           padding: var(--spacing-md);
           text-decoration: none;
-          transition: background var(--animation-normal) ease-in-out;
+          transition: background var(--animation-fast) ease-in-out;
           user-select: none;
           white-space: nowrap;
           width: 100%;
@@ -483,8 +482,8 @@ function createNavItemData(item, level, parentGroupId) {
           .nav-item-icon {
             color: var(--color-text-muted);
             transition:
-              color var(--animation-normal) ease-in-out,
-              transform var(--animation-normal) ease-in-out;
+              color var(--animation-fast) ease-in-out,
+              transform var(--animation-fast) ease-in-out;
           }
 
           &:hover .nav-item-icon {
@@ -501,7 +500,7 @@ function createNavItemData(item, level, parentGroupId) {
         }
 
         .nav-item-toggle:checked ~ .nav-item-content {
-          animation: grow-out var(--animation-normal) ease-out;
+          animation: grow-out var(--animation-fast) ease-out;
           display: block;
         }
 
@@ -539,7 +538,7 @@ function createNavItemData(item, level, parentGroupId) {
       inset: 0;
       position: fixed;
       transform: translateX(-100%);
-      transition: transform var(--animation-normal) ease-in-out;
+      transition: transform var(--animation-fast) ease-in-out;
       z-index: var(--layer-6);
 
       &.open {

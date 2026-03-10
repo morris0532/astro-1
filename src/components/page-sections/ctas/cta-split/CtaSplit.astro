@@ -7,6 +7,7 @@ import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 import Split from "@wrappers/split/Split.astro";
 
 const {
+  id = "",
   heading = "",
   subtext = "",
   buttonSections = [],
@@ -31,6 +32,7 @@ const {
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
   rounded={rounded}
+  id={id}
   {...htmlAttributes}
 >
   <Split
@@ -46,19 +48,17 @@ const {
         level="h2"
         size="xl"
         data-prop="heading"
-      >
-        {heading}
-      </Heading>
+        text={heading}
+      />
       <Text
         data-prop="subtext"
         text={subtext}
       />
       <ButtonGroup
-        class="buttonSections"
+        class="buttons"
         buttonSections={buttonSections}
         direction="row"
         alignX="start"
-        data-children-prop="buttonSections"
       />
     </Fragment>
     <Fragment slot="second">
@@ -67,8 +67,10 @@ const {
         rounded={true}
         alt={imageAlt}
         aspectRatio="landscape"
+        editable={true}
         data-prop-src="imageSource"
         data-prop-alt="imageAlt"
+        data-editable="image"
       />
     </Fragment>
   </Split>

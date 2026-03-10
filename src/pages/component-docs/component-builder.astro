@@ -2,7 +2,7 @@
 import LibraryLayout from "@component-docs/layouts/LibraryLayout.astro";
 import Page from "@layouts/Page.astro";
 
-const isDisabled = process.env.DISABLE_COMPONENT_LIBRARY === "true";
+const isDisabled = process.env.DISABLE_COMPONENT_DOCS === "true";
 const ssrEnabled = import.meta.env.DEV;
 
 let componentDiscovery: any = null;
@@ -46,7 +46,7 @@ if (!isDisabled) {
           locally to use the full builder experience.
         </p>
         <p>
-          To include component docs in a static build, run <code>npm run build:with-library</code>.
+          To include component docs in a static build, run <code>npm run build:with-docs</code>.
         </p>
       </section>
     </Page>

@@ -39,7 +39,6 @@ if (!_component && !hasItems && !hasSlotContent) return;
   <div
     class:list={["content-selector-items", `nav-${navigationPosition}`]}
     data-uid={uniqueId}
-    role="tablist"
     {...arrayDataAttributes}
   >
     <slot>
@@ -47,6 +46,7 @@ if (!_component && !hasItems && !hasSlotContent) return;
         items?.map((item: ContentSelectorItem, index: number) => (
           <ContentSelectorPanel
             title={item.title}
+            subtext={item.subtext}
             contentSections={item.contentSections}
             _component={item._component}
             checked={index === 0}
@@ -61,25 +61,25 @@ if (!_component && !hasItems && !hasSlotContent) return;
   </div>
 </section>
 
-<style>
+<style is:global>
   @layer components {
     .content-selector {
-      --content-selector-border-width: 1px;
+      --content-selector-border-width: 2px;
       margin-top: var(--spacing-lg);
 
       > .content-selector-items {
         border: 0 solid var(--color-bg-muted);
         width: 100%;
 
-        &:not(:has(:global(.content-selector-item) > :global(.content-selector-input):checked))
-          :global(.content-selector-item):first-of-type
-          > :global(.content-selector-tab)::before {
-          background: var(--color-border-strong);
+        &:not(:has(.content-selector-item > .content-selector-input:checked))
+          .content-selector-item:first-of-type
+          > .content-selector-tab::before {
+          background: var(--color-bg-primary);
         }
 
-        &:not(:has(:global(.content-selector-item) > :global(.content-selector-input):checked))
-          :global(.content-selector-item):first-of-type
-          > :global(.content-selector-panel) {
+        &:not(:has(.content-selector-item > .content-selector-input:checked))
+          .content-selector-item:first-of-type
+          > .content-selector-panel {
           display: block;
         }
 
@@ -88,7 +88,7 @@ if (!_component && !hasItems && !hasSlotContent) return;
           display: grid;
           grid-template-columns: minmax(10rem, 20rem) minmax(0, 1fr);
 
-          :global(.content-selector-tab) {
+          .content-selector-tab {
             border-inline-start: var(--content-selector-border-width) solid var(--color-bg-muted);
             grid-column: 1;
 
@@ -99,7 +99,7 @@ if (!_component && !hasItems && !hasSlotContent) return;
             }
           }
 
-          :global(.content-selector-panel) {
+          .content-selector-panel {
             grid-column: 2;
             grid-row: 1 / span 999;
             padding: 0 var(--spacing-md);
@@ -108,15 +108,15 @@ if (!_component && !hasItems && !hasSlotContent) return;
         }
 
         &.nav-top {
-          border-bottom-width: var(--content-selector-border-width);
           display: flex;
           flex-wrap: wrap;
 
-          :global(.content-selector-tab) {
+          .content-selector-tab {
             order: -1;
-            width: fit-content;
+            flex: 1 1 0;
 
             &::before {
+              background: var(--color-bg-muted);
               height: var(--content-selector-border-width);
               inset-block: 100%;
               inset-inline-start: 0;
@@ -124,11 +124,15 @@ if (!_component && !hasItems && !hasSlotContent) return;
             }
           }
 
-          :global(.content-selector-panel) {
+          .content-selector-panel {
             flex-basis: 100%;
             margin-top: var(--spacing-md);
             padding: 0 var(--spacing-md);
             width: 100%;
+          }
+
+          .content-selector-input:checked + .content-selector-tab::before {
+            background: var(--color-bg-primary);
           }
         }
       }

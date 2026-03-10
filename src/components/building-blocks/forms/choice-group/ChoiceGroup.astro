@@ -16,7 +16,7 @@ const inputName = multiple ? `${name}[]` : name;
 ---
 
 <fieldset
-  class:list={["choice-group", className]}
+  class:list={["choice-group", `orientation-${orientation}`, multiple && "multiple", className]}
   role={multiple ? "group" : "radiogroup"}
   {...htmlAttributes}
 >
@@ -35,7 +35,7 @@ const inputName = multiple ? `${name}[]` : name;
       </legend>
     )
   }
-  <div class:list={["choice-group-options", `orientation-${orientation}`, multiple && "multiple"]}>
+  <div class="choice-group-options">
     {
       options.map((option, index) => (
         <label class="choice-group-option">
@@ -55,7 +55,7 @@ const inputName = multiple ? `${name}[]` : name;
   </div>
 </fieldset>
 
-<style>
+<style is:global>
   @layer components {
     .choice-group {
       display: flex;
@@ -67,19 +67,20 @@ const inputName = multiple ? `${name}[]` : name;
       width: 100%;
 
       .choice-group-required {
-        color: var(--color-error);
+        color: red;
         margin-inline-end: var(--spacing-em-xs);
       }
 
-      > .choice-group-options {
+      .choice-group-options {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-sm);
+      }
 
-        &.orientation-horizontal {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        }
+      &.orientation-horizontal .choice-group-options {
+        display: grid;
+        gap: var(--spacing-sm);
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       }
     }
   }

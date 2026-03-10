@@ -9,9 +9,8 @@ import mdx from "@astrojs/mdx";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// https://astro.build/config
 export default defineConfig({
-  site: "https://example.com", // TODO: Update to your production URL
+  site: "https://example.com",
   build: {
     inlineStylesheets: "always",
   },
@@ -57,11 +56,9 @@ export default defineConfig({
     }),
     sitemap({
       filter: (page) => {
-        // Always exclude component library from sitemap if disabled
-        if (process.env.DISABLE_COMPONENT_LIBRARY === "true") {
+        if (process.env.DISABLE_COMPONENT_DOCS === "true") {
           return !page.includes("/component-docs");
         }
-        // If not disabled, still exclude from sitemap (existing behavior)
         return !page.includes("/component-docs");
       },
     }),

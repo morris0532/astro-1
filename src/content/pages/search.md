@@ -3,16 +3,22 @@ _schema: default
 title: Search
 pageSections:
   - _component: page-sections/heroes/hero-center
-    eyebrow:
-    heading: Search
+    eyebrowIcon: {}
+    eyebrowText:
+    heading: How can we help?
+    headingSize: 2xl
     subtext: >-
-      Everything on your site is just one search away. (Free static search
-      courtesy of <a href="https://pagefind.app/" target="_blank"
-      rel="noopener">Pagefind</a> 💙)
+      We've indexed every page on our website with the kind of thoroughness that
+      borders on excessive.
     buttonSections: []
+    sectionHeight: content
+    backgroundDecoration: false
+    maxContentWidth: 2xl
     colorScheme: light
     backgroundColor: base
-    paddingVertical: 4xl
+    contentBackground: false
+    rounded: false
+    eyebrow:
   - _component: page-sections/builders/custom-section
     label: ''
     contentSections:
@@ -38,4 +44,6 @@ pageSections:
       positionVertical: top
       positionHorizontal: center
     rounded: false
+    contentBackground: false
+description: ''
 ---

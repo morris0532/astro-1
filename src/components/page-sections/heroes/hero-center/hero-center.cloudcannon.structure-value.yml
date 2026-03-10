@@ -1,11 +1,14 @@
 label: Hero Center
-icon: hero
-description: Centered hero with heading, supporting text, and buttons.
+icon: title
+description: Centered hero with heading, subtext, buttons, and a large image.
 value:
   _component: page-sections/heroes/hero-center
-  eyebrow: Eyebrow text
-  heading: Heading text
-  subtext: Subtext placeholder text that will be replaced with actual content.
+  id:
+  eyebrowIcon: {}
+  eyebrowText: Eyebrow placeholder
+  heading: Heading placeholder
+  headingSize: 4xl
+  subtext: Subtext placeholder
   buttonSections:
     - _component: building-blocks/core-elements/button
       text: My Button
@@ -15,16 +18,35 @@ value:
       iconPosition: before
       variant: primary
       size: md
+  image:
+    source: ""
+    alt: ""
+    rounded: true
+  icons:
+    - name: globe-asia-australia
+      color: brand-gradient
+      background: true
+      size: 4xl
+    - name: rocket-launch
+      color: brand-gradient
+      background: true
+      size: 4xl
+  backgroundDecoration: true
+  sectionHeight: full
+  maxContentWidth: xl
   colorScheme: inherit
   backgroundColor: base
+  contentBackground: false
+  verticalOffset: {}
+  rounded: false
 preview:
   text:
     - Hero Center
   subtext:
     - key: heading
-  icon: hero
+  icon: title
 picker_preview:
   text: Hero Center
-  subtext: Centered hero with heading, subtext, and buttons.
+  subtext: Centered hero with heading, subtext, buttons, and a large image.
 _inputs_from_glob:
   - /src/components/page-sections/heroes/hero-center/hero-center.cloudcannon.inputs.yml

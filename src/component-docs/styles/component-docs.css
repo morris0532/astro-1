@@ -86,6 +86,19 @@
         }
       }
     }
+
+    /* Override 100vw with 100% for components in docs */
+    & .hero-center {
+      width: 100% !important;
+      
+      .image img {
+        width: 100% !important;
+      }
+      
+      .icon-layer-mobile {
+        width: 100% !important;
+      }
+    }
   }
 
   @media (width >= 768px) {

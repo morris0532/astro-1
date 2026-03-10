@@ -2,12 +2,6 @@
   "extends": "stylelint-config-standard",
   "plugins": ["stylelint-order"],
   "ignoreFiles": ["dist/**/*", "node_modules/**/*"],
-  "overrides": [
-    {
-      "files": ["**/*.astro"],
-      "customSyntax": "postcss-html"
-    }
-  ],
   "rules": {
     "declaration-empty-line-before": null,
     "no-descending-specificity": null,

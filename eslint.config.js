@@ -20,8 +20,8 @@ export default [
       "no-unused-vars": [
         "warn",
         {
-          args: "none",
-          varsIgnorePattern: "^(_|editable)",
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_component$",
         },
       ],
       "no-console": "off",
@@ -57,12 +57,12 @@ export default [
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {
-          args: "none",
-          varsIgnorePattern: "^(_|editable)",
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_component$",
         },
       ],
       "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/no-non-null-assertion": "warn",
       // Removed rules that require type information for now
     },
   },
@@ -105,8 +105,8 @@ export default [
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {
-          args: "none",
-          varsIgnorePattern: "^(_|editable)",
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_component$",
         },
       ],
     },

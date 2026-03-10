@@ -5,17 +5,11 @@ import Mobile from "@components/navigation/mobile/Mobile.astro";
 import Image from "@core-elements/image/Image.astro";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
-type NavButton = {
-  text?: string;
-  href?: string;
-  [key: string]: unknown;
-};
-
 const {
   logoSource,
   logoAlt = "logo",
   navData = [],
-  buttonSections = [] as NavButton[],
+  buttonSections = [],
   class: className,
   _component,
   ...htmlAttributes
@@ -23,7 +17,7 @@ const {
 
 const mobileNavData = [
   ...navData,
-  ...buttonSections.map((button: NavButton) => ({
+  ...buttonSections.map((button: any) => ({
     name: button.text || "Button",
     path: button.href || "#",
     children: [],
@@ -35,9 +29,10 @@ const mobileNavData = [
   maxContentWidth="2xl"
   paddingHorizontal="lg"
   paddingVertical="none"
+  colorScheme="light"
+  backgroundColor=""
   class:list={["main-nav", className]}
   {...htmlAttributes}
-  editable={false}
 >
   <a href="/">
     <Image
@@ -57,6 +52,7 @@ const mobileNavData = [
       direction="row"
       align="center"
       class="desktop-button-group"
+      style="gap: var(--spacing-xl);"
       buttonSections={buttonSections}
       editable={false}
     />
@@ -66,63 +62,84 @@ const mobileNavData = [
     logoAlt={logoAlt}
     navData={mobileNavData}
     class="mobile-main-nav"
-    editable={false}
   />
 </CustomSection>
 
-<style>
+<style is:global>
   @layer page-sections {
-    :global(.main-nav) {
-      background-color: var(--color-bg);
-      padding-block: var(--spacing-md);
+    .main-nav {
+      z-index: var(--layer-2);
+      padding: var(--spacing-md) var(--spacing-sm);
       position: sticky;
       top: 0;
-      z-index: var(--layer-2);
+      overflow: visible;
+      pointer-events: none;
 
-      :global(.desktop-main-nav.bar),
-      :global(.desktop-button-group.button-group) {
+      .desktop-main-nav.bar,
+      .desktop-button-group.button-group {
         @container (max-width: 768px) {
           display: none;
         }
       }
 
-      :global(.main-nav-logo) {
+      .main-nav-logo {
         margin-top: 0 !important;
       }
 
-      :global(.nav-hamburger.mobile-button) {
+      .nav-hamburger.mobile-button {
         @container (min-width: 769px) {
           display: none;
         }
       }
 
-      > :global(.outer-content) > :global(.content) {
+      > .outer-content > .content {
         align-items: center;
         container-type: inline-size;
         display: flex;
-        flex-wrap: wrap;
         gap: var(--spacing-md);
+        background-color: var(--color-bg);
+        border: 2px solid var(--color-border-subtle);
+        box-shadow: 10px 10px 29px 10px var(--color-shadow);
+        padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) var(--spacing-2xl);
+        border-top-left-radius: var(--radius-4xl);
+        border-bottom-left-radius: var(--radius-4xl);
+        border-top-right-radius: var(--radius-md);
+        border-bottom-right-radius: var(--radius-md);
+        pointer-events: all;
 
-        > a > :global(.image) :global(img) {
-          height: 1.8em;
-          max-width: min(20em, 100%);
-          width: auto;
+        > a > .image img {
+          height: 1.25em;
+          max-width: 150px;
         }
 
-        :global(.button-group) {
+        > a {
+          flex-shrink: 0;
+        }
+
+        .button-group {
           margin-top: 0;
+
+          > .button-group__items {
+            gap: var(--spacing-xl);
+            width: auto;
+          }
+
+          .button > .button-inner {
+            border-radius: var(--radius-sm);
+          }
         }
       }
 
-      > :global(.outer-content) > :global(.content) > .nav-end {
+      > .outer-content > .content > .nav-end {
         align-items: center;
         display: flex;
-        flex-shrink: 0;
         justify-content: flex-end;
-        margin-left: auto;
-
-        > :global(.button-group) {
+        width: 100%;
+        flex-grow: 1;
+        > .button-group {
           container-type: normal;
+          flex: 0 0 auto;
+          width: auto;
         }
       }
     }

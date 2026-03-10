@@ -35,8 +35,9 @@ const {
         <SimpleText
           class="eyebrow"
           data-prop="eyebrow"
-          text={eyebrow}
-        />
+        >
+          {eyebrow}
+        </SimpleText>
         <Heading
           level="h2"
           size="lg"
@@ -59,6 +60,7 @@ const {
         priority={true}
         data-prop-src="imageSource"
         data-prop-alt="imageAlt"
+        data-editable="image"
       />
     </Split>
   </Card>

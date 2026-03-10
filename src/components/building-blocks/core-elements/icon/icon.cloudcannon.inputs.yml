@@ -34,25 +34,19 @@ color:
     values:
       - id: default
         name: Default (inherit)
-      - id: blue
-        name: Blue
-      - id: green
-        name: Green
-      - id: yellow
-        name: Yellow
-      - id: orange
-        name: Orange
-      - id: red
-        name: Red
-      - id: purple
-        name: Purple
-      - id: pink
-        name: Pink
-      - id: cyan
-        name: Cyan
+      - id: brand
+        name: Brand
+      - id: brand-inverse
+        name: Brand Inverse
+      - id: brand-gradient
+        name: Brand Gradient
 background:
   type: switch
   comment: Show a background behind the icon.
+iconOffset:
+  type: switch
+  comment: Offset the icon from the background.
+  hidden: "!background"
 inline:
   type: switch
   comment: Display the icon inline instead of block.

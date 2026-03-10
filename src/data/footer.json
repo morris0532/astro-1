@@ -1,28 +1,44 @@
 {
-  "logoSource": "/images/logo.svg",
-  "logoAlt": "Logo",
+  "logoSource": "/src/assets/images/jetstream-logo.svg",
+  "logoAlt": "Jetstream Logo",
   "links": [
     {
       "name": "Home",
       "path": "/"
     },
     {
-      "name": "Why",
-      "path": "/why/"
+      "name": "Pricing",
+      "path": "/pricing/"
     },
     {
       "name": "Blog",
       "path": "/blog/"
+    },
+    {
+      "name": "About",
+      "path": "/about/"
+    },
+    {
+      "name": "Contact",
+      "path": "/contact/"
     }
   ],
   "socials": [
+    {
+      "icon": "social/bluesky",
+      "link": "https://bsky.app/"
+    },
     {
       "icon": "social/github",
       "link": "https://github.com"
     },
     {
-      "icon": "social/x",
-      "link": "https://twitter.com"
+      "icon": "social/gitlab",
+      "link": "https://about.gitlab.com/"
+    },
+    {
+      "icon": "social/discord",
+      "link": "https://discord.com/"
     },
     {
       "icon": "social/linkedin",

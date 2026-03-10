@@ -1,7 +1,7 @@
 :where(:root) {
   --spacing-none: 0;
   --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
+  --spacing-sm: 0.625rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
@@ -21,4 +21,6 @@
   --spacing-em-4xl: 5em;
   --spacing-em-5xl: 6em;
   --spacing-em-6xl: 7em;
+
+  --spacing-nav-height: 7.25rem;
 }

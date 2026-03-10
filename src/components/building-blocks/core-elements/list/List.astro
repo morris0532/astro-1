@@ -63,7 +63,7 @@ if (!_component && !hasItems && !usesItemsArray) return;
   </ListTag>
 </div>
 
-<style>
+<style is:global>
   @layer components {
     .list {
       margin-top: var(--spacing-lg);
@@ -89,8 +89,8 @@ if (!_component && !hasItems && !usesItemsArray) return;
           list-style: decimal;
         }
 
-        &.type-bullet.direction-horizontal > :global(li:not(:first-child)),
-        &.type-numbered.direction-horizontal > :global(li:not(:first-child)) {
+        &.type-bullet.direction-horizontal > li:not(:first-child),
+        &.type-numbered.direction-horizontal > li:not(:first-child) {
           margin-inline-start: var(--spacing-lg);
         }
 

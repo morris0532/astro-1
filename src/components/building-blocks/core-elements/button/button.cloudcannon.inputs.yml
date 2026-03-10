@@ -34,8 +34,12 @@ variant:
   comment: The presentation of button.
   options:
     values:
+      - id: base
+        name: Base
       - id: primary
         name: Primary
+      - id: primary-animated
+        name: Primary Animated
       - id: secondary
         name: Secondary
       - id: tertiary

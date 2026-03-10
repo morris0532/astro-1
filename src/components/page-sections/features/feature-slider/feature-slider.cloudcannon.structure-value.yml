@@ -3,9 +3,12 @@ icon: view_carousel
 description: Carousel of feature cards, ideal for showcasing key reasons or benefits.
 value:
   _component: page-sections/features/feature-slider
+  id:
   slides: []
   colorScheme: inherit
   backgroundColor: base
+  paddingVertical: 4xl
+  rounded: false
 preview:
   text:
     - Feature Slider

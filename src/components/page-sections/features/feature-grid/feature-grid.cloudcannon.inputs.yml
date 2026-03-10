@@ -1,38 +1,40 @@
-eyebrow:
+featureGrid:
+  options:
+    structures: _structures.featureGridItem
+    preview:
+      icon: star
+
+id:
   type: text
-  comment: Optional eyebrow text shown above the heading.
+  comment: Unique identifier for the section which can be used as an anchor link.
+eyebrowIcon:
+  type: object
+  comment: Optional icon displayed above the eyebrow.
+  options:
+    structures: _structures.eyebrowIcon
+eyebrowText:
+  type: text
+  comment: Optional label displayed above the heading.
 heading:
-  type: text
-  comment: Main heading for the feature grid.
+  type: html
+  comment: Main heading text for the section.
+  options:
+    styles: .cloudcannon/styles/editor.css
 subtext:
   type: markdown
-  comment: Supporting copy beneath the heading.
+  comment: Optional subtext displayed beneath the heading.
   options:
-    blockquote: false
     bold: true
-    format:
     italic: true
     link: true
-    strike: false
-    subscript: true
-    superscript: true
-    underline: false
-    bulletedlist: false
-    numberedlist: false
-align:
+    underline: true
+maxContentWidth:
   type: select
-  comment: Alignment for the heading and supporting text.
+  comment: Maximum width constraint for the content.
   options:
     values:
-      - id: start
-        name: Start
-      - id: center
-        name: Center
-gap:
-  type: select
-  comment: Spacing between feature cards.
-  options:
-    values:
+      - id: xs
+        name: Extra Small
       - id: sm
         name: Small
       - id: md
@@ -45,21 +47,30 @@ gap:
         name: 2xl
       - id: 3xl
         name: 3xl
-minItemWidth:
-  type: number
-  comment: Minimum width for each feature card in pixels.
-maxItemWidth:
-  type: number
-  comment: Maximum width for each feature card in pixels.
-features:
-  type: array
-  label: Features
-  comment: Feature cards rendered in the grid.
+paddingVertical:
+  type: select
+  comment: Vertical padding applied to the custom section content.
   options:
-    structures: _structures.featureGridItems
+    values:
+      - id: none
+        name: None
+      - id: xs
+        name: Extra Small
+      - id: sm
+        name: Small
+      - id: md
+        name: Medium
+      - id: lg
+        name: Large
+      - id: xl
+        name: Extra Large
+      - id: 2xl
+        name: 2xl
+      - id: 3xl
+        name: 3xl
 colorScheme:
   type: select
-  comment: Color scheme theme applied to the section wrapper.
+  comment: Color scheme theme for the hero.
   options:
     values:
       - id: inherit
@@ -70,7 +81,7 @@ colorScheme:
         name: Dark
 backgroundColor:
   type: select
-  comment: Background color used behind the grid.
+  comment: Background color for the section.
   options:
     values:
       - id: none
@@ -83,3 +94,75 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
+      - id: highlight-grid
+        name: Highlight Grid
+      - id: surface-linear-gradient
+        name: Surface Linear Gradient
+      - id: brand-linear-gradient-reverse
+        name: Brand Linear Gradient Reverse
+      - id: brand-linear-gradient
+        name: Brand Linear Gradient
+      - id: brand-linear-gradient-muted
+        name: Brand Linear Gradient Muted
+      - id: highlight-linear-gradient
+        name: Highlight Linear Gradient
+      - id: highlight-radial-gradient
+        name: Highlight Radial Gradient
+contentBackground:
+  type: switch
+  comment: Add a radial background in the base color behind the content.
+verticalOffset:
+  type: object
+  comment: Offset section up above or below the previous section.
+  options:
+    empty_type: object
+    preview:
+      icon: arrow_upward
+    structures:
+      - label: Vertical Offset
+        icon: arrow-upward
+        value:
+          size: "xl"
+          direction: "front"
+        _inputs:
+          size:
+            type: select
+            comment: Size of the vertical offset.
+            options:
+              values:
+                - id: none
+                  name: None
+                - id: xs
+                  name: Extra Small
+                - id: sm
+                  name: Small
+                - id: md
+                  name: Medium
+                - id: lg
+                  name: Large
+                - id: xl
+                  name: Extra Large
+                - id: 2xl
+                  name: 2xl
+                - id: 3xl
+                  name: 3xl
+                - id: 4xl
+                  name: 4xl
+                - id: 5xl
+                  name: 5xl
+                - id: 6xl
+                  name: 6xl
+                - id: nav-height
+                  name: Navigation Height
+          direction:
+            type: select
+            comment: "Direction of the offset - in front or behind the previous component. Note: this will have no effect with some components such as the navigaton bar."
+            options:
+              values:
+                - id: front
+                  name: Front
+                - id: back
+                  name: Back
+rounded:
+  type: switch
+  comment: Whether to apply rounded corners to the section.

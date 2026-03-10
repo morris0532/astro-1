@@ -6,9 +6,11 @@ import Carousel from "@wrappers/carousel/Carousel.astro";
 type SlideProps = Record<string, unknown>;
 
 const {
+  id = "",
   colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
+  rounded = false,
   class: className,
   slides = [],
   _component,
@@ -23,6 +25,8 @@ const {
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  rounded={rounded}
+  id={id}
   {...htmlAttributes}
 >
   <Carousel

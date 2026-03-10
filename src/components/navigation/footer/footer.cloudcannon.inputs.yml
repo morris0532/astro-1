@@ -1,10 +1,6 @@
 logoSource:
   type: image
   comment: "Logo image source URL or path."
-  options:
-    resize_style: contain
-    width: 1920
-    height: 1280
 logoAlt:
   type: text
   comment: "Alt text for the logo image for accessibility."
@@ -34,12 +30,8 @@ _structures:
             type: text
             comment: "Display text for the navigation link."
           path:
-            type: url
+            type: text
             comment: "URL path for the navigation link."
-            options:
-              hide_link_to_file: true
-              hide_link_to_email_address: true
-              hide_link_to_telephone: true
   socialItems:
     values:
       - label: Social Link

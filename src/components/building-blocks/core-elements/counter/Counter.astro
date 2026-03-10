@@ -15,21 +15,19 @@ const duration = 500;
 ---
 
 <div
-  class:list={["counter", className]}
+  class:list={["counter", `alignment-${alignX}`, size && `size-${size}`, className]}
   {...htmlAttributes}
 >
-  <span class:list={["counter-inner", `alignment-${alignX}`, size && `size-${size}`]}>
-    {prefix && <span class="prefix">{prefix}</span>}
-    <span
-      class="number"
-      data-target={`${number}`}
-      data-start={`${startNumber}`}
-      data-duration={`${duration}`}
-      aria-live="off"
-      >{number}</span
-    >
-    {suffix && <span class="suffix">{suffix}</span>}
-  </span>
+  {prefix && <span class="prefix">{prefix}</span>}
+  <span
+    class="number"
+    data-target={`${number}`}
+    data-start={`${startNumber}`}
+    data-duration={`${duration}`}
+    aria-live="off"
+    >{number}</span
+  >
+  {suffix && <span class="suffix">{suffix}</span>}
 </div>
 
 <script>
@@ -75,62 +73,58 @@ const duration = 500;
   });
 </script>
 
-<style>
+<style is:global>
   @layer components {
     .counter {
+      align-items: start;
+      display: flex;
+      font-size: var(--font-size-heading-2xl);
+      font-weight: var(--font-weight-bold);
       margin-top: var(--spacing-lg);
+      color: var(--color-text-brand);
 
-      > .counter-inner {
-        align-items: flex-start;
-        display: flex;
+      &.alignment-end {
+        justify-content: end;
+      }
+      &.alignment-center {
+        justify-content: center;
+      }
+
+      &.size-xs {
+        font-size: var(--font-size-heading-xs);
+      }
+
+      &.size-sm {
+        font-size: var(--font-size-heading-sm);
+      }
+
+      &.size-md {
+        font-size: var(--font-size-heading-md);
+      }
+
+      &.size-lg {
+        font-size: var(--font-size-heading-lg);
+      }
+
+      &.size-xl {
+        font-size: var(--font-size-heading-xl);
+      }
+
+      &.size-2xl {
         font-size: var(--font-size-heading-2xl);
-        font-variant-numeric: tabular-nums;
-        font-weight: var(--font-weight-bold);
+      }
 
-        &.alignment-end {
-          justify-content: flex-end;
-        }
+      &.size-3xl {
+        font-size: var(--font-size-heading-3xl);
+      }
 
-        &.alignment-center {
-          justify-content: center;
-        }
+      &.size-4xl {
+        font-size: var(--font-size-heading-4xl);
+      }
 
-        &.size-xs {
-          font-size: var(--font-size-heading-xs);
-        }
-
-        &.size-sm {
-          font-size: var(--font-size-heading-sm);
-        }
-
-        &.size-md {
-          font-size: var(--font-size-heading-md);
-        }
-
-        &.size-lg {
-          font-size: var(--font-size-heading-lg);
-        }
-
-        &.size-xl {
-          font-size: var(--font-size-heading-xl);
-        }
-
-        &.size-2xl {
-          font-size: var(--font-size-heading-2xl);
-        }
-
-        &.size-3xl {
-          font-size: var(--font-size-heading-3xl);
-        }
-
-        &.size-4xl {
-          font-size: var(--font-size-heading-4xl);
-        }
-
-        .prefix,
-        .suffix {
-          white-space: pre-wrap;
-        }
+      .prefix,
+      .suffix {
+        white-space: pre-wrap;
       }
     }
   }

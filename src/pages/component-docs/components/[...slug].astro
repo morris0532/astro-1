@@ -5,8 +5,8 @@ import { existsSync, readFileSync } from "node:fs";
 import { load as yamlLoad } from "js-yaml";
 
 export async function getStaticPaths() {
-  // Skip component docs routes if DISABLE_COMPONENT_LIBRARY is set
-  if (process.env.DISABLE_COMPONENT_LIBRARY === "true") {
+  // Skip component docs routes if DISABLE_COMPONENT_DOCS is set
+  if (process.env.DISABLE_COMPONENT_DOCS === "true") {
     return [];
   }
 

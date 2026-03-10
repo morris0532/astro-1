@@ -3,6 +3,9 @@ icon: hero
 description: Side-by-side CTA with copy and form on one side and image on the other.
 value:
   _component: page-sections/ctas/cta-form
+  id:
+  eyebrowIcon: {}
+  eyebrowText: ""
   heading: Get in touch
   subtext: Fill out the form below and we'll get back to you as soon as possible.
   formAction: ./
@@ -24,11 +27,15 @@ value:
     - _component: building-blocks/forms/submit
       text: Send message
       variant: primary
-  imageSource: /src/assets/images/component-docs/dunedin-cliff.jpg
-  imageAlt: CTA image
+  buttonSections: []
   reverse: false
+  maxContentWidth: "2xl"
+  paddingVertical: "4xl"
   colorScheme: inherit
   backgroundColor: base
+  contentBackground: false
+  verticalOffset: {}
+  rounded: false
 preview:
   text:
     - CTA Form

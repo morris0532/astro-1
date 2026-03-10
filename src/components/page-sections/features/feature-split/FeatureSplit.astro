@@ -8,6 +8,7 @@ import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 import Split from "@wrappers/split/Split.astro";
 
 const {
+  id = "",
   eyebrow = "",
   heading = "",
   subtext = "",
@@ -20,6 +21,7 @@ const {
   colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
+  rounded = false,
   class: className,
   _component,
   ...htmlAttributes
@@ -36,7 +38,9 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  rounded={rounded}
   data-feature-split-id={featureSplitId}
+  id={id}
   {...htmlAttributes}
 >
   <Split
@@ -53,15 +57,15 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
       <SimpleText
         class="eyebrow"
         data-prop="eyebrow"
-        text={eyebrow}
-      />
+      >
+        {eyebrow}
+      </SimpleText>
       <Heading
         level="h2"
         size="lg"
         data-prop="heading"
-      >
-        {heading}
-      </Heading>
+        text={heading}
+      />
       <Text
         class="subtext"
         data-prop="subtext"
@@ -72,7 +76,6 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
         buttonSections={buttonSections}
         direction="row"
         alignX="start"
-        data-children-prop="buttonSections"
       />
     </Fragment>
     <Image
@@ -84,6 +87,7 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
       aspectRatio={imageAspectRatio}
       data-prop-src="imageSource"
       data-prop-alt="imageAlt"
+      data-editable="image"
     />
   </Split>
 </CustomSection>
@@ -108,9 +112,9 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
   )
 }
 
-<style>
+<style is:global>
   @layer page-sections {
-    :global(.feature-split-layout) {
+    .feature-split-layout {
       container-type: inline-size;
     }
   }

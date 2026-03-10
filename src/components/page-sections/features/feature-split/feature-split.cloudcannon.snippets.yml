@@ -10,6 +10,10 @@ featureSplit:
   definitions:
     component_name: FeatureSplit
     named_args:
+      - editor_key: id
+        type: string
+        optional: true
+        remove_empty: true
       - editor_key: eyebrow
         type: string
         optional: true
@@ -51,5 +55,12 @@ featureSplit:
         type: string
         optional: true
         remove_empty: true
+      - editor_key: paddingVertical
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: rounded
+        type: boolean
+        optional: true
   _inputs_from_glob:
     - /src/components/page-sections/features/feature-split/feature-split.cloudcannon.inputs.yml

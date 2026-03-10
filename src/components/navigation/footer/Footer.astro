@@ -6,11 +6,10 @@ import Divider from "@core-elements/divider/Divider.astro";
 import Image from "@core-elements/image/Image.astro";
 import Text from "@core-elements/text/Text.astro";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
-import type { SocialLink } from "../../../../types";
 
 const {
   links = [],
-  socials = [] as SocialLink[],
+  socials = [],
   footerText = "",
   logoSource,
   logoAlt,
@@ -27,7 +26,6 @@ const {
     maxContentWidth="2xl"
     paddingHorizontal="md"
     paddingVertical="2xl"
-    editable={false}
   >
     <div class="footer-content">
       <div class="content-container">
@@ -39,10 +37,7 @@ const {
         />
       </div>
       <div class="content-container">
-        <Bar
-          navData={links}
-          editable={false}
-        />
+        <Bar navData={links} />
       </div>
     </div>
 
@@ -54,26 +49,21 @@ const {
           class="footer-legal-text"
           text={footerText || ""}
           data-prop=""
-          editable={false}
         />
       </div>
       <div class="content-container">
-        <ButtonGroup
-          alignX="end"
-          editable={false}
-        >
+        <ButtonGroup alignX="end">
           {
-            socials.map((social) => (
+            socials.map((social: any) => (
               <Button
                 variant="ghost"
                 size="lg"
                 iconName={social.icon}
                 link={social.link}
                 hideText="true"
-                aria-label={social.label || `Visit our ${social.icon.replace(/^.*\//, "")} page`}
+                aria-label={`Visit our ${social.icon} page`}
                 target="_blank"
                 rel="noopener noreferrer"
-                editable={false}
               />
             ))
           }
@@ -83,13 +73,13 @@ const {
   </CustomSection>
 </footer>
 
-<style>
+<style is:global>
   @layer page-sections {
     .footer {
       container-type: inline-size;
 
-      :global(.button-group) {
-        &:global(.align-end) {
+      .button-group {
+        &.align-end {
           @container (max-width: 599px) {
             justify-content: center;
           }
@@ -109,7 +99,7 @@ const {
         }
       }
 
-      :global(.footer-legal-text) {
+      .footer-legal-text {
         color: var(--color-text-muted);
         text-align: center;
         @container (min-width: 600px) {
@@ -117,11 +107,11 @@ const {
         }
       }
 
-      :global(.footer-logo) {
+      .footer-logo {
         flex-shrink: 0;
         margin-top: 0 !important;
 
-        :global(img) {
+        img {
           margin-inline: auto;
           margin-bottom: var(--spacing-md);
           max-height: 2em;
@@ -133,7 +123,7 @@ const {
         }
       }
 
-      :global(.bar) :global(.bar-list) {
+      .bar .bar-list {
         flex-flow: column wrap;
         @container (min-width: 600px) {
           flex-direction: row;

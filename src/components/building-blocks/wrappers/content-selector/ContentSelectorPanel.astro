@@ -1,9 +1,11 @@
 ---
 import RenderBlock from "@components/utils/renderBlock.astro";
 import Heading from "@core-elements/heading/Heading.astro";
+import Text from "@core-elements/text/Text.astro";
 
 const {
   title,
+  subtext,
   contentSections,
   editable = false,
   checked = false,
@@ -41,21 +43,27 @@ const arrayDataAttributes = effectiveChildrenProp
     class="content-selector-tab"
     id={tabLabelId}
     for={tabId}
-    role="tab"
-    aria-controls={panelId}
   >
     <Heading
       text={title}
       level="h3"
       size="h3"
-      alignX={navigationPosition === "top" ? "center" : "start"}
+      alignX="start"
       class="content-selector-tab-heading"
     />
+    {
+      subtext && (
+        <Text
+          text={subtext}
+          alignX="start"
+          class="content-selector-tab-subtext"
+        />
+      )
+    }
   </label>
   <div
     class="content-selector-panel"
     id={panelId}
-    role="tabpanel"
     aria-labelledby={tabLabelId}
   >
     <div
@@ -76,7 +84,7 @@ const arrayDataAttributes = effectiveChildrenProp
   </div>
 </div>
 
-<style>
+<style is:global>
   @layer components {
     .content-selector-item {
       display: contents;
@@ -93,28 +101,45 @@ const arrayDataAttributes = effectiveChildrenProp
       display: block;
       padding: var(--spacing-md);
       position: relative;
-      transition: background-color var(--animation-normal) ease-in-out;
+      text-align: start;
+      transition: background-color var(--animation-extra-fast) ease-in-out;
+      width: 100%;
+
+      * {
+        color: var(--color-text-muted);
+      }
 
       &::before {
-        background: transparent;
+        background: var(--color-text-disable);
         content: "";
         position: absolute;
         transition:
-          transform var(--animation-normal),
-          background var(--animation-normal);
+          transform var(--animation-fast),
+          background var(--animation-fast);
       }
 
       &:hover {
-        background: var(--color-state-hover);
+        background: var(--color-bg-accent);
       }
 
-      > :global(.content-selector-tab-heading) {
+      > .content-selector-tab-heading {
         margin: 0;
+      }
+
+      > .content-selector-tab-subtext,
+      > .content-selector-tab-subtext * {
+        margin: 0;
+        font-weight: var(--font-weight-normal);
       }
     }
 
+    .content-selector-input:checked + .content-selector-tab,
+    .content-selector-input:checked + .content-selector-tab * {
+      color: var(--color-text-strong);
+    }
+
     .content-selector-input:checked + .content-selector-tab::before {
-      background: var(--color-border-strong);
+      background: var(--color-bg-primary);
     }
 
     .content-selector-input:checked + .content-selector-tab + .content-selector-panel {
@@ -127,7 +152,7 @@ const arrayDataAttributes = effectiveChildrenProp
       display: none;
     }
 
-    .content-selector-panel-content > :global(*:first-child) {
+    .content-selector-panel-content > *:first-child {
       margin-top: 0 !important;
     }
   }

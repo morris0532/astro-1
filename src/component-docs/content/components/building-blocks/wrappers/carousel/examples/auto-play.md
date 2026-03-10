@@ -8,22 +8,22 @@ blocks:
   slides:
     - contentSections:
         - _component: building-blocks/core-elements/image
-          source: /src/assets/images/component-docs/quiet-street.jpg
+          source: /images/component-docs/quiet-street.jpg
           alt: 'Quiet Street'
     - contentSections:
         - _component: building-blocks/core-elements/image
-          source: /src/assets/images/component-docs/sunset.jpg
+          source: /images/component-docs/sunset.jpg
           alt: 'Sunset'
     - contentSections:
         - _component: building-blocks/core-elements/image
-          source: /src/assets/images/component-docs/sheep.jpg
+          source: /images/component-docs/sheep.jpg
           alt: 'Sheep'
     - contentSections:
         - _component: building-blocks/core-elements/image
-          source: /src/assets/images/component-docs/castle.jpg
+          source: /images/component-docs/castle.jpg
           alt: 'Castle'
     - contentSections:
         - _component: building-blocks/core-elements/image
-          source: /src/assets/images/component-docs/dunedin-cliff.jpg
+          source: /images/component-docs/dunedin-cliff.jpg
           alt: 'Dunedin Cliff'
 ---

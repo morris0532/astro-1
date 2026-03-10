@@ -21,6 +21,7 @@ const {
   "data-children-prop": childrenDataProp,
   editable = false,
   _component,
+  class: className,
   ...htmlAttributes
 } = Astro.props;
 
@@ -53,7 +54,6 @@ const arrayDataAttributes = effectiveChildrenProp
 
 const carouselClasses = "carousel";
 
-// Build the style attribute, merging custom styles with CSS variables
 const carouselStyles = `
   --slide-width: ${slideWidthPercent}%;
   --min-slide-width: ${minSlideWidth}px;
@@ -67,7 +67,7 @@ if (!_component && !hasSlides && !hasSlotContent) return;
 ---
 
 <section
-  class:list={carouselClasses}
+  class:list={[carouselClasses, className]}
   role="region"
   aria-label="Carousel"
   {...htmlAttributes}
@@ -203,7 +203,6 @@ if (!_component && !hasSlides && !hasSlotContent) return;
       if (prevButton) prevButton.addEventListener("click", () => embla.scrollPrev());
       if (nextButton) nextButton.addEventListener("click", () => embla.scrollNext());
 
-      // Setup indicators
       if (indicatorsContainer) {
         const renderDots = () => {
           indicatorsContainer.innerHTML = "";
@@ -234,7 +233,6 @@ if (!_component && !hasSlides && !hasSlotContent) return;
     });
   }
 
-  // Initialize carousels when the page loads
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", setupCarousels);
   } else {
@@ -243,7 +241,7 @@ if (!_component && !hasSlides && !hasSlotContent) return;
   document.addEventListener("astro:page-load", setupCarousels);
 </script>
 
-<style>
+<style is:global>
   @layer components {
     .carousel {
       margin-top: var(--spacing-lg);
@@ -264,7 +262,7 @@ if (!_component && !hasSlides && !hasSlotContent) return;
           display: flex;
           flex-wrap: nowrap;
 
-          > :global(.slide) {
+          > .slide {
             flex-basis: calc(max(var(--slide-width, 100%), var(--min-slide-width, 0px)));
             flex-shrink: 0;
             width: 100%;
@@ -280,8 +278,8 @@ if (!_component && !hasSlides && !hasSlotContent) return;
           margin-top: var(--spacing-sm);
         }
 
-        > .controls-wrapper > :global(.prev) > :global(.button-inner),
-        > .controls-wrapper > :global(.next) > :global(.button-inner) {
+        > .controls-wrapper > .prev > .button-inner,
+        > .controls-wrapper > .next > .button-inner {
           background-color: var(--color-bg);
           border-radius: var(--radius-full);
           flex-shrink: 0;
@@ -298,7 +296,7 @@ if (!_component && !hasSlides && !hasSlotContent) return;
           justify-content: center;
         }
 
-        > .controls-wrapper > .indicators > :global(.indicator) {
+        > .controls-wrapper > .indicators > .indicator {
           aspect-ratio: 1/1;
           border: none;
           border-radius: var(--radius-full);
@@ -324,8 +322,8 @@ if (!_component && !hasSlides && !hasSlotContent) return;
         }
 
         &[data-show-arrows="false"] {
-          > .controls-wrapper > :global(.prev),
-          > .controls-wrapper > :global(.next) {
+          > .controls-wrapper > .prev,
+          > .controls-wrapper > .next {
             display: none;
           }
         }

@@ -23,9 +23,5 @@ links:
           type: text
           comment: Display text for the footer link.
         path:
-          type: url
+          type: text
           comment: URL path for the footer link.
-          options:
-            hide_link_to_file: true
-            hide_link_to_email_address: true
-            hide_link_to_telephone: true

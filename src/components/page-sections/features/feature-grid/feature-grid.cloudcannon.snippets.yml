@@ -10,7 +10,15 @@ featureGrid:
   definitions:
     component_name: FeatureGrid
     named_args:
-      - editor_key: eyebrow
+      - editor_key: id
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: eyebrowIcon
+        type: object
+        optional: true
+        remove_empty: true
+      - editor_key: eyebrowText
         type: string
         optional: true
         remove_empty: true
@@ -22,8 +30,16 @@ featureGrid:
         type: string
         optional: true
         remove_empty: true
-      - editor_key: features
-        type: array
+      - editor_key: featureGrid
+        type: object
+      - editor_key: maxContentWidth
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: paddingVertical
+        type: string
+        optional: true
+        remove_empty: true
       - editor_key: colorScheme
         type: string
         optional: true
@@ -32,5 +48,15 @@ featureGrid:
         type: string
         optional: true
         remove_empty: true
+      - editor_key: contentBackground
+        type: boolean
+        optional: true
+      - editor_key: verticalOffset
+        type: object
+        optional: true
+        remove_empty: true
+      - editor_key: rounded
+        type: boolean
+        optional: true
   _inputs_from_glob:
     - /src/components/page-sections/features/feature-grid/feature-grid.cloudcannon.inputs.yml

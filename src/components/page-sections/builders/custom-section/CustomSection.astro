@@ -12,9 +12,15 @@ const {
   colorScheme = "inherit",
   backgroundColor,
   backgroundImage,
+  contentBackground = false,
+  verticalOffset = {
+    size: "",
+    direction: "",
+  },
   rounded = false,
   editable = false,
   class: className,
+  style: userStyle,
   _component,
   "data-children-prop": childrenDataProp,
   ...htmlAttributes
@@ -38,10 +44,22 @@ const arrayDataAttributes =
   effectiveChildrenProp && hasContentSections
     ? { "data-editable": "array", "data-prop": effectiveChildrenProp }
     : {};
+
+const combinedStyles = [
+  verticalOffset?.size ? `--pull-up: var(--spacing-${verticalOffset.size})` : "",
+  userStyle,
+]
+  .filter(Boolean)
+  .join("; ");
 ---
 
 <section
-  class:list={["custom-section", className]}
+  class:list={[
+    "custom-section",
+    verticalOffset?.direction && `pull-up pull-up-${verticalOffset.direction}`,
+    className,
+  ]}
+  style={combinedStyles || undefined}
   {...htmlAttributes}
 >
   <div
@@ -63,6 +81,19 @@ const arrayDataAttributes =
     {
       backgroundColor && (
         <div class:list={["background", backgroundColor && `bg-${backgroundColor}`]} />
+      )
+    }
+    {
+      contentBackground && (
+        <div
+          class="radial-background-wrapper"
+          aria-hidden="true"
+        >
+          <div
+            class="radial-background"
+            style={`--max-width: var(--content-width-${maxContentWidth || "3xl"})`}
+          />
+        </div>
       )
     }
 
@@ -89,16 +120,64 @@ const arrayDataAttributes =
   </div>
 </section>
 
-<style>
+<style is:global>
   @layer components {
+    main .custom-section.pull-up:first-of-type > .outer-content {
+      padding-top: var(--pull-up);
+
+      > .radial-background-wrapper {
+        top: var(--pull-up);
+      }
+    }
+
     .custom-section {
+      position: relative;
+
+      &.pull-up {
+        margin-top: calc(var(--pull-up) * -1);
+
+        &.pull-up-front {
+          z-index: var(--layer-1);
+        }
+
+        &.pull-up-back > .outer-content {
+          padding-top: var(--pull-up);
+        }
+      }
+
       > .outer-content {
         height: 100%;
+        max-width: 100%;
         position: relative;
 
         &.rounded {
-          border-radius: var(--radius-xl);
+          border-radius: var(--radius-3xl);
           overflow: hidden;
+        }
+
+        .radial-background-wrapper {
+          height: 100%;
+          inset: 0;
+          overflow: hidden;
+          pointer-events: none;
+          position: absolute;
+        }
+
+        .radial-background {
+          aspect-ratio: 1 / 1;
+          background: radial-gradient(
+            ellipse at 50% 50%,
+            var(--color-bg) 0%,
+            var(--color-bg) 40%,
+            transparent 80%
+          );
+          height: 100%;
+          left: 50%;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          transform: translateX(-50%);
+          width: calc(var(--max-width) + 50%);
         }
 
         > .content {
@@ -108,11 +187,15 @@ const arrayDataAttributes =
           position: relative;
           z-index: var(--layer-1);
 
-          > :global(*:first-child) {
+          > *:first-child:not(.pull-up) {
             margin-top: 0 !important;
           }
 
-          > :global(*:last-child) {
+          > editable-array > editable-array-item:first-child > *:first-child:not(.pull-up) {
+            margin-top: 0 !important;
+          }
+
+          > *:last-child {
             margin-bottom: 0 !important;
           }
 
@@ -272,7 +355,7 @@ const arrayDataAttributes =
           position: absolute;
         }
 
-        > :global(.background-image) {
+        > .background-image {
           z-index: var(--layer-1);
         }
 
@@ -290,6 +373,86 @@ const arrayDataAttributes =
 
         > .bg-highlight {
           background-color: var(--color-bg-highlight);
+        }
+
+        > .bg-highlight-grid {
+          --grid-size: 32px;
+          --line: var(--color-bg-highlight);
+          background-color: transparent;
+          background-image:
+            linear-gradient(to right, var(--line) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+          background-position: calc(var(--grid-size) / 2) calc(var(--grid-size) / 2);
+          background-size: var(--grid-size) var(--grid-size);
+          opacity: 0.4;
+        }
+
+        > .bg-highlight-linear-gradient {
+          background: linear-gradient(
+            360deg,
+            var(--color-bg-surface) 0%,
+            var(--color-bg-highlight) 100%
+          );
+        }
+
+        > .bg-brand-linear-gradient-reverse {
+          background: linear-gradient(
+            360deg,
+            var(--color-bg-brand) 0%,
+            var(--color-bg-inverse) 100%
+          );
+        }
+
+        > .bg-brand-linear-gradient {
+          background: linear-gradient(
+            360deg,
+            var(--color-bg-inverse) 0%,
+            var(--color-bg-brand) 100%
+          );
+        }
+
+        > .bg-brand-linear-gradient-muted {
+          background: linear-gradient(
+            360deg,
+            var(--color-bg-inverse-muted) 0%,
+            var(--color-bg-brand-muted) 100%
+          );
+        }
+
+        > .bg-surface-linear-gradient {
+          background: linear-gradient(360deg, #fff 0%, var(--color-bg-surface) 100%);
+        }
+
+        > .bg-highlight-radial-gradient {
+          background:
+            radial-gradient(circle at 65% 40%, var(--color-bg-surface) 0%, transparent 30%),
+            radial-gradient(
+              20% 100% at 70% 120%,
+              color-mix(in oklab, var(--color-bg-inverse-highlight) 50%, transparent) 0%,
+              transparent 100%
+            ),
+            radial-gradient(
+              40% 120% at 0% 0%,
+              var(--color-bg-muted) 0%,
+              var(--color-bg-muted) 10%,
+              color-mix(in oklab, var(--color-bg-muted) 85%, var(--color-bg-highlight)) 25%,
+              color-mix(in oklab, var(--color-bg-muted) 60%, var(--color-bg-highlight)) 40%,
+              transparent 100%
+            ),
+            radial-gradient(20% 50% at 40% 0%, var(--color-bg-highlight) 0%, transparent 100%),
+            radial-gradient(
+              20% 100% at 30% 120%,
+              color-mix(in oklab, var(--color-bg-inverse-highlight) 35%, transparent) 0%,
+              transparent 100%
+            ),
+            linear-gradient(
+              to right,
+              color-mix(in oklab, var(--color-bg-inverse-muted) 80%, var(--color-bg-muted)) 0%,
+              var(--color-bg-muted) 80%,
+              var(--color-bg-muted) 100%
+            );
+          background-repeat: no-repeat;
+          background-size: cover;
         }
       }
     }

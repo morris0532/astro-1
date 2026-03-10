@@ -15,6 +15,13 @@ examples:
       - bg-color-surface
       - bg-color-base
       - bg-color-none
+      - bg-color-highlight-grid
+      - bg-color-highlight-linear-gradient
+      - bg-color-brand-linear-gradient-reverse
+      - bg-color-brand-linear-gradient
+      - bg-color-brand-linear-gradient-muted
+      - bg-color-surface-linear-gradient
+      - bg-color-highlight-radial-gradient
   - title: Background image
     slugs:
       - bg-image-position-top-left
@@ -39,8 +46,8 @@ examples:
       - padding-3xl
   - title: Color Scheme
     slugs:
-      - scheme-contrast
-      - scheme-default
+      - scheme-dark
+      - scheme-light
     size: md
   - title: Rounded Corners
     slugs:

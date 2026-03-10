@@ -1,12 +1,13 @@
 ---
 const {
-  type,
   id,
+  type,
+  videoId,
   title,
   source,
   thumbnail,
   class: className,
-  editable = false,
+  editable = true,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -17,12 +18,13 @@ const {
     <lite-vimeo
       class:list={["video", className]}
       videotitle={`${title}`}
-      videoid={`${id}`}
+      videoid={`${videoId}`}
+      id={id}
       {...htmlAttributes}
     >
       <a
         class="lite-vimeo-fallback"
-        href={`https://vimeo.com/${id}`}
+        href={`https://vimeo.com/${videoId}`}
       >
         Watch on Vimeo: "{title}"
       </a>
@@ -31,12 +33,13 @@ const {
     <lite-youtube
       class:list={["video", className]}
       videotitle={`${title}`}
-      videoid={`${id}`}
+      videoid={`${videoId}`}
+      id={id}
       {...htmlAttributes}
     >
       <a
         class="lite-youtube-fallback"
-        href={`https://www.youtube.com/watch?v=${id}`}
+        href={`https://www.youtube.com/watch?v=${videoId}`}
       >
         Watch on YouTube: "{title}"
       </a>
@@ -47,6 +50,7 @@ const {
       controls
       poster={thumbnail}
       class:list={["video", className]}
+      id={id}
       {...htmlAttributes}
     >
       <source

@@ -11,6 +11,10 @@ video:
   definitions:
     component_name: Video
     named_args:
+      - editor_key: id
+        type: string
+        optional: true
+        remove_empty: true
       - editor_key: type
         type: string
         optional: true
@@ -19,7 +23,7 @@ video:
         type: string
         optional: true
         remove_empty: true
-      - editor_key: id
+      - editor_key: videoId
         type: string
         optional: true
         remove_empty: true

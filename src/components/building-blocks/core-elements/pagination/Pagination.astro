@@ -1,7 +1,7 @@
 ---
 import Icon from "@core-elements/icon/Icon.astro";
 
-const { page, class: className, showArrows = false, _component, ...htmlAttributes } = Astro.props;
+const { page, class: className, showArrows = false, anchor, _component, ...htmlAttributes } = Astro.props;
 const maxVisiblePages = 5;
 
 if (!page || page.lastPage <= 1) {
@@ -42,27 +42,33 @@ if (totalVisible > maxVisiblePages) {
 
 // Helper function to generate page URL
 const getPageUrl = (pageNum: number) => {
+  let url = "";
+  
   // Always use first page URL for page 1
   if (pageNum === 1) {
-    return page.url.first || page.url.current?.replace(/\/\d+\/?$/, "") || "/blog";
+    url = page.url.first || page.url.current?.replace(/\/\d+\/?$/, "") || "/blog";
   }
-
   // For other pages, construct from the first page URL
-  if (page.url && page.url.first) {
+  else if (page.url && page.url.first) {
     const baseUrl = page.url.first.replace(/\/$/, "");
-
-    return `${baseUrl}/${pageNum}`;
+    url = `${baseUrl}/${pageNum}`;
   }
-
   // Fallback: extract base from current URL
-  if (page.url && page.url.current) {
+  else if (page.url && page.url.current) {
     const baseUrl = page.url.current.replace(/\/\d+\/?$/, "").replace(/\/$/, "");
-
-    return `${baseUrl}/${pageNum}`;
+    url = `${baseUrl}/${pageNum}`;
   }
-
   // Final fallback
-  return pageNum === 1 ? "/blog" : `/blog/${pageNum}`;
+  else {
+    url = pageNum === 1 ? "/blog" : `/blog/${pageNum}`;
+  }
+  
+  // Append anchor if provided
+  if (anchor) {
+    url += `#${anchor}`;
+  }
+  
+  return url;
 };
 ---
 
@@ -138,7 +144,7 @@ const getPageUrl = (pageNum: number) => {
   }
 </nav>
 
-<style>
+<style is:global>
   @layer components {
     .pagination {
       display: flex;
@@ -155,7 +161,6 @@ const getPageUrl = (pageNum: number) => {
         font-weight: var(--font-weight-semibold);
         padding: var(--spacing-sm) var(--spacing-md);
         text-decoration: none;
-        transition: background-color var(--animation-normal) ease-in-out;
 
         &:hover {
           background-color: var(--color-state-hover);
@@ -185,28 +190,28 @@ const getPageUrl = (pageNum: number) => {
 
       .current,
       .current:hover {
-        background-color: var(--color-bg-brand);
-        border-color: var(--color-bg-brand);
+        background-color: var(--color-bg-brand-muted);
+        border-color: var(--color-bg-brand-muted);
         color: var(--color-text-on-brand);
         cursor: default;
       }
 
       .pagination-arrow {
-        align-items: center;
         display: flex;
+        align-items: center;
         justify-content: center;
         min-width: 2.5rem;
 
-        :global(.icon) {
-          align-items: center;
+        .icon {
           display: flex;
+          align-items: center;
           justify-content: center;
         }
       }
 
       .pagination-prev {
-        border-bottom-left-radius: var(--radius-sm);
         border-inline-start: 1px solid var(--color-border);
+        border-bottom-left-radius: var(--radius-sm);
         border-top-left-radius: var(--radius-sm);
       }
 
