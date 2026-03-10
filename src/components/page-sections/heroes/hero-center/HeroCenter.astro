@@ -295,16 +295,6 @@ const snakePath =
         }
       }
 
-      .image {
-        margin: 0 auto var(--spacing-4xl);
-        position: relative;
-        width: fit-content;
-
-        img {
-          width: 100vw;
-        }
-      }
-
       .hero-center-content > .outer-content,
       .hero-center-image > .outer-content {
         position: relative;
@@ -314,6 +304,19 @@ const snakePath =
       .hero-center-content > .outer-content > .background,
       .hero-center-image > .outer-content > .background {
         display: none;
+      }
+
+      .hero-center-image > .outer-content {
+        margin-bottom: var(--spacing-4xl);
+      }
+
+      .image {
+        position: relative;
+        width: fit-content;
+
+        img {
+          width: 100vw;
+        }
       }
 
       .background-decoration-container {
@@ -517,15 +520,15 @@ const snakePath =
             }
           }
 
-          .hero-center-image {
-            margin: 5vh auto var(--spacing-xl) auto;
+          .hero-center-image > .outer-content {
+            margin-top: 5vh;
 
             @media (min-height: 820px) {
-              margin: 0 auto var(--spacing-xl) auto;
+              margin-top: 0;
             }
 
             @media (min-height: 950px) {
-              margin: -10vh auto var(--spacing-xl) auto;
+              margin-top: -10vh;
             }
           }
 
