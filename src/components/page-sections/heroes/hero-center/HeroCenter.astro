@@ -39,7 +39,7 @@ const snakePath =
 ---
 
 <CustomSection
-  class:list={["hero-center", `section-height-${sectionHeight}`, className]}
+  class:list={["hero-center", className]}
   id={id}
   maxContentWidth=""
   paddingHorizontal=""
@@ -48,6 +48,7 @@ const snakePath =
   contentBackground={false}
   backgroundColor={backgroundColor}
   verticalOffset={verticalOffset}
+  contentClass=`section-height-${sectionHeight}`
   {...htmlAttributes}
 >
   <CustomSection
@@ -282,6 +283,11 @@ const snakePath =
       overflow-x: clip;
       width: 100vw;
 
+      &:has(.hero-center-content > .outer-content.rounded) > .outer-content > .background {
+        border-radius: var(--radius-3xl);
+        overflow: hidden;
+      }
+
       .snake-container-desktop {
         display: none;
       }
@@ -293,6 +299,10 @@ const snakePath =
         .snake {
           position: absolute;
         }
+      }
+
+      .hero-center-image > .outer-content {
+        margin-bottom: var(--spacing-4xl);
       }
 
       .image {
@@ -402,8 +412,8 @@ const snakePath =
         }
 
         .background-decoration-container {
-          bottom: var(--spacing-4xl);
           inset: 0;
+          bottom: var(--spacing-4xl);
           overflow: clip visible;
           padding-top: calc(var(--font-size-4xl) * 2);
           pointer-events: none;
@@ -497,15 +507,18 @@ const snakePath =
           }
         }
 
-        &.section-height-full {
-          > .outer-content > .background {
+        .section-height-full {
+          > .background {
             position: sticky;
             top: 0;
             height: 100vh;
             margin-top: calc(var(--pull-up, 0px) * -1);
             margin-bottom: -100vh;
           }
-
+          
+          .radial-background-wrapper {
+            height: calc(100vh - var(--spacing-nav-height));
+          }
           .hero-center-content {
             bottom: var(--spacing-nav-height);
             height: 100vh;
