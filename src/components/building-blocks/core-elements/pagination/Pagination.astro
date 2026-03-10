@@ -1,7 +1,14 @@
 ---
 import Icon from "@core-elements/icon/Icon.astro";
 
-const { page, class: className, showArrows = false, anchor, _component, ...htmlAttributes } = Astro.props;
+const {
+  page,
+  class: className,
+  showArrows = false,
+  anchor,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
 const maxVisiblePages = 5;
 
 if (!page || page.lastPage <= 1) {
@@ -43,7 +50,7 @@ if (totalVisible > maxVisiblePages) {
 // Helper function to generate page URL
 const getPageUrl = (pageNum: number) => {
   let url = "";
-  
+
   // Always use first page URL for page 1
   if (pageNum === 1) {
     url = page.url.first || page.url.current?.replace(/\/\d+\/?$/, "") || "/blog";
@@ -51,23 +58,25 @@ const getPageUrl = (pageNum: number) => {
   // For other pages, construct from the first page URL
   else if (page.url && page.url.first) {
     const baseUrl = page.url.first.replace(/\/$/, "");
+
     url = `${baseUrl}/${pageNum}`;
   }
   // Fallback: extract base from current URL
   else if (page.url && page.url.current) {
     const baseUrl = page.url.current.replace(/\/\d+\/?$/, "").replace(/\/$/, "");
+
     url = `${baseUrl}/${pageNum}`;
   }
   // Final fallback
   else {
     url = pageNum === 1 ? "/blog" : `/blog/${pageNum}`;
   }
-  
+
   // Append anchor if provided
   if (anchor) {
     url += `#${anchor}`;
   }
-  
+
   return url;
 };
 ---

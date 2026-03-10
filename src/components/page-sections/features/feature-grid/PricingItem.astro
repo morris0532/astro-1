@@ -40,68 +40,68 @@ const {
     border
     backgroundColor="base"
   >
-  <Heading
-    class="feature-title"
-    level="h3"
-    size="lg"
-    alignX="start"
-    data-prop="title"
-  >
-    {title}
-  </Heading>
-  <Heading
-    class="feature-price"
-    level="h4"
-    size="xl"
-    alignX="start"
-    editable={false}
-  >
-    {
-      price?.prefix && (
-        <span
-          data-editable="text"
-          data-prop="price.prefix"
-        >
-          {price?.prefix}
-        </span>
-      )
-    }
-    {
-      price?.amount && (
-        <span
-          data-editable="text"
-          data-prop="price.amount"
-        >
-          {price?.amount}
-        </span>
-      )
-    }
-    {
-      price?.suffix && (
-        <span
-          data-editable="text"
-          data-prop="price.suffix"
-          class="feature-price-suffix"
-        >
-          {price?.suffix}
-        </span>
-      )
-    }
-  </Heading>
-  <Text
-    class="feature-subtext"
-    alignX="start"
-    data-prop="subtext"
-    text={subtext}
-  />
-  <List
-    {...list}
-    data-children-prop="list.items"
-  />
-  <Button
-    {...button}
-    data-prop="button.text"
-  />
+    <Heading
+      class="feature-title"
+      level="h3"
+      size="lg"
+      alignX="start"
+      data-prop="title"
+    >
+      {title}
+    </Heading>
+    <Heading
+      class="feature-price"
+      level="h4"
+      size="xl"
+      alignX="start"
+      editable={false}
+    >
+      {
+        price?.prefix && (
+          <span
+            data-editable="text"
+            data-prop="price.prefix"
+          >
+            {price?.prefix}
+          </span>
+        )
+      }
+      {
+        price?.amount && (
+          <span
+            data-editable="text"
+            data-prop="price.amount"
+          >
+            {price?.amount}
+          </span>
+        )
+      }
+      {
+        price?.suffix && (
+          <span
+            data-editable="text"
+            data-prop="price.suffix"
+            class="feature-price-suffix"
+          >
+            {price?.suffix}
+          </span>
+        )
+      }
+    </Heading>
+    <Text
+      class="feature-subtext"
+      alignX="start"
+      data-prop="subtext"
+      text={subtext}
+    />
+    <List
+      {...list}
+      data-children-prop="list.items"
+    />
+    <Button
+      {...button}
+      data-prop="button.text"
+    />
   </Card>
 </BentoBoxGridItem>
 
