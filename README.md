@@ -1,6 +1,6 @@
 # Jetstream
 
-Jetstream is a polished, high-performance marketing website template for Astro. Browse through a [live demo](#).
+Jetstream is a polished, high-performance marketing website template for Astro. Browse through a [live demo](https://crawling-submarine.cloudvent.net/).
 
 ![Jetstream template screenshot](public/images/_screenshot.png)
 
