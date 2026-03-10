@@ -35,39 +35,41 @@ const gradientId = color === "brand-gradient" ? `icon-brand-gradient-${crypto.ra
     name?.includes("social/") && "fill",
     className,
   ]}
-  {...(htmlAttributes as any)}
+  {...htmlAttributes as any}
 >
-  {gradientId && (
-    <svg
-      class="svg-paint-servers"
-      width="0"
-      height="0"
-      aria-hidden="true"
-      focusable="false"
-      style="position: absolute;"
-    >
-      <defs>
-        <linearGradient
-          id={gradientId}
-          x1="0%"
-          y1="0%"
-          x2="0%"
-          y2="100%"
-        >
-          <stop
-            offset="0%"
-            stop-color="var(--color-bg-brand)"
-            stop-opacity="1"
-          />
-          <stop
-            offset="100%"
-            stop-color="var(--color-bg-inverse)"
-            stop-opacity="1"
-          />
-        </linearGradient>
-      </defs>
-    </svg>
-  )}
+  {
+    gradientId && (
+      <svg
+        class="svg-paint-servers"
+        width="0"
+        height="0"
+        aria-hidden="true"
+        focusable="false"
+        style="position: absolute;"
+      >
+        <defs>
+          <linearGradient
+            id={gradientId}
+            x1="0%"
+            y1="0%"
+            x2="0%"
+            y2="100%"
+          >
+            <stop
+              offset="0%"
+              stop-color="var(--color-bg-brand)"
+              stop-opacity="1"
+            />
+            <stop
+              offset="100%"
+              stop-color="var(--color-bg-inverse)"
+              stop-opacity="1"
+            />
+          </linearGradient>
+        </defs>
+      </svg>
+    )
+  }
   <AstroIcon
     name={String(name).trim()}
     is:inline
