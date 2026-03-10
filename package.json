@@ -3,7 +3,17 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Jetstream is a polished, high-performance marketing website template for Astro.",
-  "keywords": ["astro", "cloudcannon", "ssg", "astro-theme", "astrojs", "astro-template", "astro-themes", "cloudcannon-themes", "ssg-astro"],
+  "keywords": [
+    "astro",
+    "cloudcannon",
+    "ssg",
+    "astro-theme",
+    "astrojs",
+    "astro-template",
+    "astro-themes",
+    "cloudcannon-themes",
+    "ssg-astro"
+  ],
   "author": "CloudCannon",
   "license": "MIT",
   "scripts": {

@@ -48,15 +48,17 @@ const arrayDataAttributes =
 ---
 
 <section
-  class:list={[
-    "custom-section",
-    className,
-  ]}
+  class:list={["custom-section", className]}
   style={userStyle || undefined}
   {...htmlAttributes}
 >
   <div
-    class:list={["outer-content", contentClass, rounded && "rounded", verticalOffset?.direction && `pull-up pull-up-${verticalOffset.direction}`,]}
+    class:list={[
+      "outer-content",
+      contentClass,
+      rounded && "rounded",
+      verticalOffset?.direction && `pull-up pull-up-${verticalOffset.direction}`,
+    ]}
     data-theme={colorScheme && colorScheme !== "inherit" ? colorScheme : undefined}
     style={`--pull-up: var(--spacing-${verticalOffset.size})`}
   >
