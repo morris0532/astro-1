@@ -438,7 +438,7 @@ const snakePath =
               left var(--animation-normal) cubic-bezier(0.2, 0.7, 0.2, 1),
               right var(--animation-normal) cubic-bezier(0.2, 0.7, 0.2, 1),
               top var(--animation-normal) cubic-bezier(0.2, 0.7, 0.2, 1);
-            
+
             /* CSS fallback: simple left/right positioning */
             transform-origin: center;
 
@@ -461,7 +461,7 @@ const snakePath =
               right: 6.5vw;
               top: 20%;
             }
-            
+
             /* When JS initializes, switch to offset-path positioning */
             &[data-path-positioned="true"] {
               top: auto;
@@ -585,14 +585,14 @@ const snakePath =
         // Disable transitions for initial positioning
         icons[0].classList.add("no-transition");
         icons[1].classList.add("no-transition");
-        
+
         // Enable path-based positioning
         icons[0].setAttribute("data-path-positioned", "true");
         icons[1].setAttribute("data-path-positioned", "true");
-        
+
         // Force a reflow to ensure no-transition is applied
         void icons[0].offsetWidth;
-        
+
         // Re-enable transitions after initial positioning
         requestAnimationFrame(() => {
           icons[0]?.classList.remove("no-transition");

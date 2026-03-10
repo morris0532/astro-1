@@ -35,47 +35,47 @@ const {
     backgroundColor={backgroundColor}
     {...htmlAttributes}
   >
-  {
-    eyebrowIcon?.name && (
-      <Icon
-        {...eyebrowIcon}
-        alignX="start"
-      />
-    )
-  }
-  {
-    eyebrowText && (
-      <SimpleText
-        class="eyebrow"
-        data-prop="eyebrowText"
-      >
-        {eyebrowText}
-      </SimpleText>
-    )
-  }
-  {
-    heading && (
-      <Heading
-        class="feature-slide-heading"
-        level="h3"
-        size="md"
-        alignX="start"
-        data-prop="heading"
-      >
-        {heading}
-      </Heading>
-    )
-  }
-  {
-    text && (
-      <Text
-        class="feature-slide-text"
-        alignX="start"
-        data-prop="text"
-        text={text}
-      />
-    )
-  }
+    {
+      eyebrowIcon?.name && (
+        <Icon
+          {...eyebrowIcon}
+          alignX="start"
+        />
+      )
+    }
+    {
+      eyebrowText && (
+        <SimpleText
+          class="eyebrow"
+          data-prop="eyebrowText"
+        >
+          {eyebrowText}
+        </SimpleText>
+      )
+    }
+    {
+      heading && (
+        <Heading
+          class="feature-slide-heading"
+          level="h3"
+          size="md"
+          alignX="start"
+          data-prop="heading"
+        >
+          {heading}
+        </Heading>
+      )
+    }
+    {
+      text && (
+        <Text
+          class="feature-slide-text"
+          alignX="start"
+          data-prop="text"
+          text={text}
+        />
+      )
+    }
   </Card>
 </BentoBoxGridItem>
 

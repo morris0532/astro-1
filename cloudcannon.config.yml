@@ -45,7 +45,7 @@ collections_config:
   blog:
     path: src/content/blog
     glob:
-      - '**/*.mdx'
+      - "**/*.mdx"
     name:
     icon: article
     url: /blog/[full_slug]/
@@ -259,7 +259,7 @@ collections_config:
   data:
     path: src/data
     glob:
-      - '**/*.json'
+      - "**/*.json"
     name:
     icon: database
     disable_url: true

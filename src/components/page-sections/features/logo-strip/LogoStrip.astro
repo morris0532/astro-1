@@ -62,13 +62,13 @@ const {
       >
         {
           images.map((image: any, index: number) => {
-            const Tag = image.link ? 'a' : 'div';
-            
+            const Tag = image.link ? "a" : "div";
+
             return (
-              <Tag 
+              <Tag
                 class="logo-strip-item"
                 {...(image.link && {
-                  href: image.link
+                  href: image.link,
                 })}
                 data-editable="array-item"
               >
@@ -91,14 +91,14 @@ const {
       >
         {
           images.map((image: any, index: number) => {
-            const Tag = image.link ? 'a' : 'div';
-            
+            const Tag = image.link ? "a" : "div";
+
             return (
-              <Tag 
+              <Tag
                 class="logo-strip-item"
                 {...(image.link && {
                   href: image.link,
-                  tabindex: '-1'
+                  tabindex: "-1",
                 })}
                 data-editable="array-item"
               >
@@ -266,4 +266,3 @@ const {
     });
   })();
 </script>
-

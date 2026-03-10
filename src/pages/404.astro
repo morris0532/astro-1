@@ -35,8 +35,14 @@ const page = pageData?.data || {
         >
           <Icon {...page.cta.eyebrowIcon} />
         </editable-component>
-        <div class="simple-text eyebrow" data-astro-cid-523qj64f>
-          <p class="simple-text-content size-md align-center" data-astro-cid-523qj64f>
+        <div
+          class="simple-text eyebrow"
+          data-astro-cid-523qj64f
+        >
+          <p
+            class="simple-text-content size-md align-center"
+            data-astro-cid-523qj64f
+          >
             <span
               class="simple-text-inner"
               data-editable="text"
@@ -46,16 +52,33 @@ const page = pageData?.data || {
             >
           </p>
         </div>
-        <h1 class="heading" data-astro-cid-ewdoq4kp>
-          <span class="heading-inner size-xl align-center" data-astro-cid-ewdoq4kp>
-            <span class="heading-text" data-editable="text" data-prop="cta.heading" set:html={page.cta.heading} data-astro-cid-ewdoq4kp />
+        <h1
+          class="heading"
+          data-astro-cid-ewdoq4kp
+        >
+          <span
+            class="heading-inner size-xl align-center"
+            data-astro-cid-ewdoq4kp
+          >
+            <span
+              class="heading-text"
+              data-editable="text"
+              data-prop="cta.heading"
+              set:html={page.cta.heading}
+              data-astro-cid-ewdoq4kp
+            />
           </span>
         </h1>
         <div
           class="text"
           data-astro-cid-r4icev6a
         >
-          <div class="text-inner align-center" data-editable="text" data-prop="cta.subtext" data-astro-cid-r4icev6a>
+          <div
+            class="text-inner align-center"
+            data-editable="text"
+            data-prop="cta.subtext"
+            data-astro-cid-r4icev6a
+          >
             <p set:html={page.cta.subtext} />
           </div>
         </div>
@@ -72,7 +95,11 @@ const page = pageData?.data || {
           >
             {
               page.cta.buttonSections.map((button: any) => (
-                <span class="button" data-editable="array-item" data-astro-cid-fb4wagyx>
+                <span
+                  class="button"
+                  data-editable="array-item"
+                  data-astro-cid-fb4wagyx
+                >
                   <Button {...button} />
                 </span>
               ))

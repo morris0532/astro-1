@@ -39,38 +39,38 @@ const {
     border
     backgroundColor="base"
   >
-  <Fragment slot="before">
-    <Image
-      {...image}
-      editable={true}
-      data-prop-src="image.source"
-      data-prop-alt="image.alt"
+    <Fragment slot="before">
+      <Image
+        {...image}
+        editable={true}
+        data-prop-src="image.source"
+        data-prop-alt="image.alt"
+      />
+    </Fragment>
+    <Icon
+      {...eyebrowIcon}
+      data-prop="eyebrowIcon"
     />
-  </Fragment>
-  <Icon
-    {...eyebrowIcon}
-    data-prop="eyebrowIcon"
-  />
-  <SimpleText
-    class="eyebrow"
-    data-prop="eyebrowText"
-    text={eyebrowText}
-  />
-  <Heading
-    class="feature-title"
-    level="h3"
-    size="md"
-    alignX="start"
-    data-prop="title"
-  >
-    {title}
-  </Heading>
-  <Text
-    class="feature-description"
-    alignX="start"
-    data-prop="description"
-    text={description}
-  />
+    <SimpleText
+      class="eyebrow"
+      data-prop="eyebrowText"
+      text={eyebrowText}
+    />
+    <Heading
+      class="feature-title"
+      level="h3"
+      size="md"
+      alignX="start"
+      data-prop="title"
+    >
+      {title}
+    </Heading>
+    <Text
+      class="feature-description"
+      alignX="start"
+      data-prop="description"
+      text={description}
+    />
   </Card>
 </BentoBoxGridItem>
 
