@@ -8,7 +8,7 @@ const {
   ...htmlAttributes
 } = Astro.props;
 
-const slot = await Astro.slots.render('default');
+const slot = await Astro.slots.render("default");
 const content = slot || html;
 ---
 

@@ -59,7 +59,7 @@ table:
             optional: true
             remove_empty: false
         format:
-          ref: 'mdx_format'
+          ref: "mdx_format"
     heading:
       parser: argument
       options:
@@ -71,8 +71,8 @@ table:
           root_value_boundary_optional:
             string: false
           root_value_boundary:
-            start: '{'
-            end: '}'
+            start: "{"
+            end: "}"
           string_boundary:
             - '"'
   _inputs_from_glob:
