@@ -1,3 +1,6 @@
+id:
+  type: text
+  comment: Unique identifier for the embed which can be used as an anchor link.
 html:
   type: code
   comment: The raw HTML content to render.

@@ -3,10 +3,12 @@ icon: format_quote
 description: Section displaying a customer testimonial with author information.
 value:
   _component: page-sections/people/testimonial-section
-  text: This framework has completely changed the way we build. The sites come together fast, they run even faster, and the whole process feels effortless. I couldn't be happier with the results.
-  authorName: Richard Johnson
-  authorDescription: CEO, Tech Innovations
-  authorImage: /src/assets/images/component-docs/profile.jpg
+  id:
+  text: Testimonial text placeholder.
+  authorName: Author
+  authorDescription: Author Role
+  authorImage: https://placehold.co/80x80
+  maxContentWidth: xl
   paddingVertical: sm
   colorScheme: inherit
   backgroundColor: surface
