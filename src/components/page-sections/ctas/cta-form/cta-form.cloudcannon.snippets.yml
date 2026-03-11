@@ -24,9 +24,6 @@ ctaForm:
             type: string
             optional: true
             remove_empty: true
-            type: string
-            optional: true
-            remove_empty: true
           - editor_key: formAction
             type: string
             optional: true
