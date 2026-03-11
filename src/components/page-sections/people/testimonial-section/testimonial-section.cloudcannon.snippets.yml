@@ -10,6 +10,10 @@ testimonialSection:
   definitions:
     component_name: TestimonialSection
     named_args:
+      - editor_key: id
+        type: string
+        optional: true
+        remove_empty: true
       - editor_key: text
         type: string
         optional: true
@@ -23,6 +27,10 @@ testimonialSection:
         optional: true
         remove_empty: true
       - editor_key: authorImage
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: maxContentWidth
         type: string
         optional: true
         remove_empty: true
