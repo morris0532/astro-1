@@ -16,7 +16,7 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: Deploy Jetstream on CloudCannon
         hideText: false
-        link: ''
+        link: 'https://app.cloudcannon.com/register#sites/connect/github/cloudcannon/jetstream-astro-template'
         iconName: arrow-up-right
         iconPosition: after
         variant: primary
@@ -24,7 +24,7 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: Check out the Component Starter
         hideText: false
-        link: ''
+        link: 'https://github.com/CloudCannon/astro-component-starter'
         iconName: arrow-up-right
         iconPosition: after
         variant: tertiary
@@ -392,7 +392,7 @@ pageSections:
             _component: building-blocks/core-elements/button
             text: Get started
             hideText: false
-            link: /
+            link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
             iconPosition: after
             variant: secondary
@@ -429,7 +429,7 @@ pageSections:
             _component: building-blocks/core-elements/button
             text: Get started
             hideText: false
-            link: /
+            link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
             iconPosition: after
             variant: secondary

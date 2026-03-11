@@ -78,7 +78,7 @@ pageSections:
             _component: building-blocks/core-elements/button
             text: Get started
             hideText: false
-            link: /
+            link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
             iconPosition: after
             variant: secondary
@@ -115,7 +115,7 @@ pageSections:
             _component: building-blocks/core-elements/button
             text: Get started
             hideText: false
-            link: /
+            link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
             iconPosition: after
             variant: secondary
@@ -178,7 +178,7 @@ pageSections:
             _component: building-blocks/core-elements/button
             text: Get started
             hideText: false
-            link: /
+            link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
             iconPosition: after
             variant: secondary
@@ -301,7 +301,7 @@ pageSections:
                   - _component: building-blocks/core-elements/button
                     text: Get started
                     hideText: false
-                    link: ''
+                    link: 'https://cloudcannon.com/templates/jetstream/'
                     iconName: arrow-right
                     iconPosition: after
                     variant: secondary
@@ -353,7 +353,7 @@ pageSections:
                   - _component: building-blocks/core-elements/button
                     text: Get started
                     hideText: false
-                    link: ''
+                    link: 'https://cloudcannon.com/templates/jetstream/'
                     iconName: arrow-right
                     iconPosition: after
                     variant: secondary
@@ -406,7 +406,7 @@ pageSections:
                   - _component: building-blocks/core-elements/button
                     text: Get started
                     hideText: false
-                    link: ''
+                    link: 'https://cloudcannon.com/templates/jetstream/'
                     iconName: arrow-right
                     iconPosition: after
                     variant: secondary
