@@ -83,14 +83,14 @@ const team = await getCollection("team");
                 link="/blog#posts"
                 variant={selectedTag === "all" ? "secondary" : "base"}
                 text="All"
-                editable={false}
+
               />
               {allTags.map((tag: string) => (
                 <Button
                   link={`/blog/tag/${tag}#posts`}
                   variant={selectedTag === tag ? "secondary" : "base"}
                   text={tag}
-                  editable={false}
+  
                 />
               ))}
             </ButtonGroup>
@@ -101,7 +101,7 @@ const team = await getCollection("team");
             minItemWidth="320"
             maxItemWidth="400"
             style="margin-top: var(--spacing-2xl)"
-            editable={false}
+
             class="blog-grid"
           >
             {page.data.map((post: any, index: number) => {
@@ -123,7 +123,7 @@ const team = await getCollection("team");
               return (
                 <BentoBoxGridItem
                   columnSpan={columnSpan}
-                  editable={false}
+  
                 >
                   <Card
                     link={`/blog/${slug}`}
@@ -132,14 +132,14 @@ const team = await getCollection("team");
                     backgroundColor="accent"
                     paddingVertical="md"
                     paddingHorizontal="md"
-                    editable={false}
+    
                   >
                     {post.data.image && (
                       <Image
                         source={post.data.image}
                         alt={post.data.title}
                         aspectRatio="landscape"
-                        editable={false}
+        
                         rounded={true}
                         style="max-height: 230px; width: 100%;"
                       />
@@ -147,7 +147,7 @@ const team = await getCollection("team");
                     <SimpleText
                       size="sm"
                       style="color: var(--color-text-brand); font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-xs);"
-                      editable={false}
+      
                     >
                       {post.data.tag}
                     </SimpleText>
@@ -155,21 +155,21 @@ const team = await getCollection("team");
                       level="h3"
                       size="md"
                       style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-sm);"
-                      editable={false}
+      
                     >
                       {post.data.title}
                     </Heading>
                     <SimpleText
                       size="md"
                       style="margin-top: 0;"
-                      editable={false}
+      
                     >
                       {post.data.description}
                     </SimpleText>
                     <SimpleText
                       size="sm"
                       style="font-weight: var(--font-weight-bold); color: var(--color-text-muted); margin-bottom: var(--spacing-xs);"
-                      editable={false}
+      
                     >
                       By {author?.data.name || "Anonymous"} | {pubDate}
                     </SimpleText>
@@ -189,7 +189,6 @@ const team = await getCollection("team");
         <SimpleText
           alignX="center"
           style="margin-top: var(--spacing-2xl);"
-          editable={false}
         >
           No blog posts yet. Check back soon!
         </SimpleText>

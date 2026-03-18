@@ -11,10 +11,9 @@ const {
   imageSource = "",
   hoverImageSource = "",
   imageAlt = "",
-  editable = false,
   class: className,
   _component,
-  useDefaultEditableBinding: _useDefaultEditableBinding = false,
+  useDefaultEditableBinding = false,
   ...htmlAttributes
 } = Astro.props;
 
@@ -38,7 +37,7 @@ const cardClasses = ["team-item", className].filter(Boolean).join(" ");
         size="md"
         alignX="start"
         style="margin-bottom: var(--spacing-xs); margin-top: 0;"
-        data-prop={editable ? "name" : undefined}
+        data-prop={useDefaultEditableBinding ? "name" : undefined}
       >
         {name}
       </Heading>
@@ -47,7 +46,7 @@ const cardClasses = ["team-item", className].filter(Boolean).join(" ");
         size="sm"
         alignX="start"
         style="font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-sm);margin-top: 0;"
-        data-prop={editable ? "role" : undefined}
+        data-prop={useDefaultEditableBinding ? "role" : undefined}
       >
         {role}
       </SimpleText>
@@ -60,8 +59,8 @@ const cardClasses = ["team-item", className].filter(Boolean).join(" ");
         aspectRatio="square"
         widths={[400, 800]}
         sizes="400px"
-        data-prop-src={editable ? "imageSource" : undefined}
-        data-prop-alt={editable ? "imageAlt" : undefined}
+        data-prop-src={useDefaultEditableBinding ? "imageSource" : undefined}
+        data-prop-alt={useDefaultEditableBinding ? "imageAlt" : undefined}
         slot="before"
       />
     </div>

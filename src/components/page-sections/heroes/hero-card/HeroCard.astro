@@ -34,7 +34,7 @@ const {
   verticalOffset = {},
   rounded = false,
   class: className,
-  editable = false,
+  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -216,7 +216,6 @@ const snakePath =
             text={finalCard.eyebrowText}
             alignX="left"
             {...!card.usePost && { "data-prop": "card.eyebrowText" }}
-            editable={!card.usePost}
             class="eyebrow-title"
           />
           <Heading
@@ -225,13 +224,11 @@ const snakePath =
             text={finalCard.heading}
             alignX="left"
             {...!card.usePost && { "data-prop": "card.heading" }}
-            editable={!card.usePost}
           />
           <SimpleText
             text={finalCard.subtext}
             alignX="left"
             {...!card.usePost && { "data-prop": "card.subtext" }}
-            editable={!card.usePost}
           />
           <ButtonGroup
             buttonSections={finalCard.buttonSections}
@@ -245,7 +242,6 @@ const snakePath =
               "data-prop-src": "card.image.source",
               "data-prop-alt": "card.image.alt",
             }}
-            editable={!card.usePost}
           />
         </Fragment>
       </Split>
@@ -268,7 +264,6 @@ const snakePath =
                 text={counter.subtext}
                 alignX="left"
                 {...(!card.usePost && { "data-prop": `subtext` })}
-                editable={!card.usePost}
               />
             </div>
           ))

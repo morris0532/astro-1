@@ -232,7 +232,7 @@ const author = team.find((m: any) => m.data.uuid === post.data.author);
               backgroundColor="accent"
               paddingVertical="md"
               paddingHorizontal="md"
-              editable={false}
+
               class="author-card"
             >
               <Split
@@ -247,7 +247,7 @@ const author = team.find((m: any) => m.data.uuid === post.data.author);
                   alt={author.data.name}
                   aspectRatio="square"
                   rounded={true}
-                  editable={false}
+    
                   style="border-radius: var(--radius-full);"
                 />
                 <div slot="second">
@@ -255,14 +255,14 @@ const author = team.find((m: any) => m.data.uuid === post.data.author);
                     level="h3"
                     size="sm"
                     style="margin-bottom: var(--spacing-md); margin-top: 0;"
-                    editable={false}
+      
                   >
                     {author.data.name}
                   </Heading>
                   <SimpleText
                     size="sm"
                     style="margin-top: 0; color: var(--color-text-muted); font-weight: var(--font-weight-bold);"
-                    editable={false}
+      
                   >
                     {author.data.role}
                   </SimpleText>
@@ -336,20 +336,20 @@ const author = team.find((m: any) => m.data.uuid === post.data.author);
                 backgroundColor="accent"
                 paddingVertical="sm"
                 paddingHorizontal="sm"
-                editable={false}
+  
               >
                 <Image
                   source={recentPost.data.image}
                   alt={recentPost.data.title}
                   aspectRatio="landscape"
-                  editable={false}
+    
                   rounded={true}
                   style="max-height: 150px; width: 100%;"
                 />
                 <SimpleText
                   size="xs"
                   style="color: var(--color-text-brand); font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-xs); margin-top: var(--spacing-sm);"
-                  editable={false}
+    
                 >
                   {recentPost.data.tag}
                 </SimpleText>
@@ -357,14 +357,14 @@ const author = team.find((m: any) => m.data.uuid === post.data.author);
                   level="h3"
                   size="xs"
                   style="margin-bottom: var(--spacing-xs); margin-top: 0;"
-                  editable={false}
+    
                 >
                   {recentPost.data.title}
                 </Heading>
                 <SimpleText
                   size="sm"
                   style="color: var(--color-text-muted); margin-top: 0; font-weight: var(--font-weight-bold);"
-                  editable={false}
+    
                 >
                   By {author?.data.name || "Anonymous"} | {postDate}
                 </SimpleText>

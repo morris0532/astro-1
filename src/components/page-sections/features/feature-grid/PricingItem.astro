@@ -20,7 +20,7 @@ const {
   rowSpan,
   class: className,
   _component,
-  editable = false,
+  useDefaultEditableBinding = false,
   ...htmlAttributes
 } = Astro.props;
 ---
@@ -54,7 +54,6 @@ const {
       level="h4"
       size="xl"
       alignX="start"
-      editable={false}
     >
       {
         price?.prefix && (

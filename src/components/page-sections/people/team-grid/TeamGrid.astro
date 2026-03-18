@@ -67,7 +67,6 @@ if (useCollection) {
   verticalOffset={verticalOffset}
   rounded={rounded}
   id={id}
-  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <Icon
@@ -113,7 +112,7 @@ if (useCollection) {
           data-index={index}
           data-editable={useCollection ? undefined : "array-item"}
           data-id={useCollection ? undefined : "page-sections/people/team-grid/team-item"}
-          editable={useCollection ? false : true}
+          useDefaultEditableBinding={useCollection ? false : true}
         />
       ))
     }

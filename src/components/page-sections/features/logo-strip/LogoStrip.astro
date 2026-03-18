@@ -15,7 +15,7 @@ const {
   verticalOffset,
   rounded = false,
   class: className,
-  editable = false,
+  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -75,7 +75,6 @@ const {
                 <Image
                   source={image.source}
                   alt={image.alt}
-                  editable={false}
                 />
               </Tag>
             );
@@ -105,7 +104,6 @@ const {
                 <Image
                   source={image.source}
                   alt={image.alt}
-                  editable={false}
                 />
               </Tag>
             );

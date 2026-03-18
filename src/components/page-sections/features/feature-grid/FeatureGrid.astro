@@ -45,7 +45,6 @@ const {
   backgroundColor={backgroundColor}
   verticalOffset={verticalOffset}
   id={id}
-  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <CustomSection
@@ -107,7 +106,7 @@ const {
           featureGrid.features && (
             <RenderBlock
               contentSections={featureGrid.features}
-              editable={true}
+              useDefaultEditableBinding={true}
             />
           )
         }

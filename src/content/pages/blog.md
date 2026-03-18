@@ -78,7 +78,7 @@ ctaSections:
     eyebrowIcon: {}
     eyebrowText:
     heading: Let's build your next tech breakthough together
-    subtext:
+    subtext: s
     buttonSections:
       - _component: building-blocks/core-elements/button
         text: Or talk to us about fiber optics instead
