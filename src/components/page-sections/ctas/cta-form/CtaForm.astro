@@ -79,11 +79,9 @@ const {
       <Form
         class="form"
         action={formAction}
-        formBlocks={formBlocks?.length > 0 ? formBlocks : []}
+        formBlocks={formBlocks}
         data-children-prop="formBlocks"
-      >
-        <slot />
-      </Form>
+      />
     </Fragment>
   </Split>
 </CustomSection>
