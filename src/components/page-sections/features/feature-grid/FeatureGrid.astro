@@ -29,6 +29,7 @@ const {
   verticalOffset = {},
   rounded = false,
   class: className,
+  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -42,9 +43,9 @@ const {
   rounded={rounded}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
-  rounded={rounded}
   verticalOffset={verticalOffset}
   id={id}
+  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <CustomSection

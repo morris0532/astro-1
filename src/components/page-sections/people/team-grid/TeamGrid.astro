@@ -23,8 +23,9 @@ const {
   contentBackground,
   verticalOffset = {},
   rounded = false,
+  useDefaultEditableBinding = false,
+  _component,
   class: className,
-  editable = false,
   ...htmlAttributes
 } = Astro.props;
 
@@ -66,6 +67,7 @@ if (useCollection) {
   verticalOffset={verticalOffset}
   rounded={rounded}
   id={id}
+  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <Icon

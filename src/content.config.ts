@@ -6,10 +6,13 @@ const contentBlockSchema = z.object({ _component: z.string() }).passthrough();
 const pageSchema = z.object({
   url: z.string().optional(),
   title: z.string(),
+  description: z.string().optional(),
+  keywords: z.array(z.string()).optional(),
+  image: z.string().optional(),
+  canonical: z.string().optional(),
   pageSections: z.array(contentBlockSchema).optional(),
   heroSections: z.array(contentBlockSchema).optional(),
   ctaSections: z.array(contentBlockSchema).optional(),
-  description: z.string().optional(),
   cta: z.any().optional(),
 });
 

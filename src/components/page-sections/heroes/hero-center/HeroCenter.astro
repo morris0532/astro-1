@@ -30,6 +30,7 @@ const {
   },
   rounded = false,
   class: className,
+  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -48,7 +49,8 @@ const snakePath =
   contentBackground={false}
   backgroundColor={backgroundColor}
   verticalOffset={verticalOffset}
-  contentClass=`section-height-${sectionHeight}`
+  contentClass={`section-height-${sectionHeight}`}
+  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <CustomSection

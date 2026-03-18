@@ -13,6 +13,7 @@ const {
   rounded = false,
   class: className,
   slides = [],
+  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -27,6 +28,7 @@ const {
   backgroundColor={backgroundColor}
   rounded={rounded}
   id={id}
+  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <Carousel

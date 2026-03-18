@@ -11,6 +11,7 @@ const {
   navData = [],
   buttonSections = [],
   class: className,
+  useDefaultEditableBinding: _useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -33,13 +34,14 @@ const mobileNavData = [
   backgroundColor=""
   class:list={["main-nav", className]}
   {...htmlAttributes}
+  useDefaultEditableBinding={false}
 >
   <a href="/">
     <Image
       source={logoSource}
       class="main-nav-logo"
       alt={logoAlt}
-      editable={false}
+      useDefaultEditableBinding={false}
     />
   </a>
   <div class="nav-end">
@@ -54,7 +56,7 @@ const mobileNavData = [
       class="desktop-button-group"
       style="gap: var(--spacing-xl);"
       buttonSections={buttonSections}
-      editable={false}
+      useDefaultEditableBinding={false}
     />
   </div>
   <Mobile
@@ -62,6 +64,7 @@ const mobileNavData = [
     logoAlt={logoAlt}
     navData={mobileNavData}
     class="mobile-main-nav"
+    useDefaultEditableBinding={false}
   />
 </CustomSection>
 
