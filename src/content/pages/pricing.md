@@ -1,6 +1,8 @@
 ---
 _schema: default
 title: Pricing
+description: ''
+keywords: []
 pageSections:
   - _component: page-sections/heroes/hero-center
     id:
@@ -27,12 +29,22 @@ pageSections:
         hideText: false
         link: ''
         iconName: arrow-long-right
+        iconColor: default
         iconPosition: after
         variant: primary
         size: md
-    maxContentWidth: 2xl
+    icons:
+      - name: globe-asia-australia
+        color: brand-gradient
+        background: true
+        size: 4xl
+      - name: rocket-launch
+        color: brand-gradient
+        background: true
+        size: 4xl
     backgroundDecoration: false
     sectionHeight: content
+    maxContentWidth: 2xl
     colorScheme: inherit
     backgroundColor: highlight-grid
     contentBackground: true
@@ -80,6 +92,7 @@ pageSections:
             hideText: false
             link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
+            iconColor: default
             iconPosition: after
             variant: secondary
             size: md
@@ -117,6 +130,7 @@ pageSections:
             hideText: false
             link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
+            iconColor: default
             iconPosition: after
             variant: secondary
             size: md
@@ -180,6 +194,7 @@ pageSections:
             hideText: false
             link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
+            iconColor: default
             iconPosition: after
             variant: secondary
             size: md
@@ -259,7 +274,7 @@ pageSections:
                 - 25/8, 15-minute response with dedicated team
     maxContentWidth: 2xl
     paddingVertical: 4xl
-    colorScheme: light
+    colorScheme: inherit
     backgroundColor: base
     contentBackground: false
     verticalOffset:
@@ -267,11 +282,7 @@ pageSections:
       direction: front
     rounded: false
   - _component: page-sections/info-blocks/faq-section
-    id:
-    eyebrowIcon: {}
-    eyebrowText: ''
     heading: Common questions
-    subtext: ''
     items:
       - _component: building-blocks/wrappers/accordion/accordion-item
         title: How quickly can I get started?
@@ -301,8 +312,9 @@ pageSections:
                   - _component: building-blocks/core-elements/button
                     text: Get started
                     hideText: false
-                    link: 'https://cloudcannon.com/templates/jetstream/'
+                    link: https://cloudcannon.com/templates/jetstream/
                     iconName: arrow-right
+                    iconColor: default
                     iconPosition: after
                     variant: secondary
                     size: md
@@ -353,8 +365,9 @@ pageSections:
                   - _component: building-blocks/core-elements/button
                     text: Get started
                     hideText: false
-                    link: 'https://cloudcannon.com/templates/jetstream/'
+                    link: https://cloudcannon.com/templates/jetstream/
                     iconName: arrow-right
+                    iconColor: default
                     iconPosition: after
                     variant: secondary
                     size: md
@@ -406,8 +419,9 @@ pageSections:
                   - _component: building-blocks/core-elements/button
                     text: Get started
                     hideText: false
-                    link: 'https://cloudcannon.com/templates/jetstream/'
+                    link: https://cloudcannon.com/templates/jetstream/
                     iconName: arrow-right
+                    iconColor: default
                     iconPosition: after
                     variant: secondary
                     size: md
@@ -430,12 +444,16 @@ pageSections:
             reverse: false
             reverseOrderOnMobile: false
             gap: lg
-    singleOpen: true
-    openFirst: false
-    maxContentWidth: xl
     paddingVertical: 4xl
     colorScheme: inherit
     backgroundColor: base
+    id:
+    eyebrowIcon: {}
+    eyebrowText: ''
+    subtext: ''
+    singleOpen: true
+    openFirst: false
+    maxContentWidth: xl
     contentBackground: false
     verticalOffset:
       size: xl
@@ -456,11 +474,15 @@ pageSections:
         name: name
         type: text
         required: true
+        iconColor: default
+        iconPosition: before
       - _component: building-blocks/forms/input
         label: Email
         name: email
         type: email
         required: true
+        iconColor: default
+        iconPosition: before
       - _component: building-blocks/forms/textarea
         label: Message
         name: message
@@ -469,6 +491,7 @@ pageSections:
         text: Send message
         variant: primary
         size: md
+        iconColor: default
         iconPosition: before
         hideText: false
         disabled: false
@@ -483,5 +506,4 @@ pageSections:
       size: xl
       direction: front
     rounded: false
-description: ''
 ---
