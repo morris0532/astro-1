@@ -1,6 +1,10 @@
 ---
 _schema: blog-index
 title: Blog
+description: >-
+  Read our latest articles and insights on web development, design, and
+  technology.
+keywords: []
 heroSections:
   - _component: page-sections/heroes/hero-card
     id:
@@ -93,7 +97,4 @@ ctaSections:
     backgroundColor: highlight-radial-gradient
     contentBackground: false
     rounded: false
-description: >-
-  Read our latest articles and insights on web development, design, and
-  technology.
 ---
