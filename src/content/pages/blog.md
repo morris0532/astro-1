@@ -21,9 +21,8 @@ heroSections:
       post: /src/content/blog/why-we-rebuilt-our-dns-resolver-from-scratch-again.mdx
       eyebrowText:
       heading: >-
-        <h1><strong>Why we rebuilt our DNS resolver from scratch (</strong><span
-        class="highlight-text"><strong>again</strong></span><strong>)</strong>
-        </h1>
+        Why we rebuilt our DNS resolver from scratch (<span
+        class="highlight-text">again</span>)
       subtext: >-
         Sometimes good enough isn't good enough, especially when our engineers
         have strong opinions about query optimization.
