@@ -25,7 +25,7 @@ pageSections:
     reverse: false
     maxContentWidth: 3xl
     paddingVertical: 4xl
-    colorScheme: light
+    colorScheme: inherit
     backgroundColor: highlight-grid
     contentBackground: true
     verticalOffset:
@@ -312,7 +312,7 @@ pageSections:
           200 who share their pathological intolerance for downtime.
     maxContentWidth: 2xl
     paddingVertical: 4xl
-    colorScheme: light
+    colorScheme: inherit
     backgroundColor: base
     contentBackground: false
     verticalOffset:
