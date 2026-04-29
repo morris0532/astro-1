@@ -14,15 +14,11 @@ const {
   imageSource = "",
   imageAlt = "",
   reverse = false,
-  sectionLabel,
-  maxContentWidth = "2xl",
-  paddingHorizontal = "lg",
-  paddingVertical = "4xl",
   colorScheme = "inherit",
   backgroundColor,
-  background,
+  paddingVertical = "4xl",
+  rounded = false,
   class: className,
-  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -30,14 +26,13 @@ const {
 
 <CustomSection
   class:list={["cta-split", className]}
-  label={sectionLabel}
-  maxContentWidth={maxContentWidth}
-  paddingHorizontal={paddingHorizontal}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
-  background={background}
-  useDefaultEditableBinding={useDefaultEditableBinding}
+  rounded={rounded}
+  id={id}
   {...htmlAttributes}
 >
   <Split

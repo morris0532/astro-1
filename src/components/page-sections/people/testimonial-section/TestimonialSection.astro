@@ -8,15 +8,11 @@ const {
   authorName = "",
   authorDescription = "",
   authorImage = "",
-  sectionLabel,
   paddingVertical = "sm",
-  paddingHorizontal = "lg",
   maxContentWidth = "2xl",
   colorScheme = "inherit",
   backgroundColor,
-  background,
   class: className,
-  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -25,15 +21,12 @@ const {
 <CustomSection
   {...htmlAttributes}
   class:list={["testimonial-section-container", className]}
-  label={sectionLabel}
   maxContentWidth={maxContentWidth}
-  paddingHorizontal={paddingHorizontal}
+  paddingHorizontal="lg"
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor=""
-  background={background}
   id={id}
-  useDefaultEditableBinding={useDefaultEditableBinding}
 >
   <CustomSection
     class:list={["testimonial-section", className]}
