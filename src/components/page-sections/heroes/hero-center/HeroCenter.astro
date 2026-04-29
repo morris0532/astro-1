@@ -19,9 +19,7 @@ const {
   icons = [],
   backgroundDecoration = true,
   sectionHeight = "full",
-  sectionLabel,
   maxContentWidth = "xl",
-  paddingHorizontal = "lg",
   paddingVertical = "4xl",
   colorScheme = "inherit",
   backgroundColor,
@@ -30,10 +28,8 @@ const {
     size: "",
     direction: "",
   },
-  background,
   rounded = false,
   class: className,
-  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -45,23 +41,22 @@ const snakePath =
 <CustomSection
   class:list={["hero-center", className]}
   id={id}
-  label={sectionLabel}
+  label={id}
   maxContentWidth=""
   paddingHorizontal=""
   paddingVertical=""
   colorScheme={colorScheme}
   contentBackground={false}
   backgroundColor={backgroundColor}
-  background={background}
   verticalOffset={verticalOffset}
   contentClass={`section-height-${sectionHeight}`}
-  useDefaultEditableBinding={useDefaultEditableBinding}
+  useDefaultEditableBinding={true}
   {...htmlAttributes}
 >
   <CustomSection
     class:list={["hero-center-content", className]}
     maxContentWidth={maxContentWidth}
-    paddingHorizontal={paddingHorizontal}
+    paddingHorizontal="lg"
     paddingVertical={paddingVertical}
     colorScheme={colorScheme}
     backgroundColor={backgroundColor}
