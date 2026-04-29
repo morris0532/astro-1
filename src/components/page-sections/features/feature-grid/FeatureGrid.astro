@@ -21,18 +21,14 @@ const {
     rounded: false,
     overhang: false,
   },
-  sectionLabel,
   maxContentWidth = "xl",
-  paddingHorizontal = "lg",
   paddingVertical = "4xl",
   colorScheme = "inherit",
   backgroundColor,
   contentBackground,
   verticalOffset = {},
-  background,
   rounded = false,
   class: className,
-  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -40,24 +36,22 @@ const {
 
 <CustomSection
   class:list={["feature-grid", className]}
-  label={sectionLabel}
   maxContentWidth=""
   paddingHorizontal=""
   paddingVertical={paddingVertical}
   rounded={rounded}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
-  background={background}
+  rounded={rounded}
   verticalOffset={verticalOffset}
   id={id}
-  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <CustomSection
     class:list={["feature-grid-content", className]}
     style={`--padding-between: var(--spacing-${paddingVertical})`}
     maxContentWidth={maxContentWidth}
-    paddingHorizontal={paddingHorizontal}
+    paddingHorizontal="md"
     paddingVertical=""
     rounded={rounded}
     colorScheme={colorScheme}

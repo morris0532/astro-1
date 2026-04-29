@@ -18,25 +18,21 @@ const {
   buttonSections = [],
   image = {},
   reverse = false,
-  sectionLabel,
   maxContentWidth = "3xl",
-  paddingHorizontal = "lg",
   paddingVertical = "4xl",
   colorScheme = "inherit",
   backgroundColor,
   contentBackground = false,
   verticalOffset = {},
-  background,
   rounded = false,
   class: className,
-  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
 ---
 
 <CustomSection
-  label={sectionLabel}
+  label={id}
   maxContentWidth=""
   paddingHorizontal=""
   paddingVertical={paddingVertical}
@@ -44,16 +40,14 @@ const {
   backgroundColor={backgroundColor}
   contentBackground={contentBackground}
   verticalOffset={verticalOffset}
-  background={background}
   rounded={rounded}
   class:list={["hero", className]}
   id={id}
-  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <CustomSection
     maxContentWidth={maxContentWidth}
-    paddingHorizontal={paddingHorizontal}
+    paddingHorizontal="lg"
     paddingVertical=""
     colorScheme={colorScheme}
     backgroundColor=""
@@ -71,7 +65,7 @@ const {
   </CustomSection>
   <CustomSection
     maxContentWidth={maxContentWidth}
-    paddingHorizontal={paddingHorizontal}
+    paddingHorizontal="lg"
     paddingVertical=""
     colorScheme={colorScheme}
     backgroundColor=""

@@ -13,17 +13,13 @@ const {
   heading = "",
   subtext = "",
   buttonSections = [],
-  sectionLabel,
   colorScheme = "inherit",
   maxContentWidth = "xl",
-  paddingHorizontal = "md",
   backgroundColor,
   contentBackground = false,
   paddingVertical = "4xl",
-  background,
   class: className,
   rounded = false,
-  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -31,18 +27,16 @@ const {
 
 <CustomSection
   class:list={["cta-center", rounded ? "cta-center-rounded" : "", className]}
-  label={sectionLabel}
+  label={id}
   maxContentWidth={maxContentWidth}
-  paddingHorizontal={paddingHorizontal}
+  paddingHorizontal="md"
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
   contentBackground={contentBackground}
-  background={background}
   rounded={false}
   style={`--max-width: var(--content-width-${maxContentWidth})`}
   id={id}
-  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <Icon {...eyebrowIcon} />

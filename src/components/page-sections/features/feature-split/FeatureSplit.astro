@@ -18,16 +18,11 @@ const {
   imageAspectRatio = "portrait",
   imageRounded = true,
   reverse = false,
-  sectionLabel,
-  maxContentWidth = "xl",
-  paddingHorizontal = "lg",
-  paddingVertical = "4xl",
   colorScheme = "inherit",
   backgroundColor,
-  background,
+  paddingVertical = "4xl",
   rounded = false,
   class: className,
-  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -38,17 +33,14 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
 
 <CustomSection
   class:list={["feature-split", className]}
-  label={sectionLabel}
-  maxContentWidth={maxContentWidth}
-  paddingHorizontal={paddingHorizontal}
+  maxContentWidth="xl"
+  paddingHorizontal="lg"
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
-  background={background}
   rounded={rounded}
   data-feature-split-id={featureSplitId}
   id={id}
-  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <Split

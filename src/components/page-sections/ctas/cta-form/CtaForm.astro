@@ -18,18 +18,14 @@ const {
   formBlocks = [],
   buttonSections = [],
   reverse = false,
-  sectionLabel,
   maxContentWidth = "2xl",
-  paddingHorizontal = "lg",
   paddingVertical = "4xl",
   colorScheme = "inherit",
   backgroundColor,
   contentBackground = false,
   verticalOffset = {},
   rounded = false,
-  background,
   class: className,
-  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -37,17 +33,16 @@ const {
 
 <CustomSection
   class:list={["cta-form", className]}
-  label={sectionLabel}
+  label={id}
   maxContentWidth={maxContentWidth}
-  paddingHorizontal={paddingHorizontal}
+  paddingHorizontal="lg"
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
   contentBackground={contentBackground}
   verticalOffset={verticalOffset}
   rounded={rounded}
-  background={background}
-  useDefaultEditableBinding={useDefaultEditableBinding}
+  id={id}
   {...htmlAttributes}
 >
   <Split
