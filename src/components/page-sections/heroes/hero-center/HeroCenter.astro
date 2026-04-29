@@ -19,7 +19,9 @@ const {
   icons = [],
   backgroundDecoration = true,
   sectionHeight = "full",
+  sectionLabel,
   maxContentWidth = "xl",
+  paddingHorizontal = "lg",
   paddingVertical = "4xl",
   colorScheme = "inherit",
   backgroundColor,
@@ -28,6 +30,7 @@ const {
     size: "",
     direction: "",
   },
+  background,
   rounded = false,
   class: className,
   useDefaultEditableBinding = false,
@@ -42,12 +45,14 @@ const snakePath =
 <CustomSection
   class:list={["hero-center", className]}
   id={id}
+  label={sectionLabel}
   maxContentWidth=""
   paddingHorizontal=""
   paddingVertical=""
   colorScheme={colorScheme}
   contentBackground={false}
   backgroundColor={backgroundColor}
+  background={background}
   verticalOffset={verticalOffset}
   contentClass={`section-height-${sectionHeight}`}
   useDefaultEditableBinding={useDefaultEditableBinding}
@@ -56,7 +61,7 @@ const snakePath =
   <CustomSection
     class:list={["hero-center-content", className]}
     maxContentWidth={maxContentWidth}
-    paddingHorizontal="lg"
+    paddingHorizontal={paddingHorizontal}
     paddingVertical={paddingVertical}
     colorScheme={colorScheme}
     backgroundColor={backgroundColor}
@@ -66,7 +71,7 @@ const snakePath =
   >
     <Icon {...eyebrowIcon} />
     <SimpleText
-      alignX="center"
+      alignmentHorizontal="center"
       class="eyebrow"
       data-prop="eyebrowText"
     >
@@ -75,12 +80,12 @@ const snakePath =
     <Heading
       level="h1"
       size={headingSize}
-      alignX="center"
+      alignmentHorizontal="center"
       text={heading}
       data-prop="heading"
     />
     <Text
-      alignX="center"
+      alignmentHorizontal="center"
       class="subtext"
       data-prop="subtext"
       text={subtext}
@@ -88,7 +93,7 @@ const snakePath =
     <ButtonGroup
       class="buttons"
       buttonSections={buttonSections}
-      alignX="center"
+      alignmentHorizontal="center"
       data-children-prop="buttonSections"
     />
   </CustomSection>

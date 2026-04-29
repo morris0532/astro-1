@@ -3,23 +3,32 @@ title: Feature Slider
 spacing: all
 blocks:
   _component: 'page-sections/features/feature-slider'
-  colorScheme: light
+  sectionLabel: 'Feature Slider'
+  maxContentWidth: xl
+  paddingHorizontal: lg
+  paddingVertical: 4xl
+  colorScheme: inherit
   backgroundColor: base
-  paddingVertical: none
   slides:
-    - eyebrow: 'Feature 1'
-      title: 'Powerful Analytics Dashboard'
-      description: 'Visualize your data with beautiful charts and customizable reports. Track metrics that matter to your business in real-time.'
-      imageSource: /src/assets/images/blog-edge-nodes.png
-      imageAlt: Analytics dashboard showing charts and metrics
-    - eyebrow: 'Feature 2'
-      title: 'Team Collaboration Tools'
-      description: 'Work seamlessly with your team using integrated chat, comments, and real-time updates. Stay connected and productive.'
-      imageSource: /src/assets/images/blog-edge-nodes.png
-      imageAlt: Team collaboration interface with chat and updates
-    - eyebrow: 'Feature 3'
-      title: 'Mobile-First Design'
-      description: 'Access your workspace from anywhere with our fully responsive mobile apps. Never miss an important update.'
-      imageSource: /src/assets/images/blog-edge-nodes.png
-      imageAlt: Mobile application interface
+    - _component: 'page-sections/features/feature-slider/feature-slider-item'
+      eyebrow: 'Automation'
+      title: 'Automated handoffs'
+      description: 'Trigger downstream tools when tasks close so work keeps moving without manual pings.'
+      imageSource: /src/assets/images/component-docs/dunedin-cliff.jpg
+      imageAlt: 'Team reviewing an automated workflow'
+      minSplitWidth: 0
+    - _component: 'page-sections/features/feature-slider/feature-slider-item'
+      eyebrow: 'Visibility'
+      title: 'Insight dashboards'
+      description: 'Pull status from every project into a single adaptive view for leadership.'
+      imageSource: /src/assets/images/component-docs/quiet-street.jpg
+      imageAlt: 'Dashboards summarizing project progress'
+      minSplitWidth: 0
+    - _component: 'page-sections/features/feature-slider/feature-slider-item'
+      eyebrow: 'Control'
+      title: 'Granular permissions'
+      description: 'Use roles to decide exactly who can edit briefs, roadmaps, and approvals.'
+      imageSource: /src/assets/images/component-docs/castle.jpg
+      imageAlt: 'Secure permissions protecting team workflows'
+      minSplitWidth: 0
 ---

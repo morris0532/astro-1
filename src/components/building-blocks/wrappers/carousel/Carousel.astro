@@ -16,10 +16,11 @@ const {
   slidesToScroll = "auto",
   slideWidthPercent = 100,
   minSlideWidth = 0,
+  gap = "none",
   style = "",
   label,
   "data-children-prop": childrenDataProp,
-  useDefaultEditableBinding = false,
+  editable = false,
   _component,
   class: className,
   ...htmlAttributes
@@ -47,16 +48,20 @@ if (autoScroll) {
   dataAttributes["data-show-arrows"] = "false";
 }
 
-const effectiveChildrenProp = childrenDataProp ?? (useDefaultEditableBinding ? "slides" : null);
+const effectiveChildrenProp = childrenDataProp ?? (editable ? "slides" : null);
 const arrayDataAttributes = effectiveChildrenProp
   ? { "data-editable": "array", "data-prop": effectiveChildrenProp }
   : {};
 
 const carouselClasses = "carousel";
 
+const slideGap = gap === "none" ? "0px" : `var(--spacing-${gap})`;
+
+// Build the style attribute, merging custom styles with CSS variables
 const carouselStyles = `
   --slide-width: ${slideWidthPercent}%;
   --min-slide-width: ${minSlideWidth}px;
+  --slide-gap: ${slideGap};
   ${style}
 `.trim();
 
@@ -69,7 +74,7 @@ if (!_component && !hasSlides && !hasSlotContent) return;
 <section
   class:list={[carouselClasses, className]}
   role="region"
-  aria-label="Carousel"
+  aria-label={label || "Carousel"}
   {...htmlAttributes}
 >
   <div
@@ -89,7 +94,7 @@ if (!_component && !hasSlides && !hasSlotContent) return;
                 {...slide}
                 data-editable="array-item"
                 data-id="building-blocks/wrappers/carousel/carousel-slide"
-                useDefaultEditableBinding={!!effectiveChildrenProp}
+                editable={!!effectiveChildrenProp}
                 aria-label={`Slide ${index + 1} of ${slides.length}`}
               />
             ))
@@ -128,7 +133,6 @@ if (!_component && !hasSlides && !hasSlotContent) return;
   import EmblaCarousel from "embla-carousel";
   import AutoScroll from "embla-carousel-auto-scroll";
   import Autoplay from "embla-carousel-autoplay";
-  import { onPageLoad } from "@component-utils/onPageLoad";
 
   function setupCarousels() {
     const carousels = document.querySelectorAll(".carousel");
@@ -194,13 +198,6 @@ if (!_component && !hasSlides && !hasSlotContent) return;
       const prevButton = inner.querySelector(".prev > .button-inner") as HTMLButtonElement;
       const nextButton = inner.querySelector(".next > .button-inner") as HTMLButtonElement;
 
-      if (prevButton) {
-        prevButton.style.borderRadius = "9999px";
-      }
-      if (nextButton) {
-        nextButton.style.borderRadius = "9999px";
-      }
-
       const updateButtons = () => {
         if (prevButton) prevButton.disabled = !embla.canScrollPrev();
         if (nextButton) nextButton.disabled = !embla.canScrollNext();
@@ -241,7 +238,12 @@ if (!_component && !hasSlides && !hasSlotContent) return;
     });
   }
 
-  onPageLoad(setupCarousels);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupCarousels);
+  } else {
+    setupCarousels();
+  }
+  document.addEventListener("astro:page-load", setupCarousels);
 </script>
 
 <style is:global>
@@ -254,6 +256,7 @@ if (!_component && !hasSlides && !hasSlotContent) return;
         position: relative;
         --slide-width: 100%;
         --min-slide-width: 0px;
+        --slide-gap: 0px;
 
         > .viewport {
           overflow: hidden;
@@ -264,10 +267,12 @@ if (!_component && !hasSlides && !hasSlotContent) return;
         > .viewport > .track {
           display: flex;
           flex-wrap: nowrap;
+          margin-inline-start: calc(var(--slide-gap) * -1);
 
           > .slide {
             flex-basis: calc(max(var(--slide-width, 100%), var(--min-slide-width, 0px)));
             flex-shrink: 0;
+            padding-inline-start: var(--slide-gap);
             width: 100%;
           }
         }
@@ -284,7 +289,7 @@ if (!_component && !hasSlides && !hasSlotContent) return;
         > .controls-wrapper > .prev > .button-inner,
         > .controls-wrapper > .next > .button-inner {
           background-color: var(--color-bg);
-          border-radius: 9999px;
+          border-radius: var(--radius-full);
           flex-shrink: 0;
           pointer-events: auto;
 
@@ -301,6 +306,7 @@ if (!_component && !hasSlides && !hasSlotContent) return;
 
         > .controls-wrapper > .indicators > .indicator {
           aspect-ratio: 1/1;
+          background-color: var(--color-border);
           border: none;
           border-radius: var(--radius-full);
           cursor: pointer;

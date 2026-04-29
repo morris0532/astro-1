@@ -9,6 +9,9 @@ value:
   placeholder: null
   required: false
   value: null
+  iconName: null
+  iconColor: default
+  iconPosition: before
 preview:
   text:
     - template: Input - {type}

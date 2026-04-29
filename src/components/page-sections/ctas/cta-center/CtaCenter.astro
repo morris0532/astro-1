@@ -13,11 +13,14 @@ const {
   heading = "",
   subtext = "",
   buttonSections = [],
+  sectionLabel,
   colorScheme = "inherit",
   maxContentWidth = "xl",
+  paddingHorizontal = "md",
   backgroundColor,
   contentBackground = false,
   paddingVertical = "4xl",
+  background,
   class: className,
   rounded = false,
   useDefaultEditableBinding = false,
@@ -28,12 +31,14 @@ const {
 
 <CustomSection
   class:list={["cta-center", rounded ? "cta-center-rounded" : "", className]}
+  label={sectionLabel}
   maxContentWidth={maxContentWidth}
-  paddingHorizontal="md"
+  paddingHorizontal={paddingHorizontal}
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
   contentBackground={contentBackground}
+  background={background}
   rounded={false}
   style={`--max-width: var(--content-width-${maxContentWidth})`}
   id={id}
@@ -42,7 +47,7 @@ const {
 >
   <Icon {...eyebrowIcon} />
   <SimpleText
-    alignX="center"
+    alignmentHorizontal="center"
     class="eyebrow"
     data-prop="eyebrowText"
   >
@@ -51,19 +56,19 @@ const {
   <Heading
     level="h2"
     size="xl"
-    alignX="center"
+    alignmentHorizontal="center"
     data-prop="heading"
     text={heading}
   />
   <Text
-    alignX="center"
+    alignmentHorizontal="center"
     data-prop="subtext"
     text={subtext}
   />
   <ButtonGroup
     class="buttons"
     buttonSections={buttonSections}
-    alignX="center"
+    alignmentHorizontal="center"
     data-children-prop="buttonSections"
   />
   <div class="background-decoration"></div>

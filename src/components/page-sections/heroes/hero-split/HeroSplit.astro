@@ -18,12 +18,15 @@ const {
   buttonSections = [],
   image = {},
   reverse = false,
+  sectionLabel,
   maxContentWidth = "3xl",
+  paddingHorizontal = "lg",
   paddingVertical = "4xl",
   colorScheme = "inherit",
   backgroundColor,
   contentBackground = false,
   verticalOffset = {},
+  background,
   rounded = false,
   class: className,
   useDefaultEditableBinding = false,
@@ -33,6 +36,7 @@ const {
 ---
 
 <CustomSection
+  label={sectionLabel}
   maxContentWidth=""
   paddingHorizontal=""
   paddingVertical={paddingVertical}
@@ -40,6 +44,7 @@ const {
   backgroundColor={backgroundColor}
   contentBackground={contentBackground}
   verticalOffset={verticalOffset}
+  background={background}
   rounded={rounded}
   class:list={["hero", className]}
   id={id}
@@ -48,7 +53,7 @@ const {
 >
   <CustomSection
     maxContentWidth={maxContentWidth}
-    paddingHorizontal="lg"
+    paddingHorizontal={paddingHorizontal}
     paddingVertical=""
     colorScheme={colorScheme}
     backgroundColor=""
@@ -59,14 +64,14 @@ const {
     <Heading
       level="h1"
       size="3xl"
-      alignX="center"
+      alignmentHorizontal="center"
       data-prop="title"
       >{title}</Heading
     >
   </CustomSection>
   <CustomSection
     maxContentWidth={maxContentWidth}
-    paddingHorizontal="lg"
+    paddingHorizontal={paddingHorizontal}
     paddingVertical=""
     colorScheme={colorScheme}
     backgroundColor=""
@@ -76,7 +81,7 @@ const {
   >
     <Split
       distributionMode="half"
-      verticalAlignment="center"
+      alignmentVertical="center"
       reverse={reverse}
       minSplitWidth={975}
       gap="2xl"
@@ -115,7 +120,7 @@ const {
   </CustomSection>
   <Split
     distributionMode="half"
-    verticalAlignment="center"
+    alignmentVertical="center"
     reverse={reverse}
     minSplitWidth={1023}
     gap="2xl"

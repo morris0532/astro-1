@@ -187,14 +187,14 @@ const snakePath =
       <Heading
         level="h1"
         size="xl"
-        alignX="left"
+        alignmentHorizontal="left"
         class="heading"
         data-prop="heading"
         text={heading}
       />
       <Text
         text={subtext}
-        alignX="left"
+        alignmentHorizontal="left"
         data-prop="subtext"
         class="subtext"
       />
@@ -214,7 +214,7 @@ const snakePath =
         <Fragment slot="first">
           <Text
             text={finalCard.eyebrowText}
-            alignX="left"
+            alignmentHorizontal="left"
             {...!card.usePost && { "data-prop": "card.eyebrowText" }}
             class="eyebrow-title"
           />
@@ -222,12 +222,12 @@ const snakePath =
             level="h2"
             size="2xl"
             text={finalCard.heading}
-            alignX="left"
+            alignmentHorizontal="left"
             {...!card.usePost && { "data-prop": "card.heading" }}
           />
           <SimpleText
             text={finalCard.subtext}
-            alignX="left"
+            alignmentHorizontal="left"
             {...!card.usePost && { "data-prop": "card.subtext" }}
           />
           <ButtonGroup
@@ -257,12 +257,12 @@ const snakePath =
             >
               <Counter
                 {...counter.counter}
-                alignX="left"
+                alignmentHorizontal="left"
                 size="2xl"
               />
               <Text
                 text={counter.subtext}
-                alignX="left"
+                alignmentHorizontal="left"
                 {...(!card.usePost && { "data-prop": `subtext` })}
               />
             </div>

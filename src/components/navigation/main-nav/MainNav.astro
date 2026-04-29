@@ -2,14 +2,25 @@
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Bar from "@components/navigation/bar/Bar.astro";
 import Mobile from "@components/navigation/mobile/Mobile.astro";
+import ThemeToggle from "@components/navigation/theme-toggle/ThemeToggle.astro";
 import Image from "@core-elements/image/Image.astro";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
+type NavButton = {
+  text?: string;
+  /** Button schema uses `link`; legacy entries may use `href`. */
+  link?: string;
+  href?: string;
+  [key: string]: unknown;
+};
+
 const {
   logoSource,
+  logoAlternateSource,
   logoAlt = "logo",
   navData = [],
-  buttonSections = [],
+  buttonSections = [] as NavButton[],
+  themeToggle = false,
   class: className,
   useDefaultEditableBinding: _useDefaultEditableBinding = false,
   _component,
@@ -20,7 +31,7 @@ const mobileNavData = [
   ...navData,
   ...buttonSections.map((button: any) => ({
     name: button.text || "Button",
-    path: button.href || "#",
+    path: button.link || button.href || "#",
     children: [],
   })),
 ];
@@ -36,9 +47,13 @@ const mobileNavData = [
   {...htmlAttributes}
   useDefaultEditableBinding={false}
 >
-  <a href="/">
+  <a
+    href="/"
+    class="main-nav-logo-link"
+  >
     <Image
       source={logoSource}
+      alternateSource={logoAlternateSource}
       class="main-nav-logo"
       alt={logoAlt}
       useDefaultEditableBinding={false}
@@ -50,6 +65,7 @@ const mobileNavData = [
       class="desktop-main-nav"
     />
 
+    {themeToggle && <ThemeToggle />}
     <ButtonGroup
       direction="row"
       align="center"
@@ -61,6 +77,7 @@ const mobileNavData = [
   </div>
   <Mobile
     logoSource={logoSource}
+    logoAlternateSource={logoAlternateSource}
     logoAlt={logoAlt}
     navData={mobileNavData}
     class="mobile-main-nav"
@@ -85,10 +102,6 @@ const mobileNavData = [
         }
       }
 
-      .main-nav-logo {
-        margin-top: 0 !important;
-      }
-
       .nav-hamburger.mobile-button {
         @container (min-width: 769px) {
           display: none;
@@ -109,6 +122,10 @@ const mobileNavData = [
         border-top-right-radius: var(--radius-md);
         border-bottom-right-radius: var(--radius-md);
         pointer-events: all;
+
+        .main-nav-logo {
+          margin-top: 0;
+        }
 
         > a > .image img {
           height: 1.25em;
@@ -136,6 +153,7 @@ const mobileNavData = [
       > .outer-content > .content > .nav-end {
         align-items: center;
         display: flex;
+        gap: var(--spacing-md);
         justify-content: flex-end;
         width: 100%;
         flex-grow: 1;

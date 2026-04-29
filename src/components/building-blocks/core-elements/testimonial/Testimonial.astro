@@ -5,7 +5,7 @@ const {
   text,
   authorName,
   authorDescription,
-  alignX = "center",
+  alignmentHorizontal = "center",
   authorImage = "",
   class: className,
   useDefaultEditableBinding = false,
@@ -38,7 +38,7 @@ const authorDescriptionDataAttributes = effectiveAuthorDescProp
 ---
 
 <blockquote
-  class:list={["testimonial", `alignment-${alignX}`, className]}
+  class:list={["testimonial", `alignment-${alignmentHorizontal}`, className]}
   {...htmlAttributes}
 >
   <div

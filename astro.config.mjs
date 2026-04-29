@@ -7,10 +7,13 @@ import { fileURLToPath } from "node:url";
 
 import mdx from "@astrojs/mdx";
 
+import { siteFonts } from "./site-fonts.mjs";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://example.com", // TODO: Update to your production URL
+  fonts: siteFonts,
   build: {
     inlineStylesheets: "always",
   },
@@ -21,7 +24,7 @@ export default defineConfig({
     port: 4321,
   },
   image: {
-    domains: ["picsum.photos"],
+    domains: [],
   },
   integrations: [
     {
@@ -59,7 +62,7 @@ export default defineConfig({
             name: "preset-default",
             params: {
               overrides: {
-                cleanupIDs: false,
+                cleanupIds: false,
               },
             },
           },
@@ -68,21 +71,60 @@ export default defineConfig({
     }),
     sitemap({
       filter: (page) => {
-        if (process.env.DISABLE_COMPONENT_DOCS === "true") {
-          return !page.includes("/component-docs");
+        if (page.endsWith("/404") || page.endsWith("/404.html")) {
+          return false;
         }
-        return !page.includes("/component-docs");
+        if (page.includes("/component-docs")) {
+          return false;
+        }
+        return true;
       },
     }),
     mdx(),
   ],
   vite: {
+    build: {
+      minify: "esbuild",
+    },
+    plugins: [
+      {
+        name: "suppress-node-externalized-warning",
+        config() {
+          return {
+            build: {
+              rollupOptions: {
+                onwarn(warning, defaultHandler) {
+                  if (
+                    warning.message?.includes("externalized for browser compatibility") &&
+                    warning.message?.includes("discoverVideoSources")
+                  )
+                    return;
+                  defaultHandler(warning);
+                },
+              },
+            },
+          };
+        },
+        configResolved(config) {
+          const originalWarn = config.logger.warn;
+
+          config.logger.warn = (msg, options) => {
+            if (
+              typeof msg === "string" &&
+              msg.includes("externalized for browser compatibility") &&
+              msg.includes("discoverVideoSources")
+            )
+              return;
+            originalWarn(msg, options);
+          };
+        },
+      },
+    ],
+    build: {
+      chunkSizeWarningLimit: 1024,
+    },
     css: {
       devSourcemap: true,
-      transformer: "lightningcss",
-    },
-    build: {
-      cssMinify: "lightningcss",
     },
     resolve: {
       alias: {

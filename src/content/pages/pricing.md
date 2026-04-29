@@ -11,7 +11,7 @@ pageSections:
       color: brand-gradient
       background: true
       iconOffset: true
-      alignX: center
+      alignmentHorizontal: center
     eyebrowText:
     heading: >-
       Pricing designed<br />by <span class="highlight-text">engineers</span><br
@@ -71,7 +71,7 @@ pageSections:
                 iconName: heart
                 iconColor: default
             direction: vertical
-            alignX: start
+            alignmentHorizontal: start
             size: md
             listType: icon
           button:
@@ -108,7 +108,7 @@ pageSections:
                 iconName: heart
                 iconColor: default
             direction: vertical
-            alignX: start
+            alignmentHorizontal: start
             size: md
             listType: icon
           button:
@@ -171,7 +171,7 @@ pageSections:
                 iconName: heart
                 iconColor: default
             direction: vertical
-            alignX: start
+            alignmentHorizontal: start
             size:
             listType: icon
           button:
@@ -294,7 +294,7 @@ pageSections:
 
 
                   We've timed it. Multiple times. With stopwatches.
-                alignX: start
+                alignmentHorizontal: start
               - _component: building-blocks/wrappers/button-group
                 label:
                 buttonSections:
@@ -307,7 +307,7 @@ pageSections:
                     variant: secondary
                     size: md
                 direction: row
-                alignX: start
+                alignmentHorizontal: start
             secondColumnContentSections:
               - _component: building-blocks/core-elements/image
                 id: ''
@@ -346,7 +346,7 @@ pageSections:
                   suggest upgrading to a tier that matches your actual usage —
                   our billing team considers surprises a sign of poor
                   communication.
-                alignX: start
+                alignmentHorizontal: start
               - _component: building-blocks/wrappers/button-group
                 label:
                 buttonSections:
@@ -359,7 +359,7 @@ pageSections:
                     variant: secondary
                     size: md
                 direction: row
-                alignX: start
+                alignmentHorizontal: start
             secondColumnContentSections:
               - _component: building-blocks/core-elements/image
                 id: ''
@@ -399,7 +399,7 @@ pageSections:
                   our legal team insists is still too generous but our
                   engineering team considers appropriately respectful of
                   people's time.
-                alignX: start
+                alignmentHorizontal: start
               - _component: building-blocks/wrappers/button-group
                 label:
                 buttonSections:
@@ -412,7 +412,7 @@ pageSections:
                     variant: secondary
                     size: md
                 direction: row
-                alignX: start
+                alignmentHorizontal: start
             secondColumnContentSections:
               - _component: building-blocks/core-elements/image
                 id: ''

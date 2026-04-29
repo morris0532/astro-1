@@ -12,6 +12,7 @@ const {
   socials = [],
   footerText = "",
   logoSource,
+  logoAlternateSource,
   logoAlt,
   useDefaultEditableBinding: _useDefaultEditableBinding = false,
   _component,
@@ -33,6 +34,7 @@ const {
       <div class="content-container">
         <Image
           source={logoSource}
+          alternateSource={logoAlternateSource}
           alt={logoAlt}
           class="footer-logo"
           useDefaultEditableBinding={false}
@@ -59,7 +61,7 @@ const {
       </div>
       <div class="content-container">
         <ButtonGroup
-          alignX="end"
+          alignmentHorizontal="end"
           useDefaultEditableBinding={false}
         >
           {

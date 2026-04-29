@@ -18,13 +18,16 @@ const {
   formBlocks = [],
   buttonSections = [],
   reverse = false,
+  sectionLabel,
   maxContentWidth = "2xl",
+  paddingHorizontal = "lg",
   paddingVertical = "4xl",
   colorScheme = "inherit",
   backgroundColor,
   contentBackground = false,
   verticalOffset = {},
   rounded = false,
+  background,
   class: className,
   useDefaultEditableBinding = false,
   _component,
@@ -34,28 +37,30 @@ const {
 
 <CustomSection
   class:list={["cta-form", className]}
+  label={sectionLabel}
   maxContentWidth={maxContentWidth}
-  paddingHorizontal="lg"
+  paddingHorizontal={paddingHorizontal}
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
   contentBackground={contentBackground}
   verticalOffset={verticalOffset}
   rounded={rounded}
-  id={id}
+  background={background}
+  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <Split
     class="split"
     distributionMode="two-thirds-third"
-    verticalAlignment="center"
+    alignmentVertical="center"
     reverse={reverse}
     minSplitWidth={640}
   >
     <Fragment slot="first">
       <Icon {...eyebrowIcon} />
       <SimpleText
-        alignX="start"
+        alignmentHorizontal="start"
         class="eyebrow"
         data-prop="eyebrowText"
       >
@@ -68,7 +73,7 @@ const {
         text={heading}
       />
       <Text
-        alignX="start"
+        alignmentHorizontal="start"
         data-prop="subtext"
         text={subtext}
         style="max-width: 540px;"

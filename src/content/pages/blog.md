@@ -11,7 +11,7 @@ heroSections:
       color: brand-gradient
       background: true
       iconOffset: true
-      alignX: start
+      alignmentHorizontal: start
     heading: The engineering journal
     subtext: >-
       Insights, updates, and occasional technical deep-dives from the team that
@@ -78,7 +78,7 @@ ctaSections:
     eyebrowIcon: {}
     eyebrowText:
     heading: Let's build your next tech breakthough together
-    subtext: s
+    subtext: 
     buttonSections:
       - _component: building-blocks/core-elements/button
         text: Or talk to us about fiber optics instead

@@ -23,9 +23,10 @@ const {
   contentBackground,
   verticalOffset = {},
   rounded = false,
+  class: className,
+  editable = false,
   useDefaultEditableBinding = false,
   _component,
-  class: className,
   ...htmlAttributes
 } = Astro.props;
 
@@ -67,6 +68,7 @@ if (useCollection) {
   verticalOffset={verticalOffset}
   rounded={rounded}
   id={id}
+  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <Icon
@@ -112,7 +114,7 @@ if (useCollection) {
           data-index={index}
           data-editable={useCollection ? undefined : "array-item"}
           data-id={useCollection ? undefined : "page-sections/people/team-grid/team-item"}
-          useDefaultEditableBinding={useCollection ? false : true}
+          editable={useCollection ? false : true}
         />
       ))
     }

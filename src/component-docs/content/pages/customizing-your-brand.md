@@ -44,6 +44,39 @@ The key variables to update first:
 
 The dark theme lives in `src/styles/themes/_dark.css` and uses the same variable names. Update both to keep your brand consistent across color schemes.
 
+## Light/dark mode toggle
+
+The starter includes an optional theme toggle that lets visitors switch between light and dark mode. Enable it in `src/data/mainNav.json`:
+
+```json
+{
+  "themeToggle": true
+}
+```
+
+When enabled, a sun/moon toggle appears in the main navigation, mobile menu, and component docs sidebar. The toggle:
+
+- **Respects system preference** — if the visitor hasn't made a choice, their OS setting is used
+- **Persists to localStorage** — once toggled, the choice sticks across page loads
+- **Prevents flash** — an inline script in `<head>` applies the stored theme before first paint
+
+The default theme for your site is set in `src/layouts/BaseLayout.astro` on the `<html>` element (`data-theme="light"`). If you want a dark-default site, change this to `data-theme="dark"` and update `_dark.css` to be your primary palette.
+
+### Theme-aware images
+
+Some images — logos, diagrams, illustrations — need a different version for each theme. The **Image** component supports this with the `alternateSource` prop:
+
+```yaml
+- _component: building-blocks/core-elements/image
+  source: /src/assets/images/logo.svg
+  alternateSource: /src/assets/images/logo-dark.svg
+  alt: Logo
+```
+
+The `source` is shown by default. When the visitor toggles the theme, the `alternateSource` is shown instead. Toggling back restores the original. This only responds to the global theme toggle — section-level `colorScheme` changes (like a dark section on a light page) won't swap the image.
+
+The main navigation logo supports this too via `logoAlternateSource` in `src/data/mainNav.json`.
+
 ## How themes work inside components
 
 Themes aren't just a global toggle. They're used **per-section** within your pages. Components like `CustomSection` and `Card` have a `colorScheme` prop that switches the theme for that section and everything inside it.
@@ -63,18 +96,9 @@ This is why both theme files are important. Even if your site is primarily light
 
 ## Changing fonts
 
-Open `src/styles/variables/_fonts.css`:
+**Families and loading:** install the font locally with `npm install @fontsource/<font-name>`, then edit `site-fonts.mjs` at the project root. That file is the single source of truth for [Astro’s Fonts config](https://docs.astro.build/en/guides/fonts/) and for which families get `<Font />` tags via `src/layouts/SiteFonts.astro`. Change `name`, `weights`, and `cssVariable` there. The default provider is `fontProviders.fontsource()` which resolves from the installed `@fontsource` packages. For proprietary fonts not on Fontsource, use `fontProviders.local()` with `.woff2` files in `src/assets/fonts/`. Keep `cssVariable` aligned with how you use tokens in CSS: defaults are `--font-body` and `--font-headings`.
 
-```css
-:where(:root) {
-  --font-body: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, ...;
-  --font-headings: var(--font-body);
-}
-```
-
-Swap these with your brand fonts. If headings and body text should use different families, give `--font-headings` its own stack. If you're using custom web fonts, also load/import them in `src/layouts/BaseLayout.astro` so those font-family variables can actually render your chosen typefaces.
-
-The size scale is also here: `--font-size-xs` through `--font-size-4xl` for body text, plus a separate heading scale.
+**Sizes and weights:** open `src/styles/variables/_fonts.css` for the size scale (`--font-size-xs` through `--font-size-4xl`, plus the heading scale) and `--font-weight-*` tokens—not for the font family names.
 
 ## The base color palette
 

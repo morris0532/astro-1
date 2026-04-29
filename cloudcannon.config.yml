@@ -63,7 +63,6 @@ collections_config:
     _enabled_editors:
       - content
       - visual
-    new_preview_url: /blog/
     _inputs:
       title:
         type: text

@@ -59,14 +59,14 @@ const {
       class="feature-title"
       level="h3"
       size="md"
-      alignX="start"
+      alignmentHorizontal="start"
       data-prop="title"
     >
       {title}
     </Heading>
     <Text
       class="feature-description"
-      alignX="start"
+      alignmentHorizontal="start"
       data-prop="description"
       text={description}
     />
@@ -78,9 +78,12 @@ const {
     .feature-item {
       display: flex;
       flex-direction: column;
+      height: 100%;
+      
       .card-content {
         display: flex;
         flex-direction: column;
+        flex: 1;
         justify-content: center;
       }
     }

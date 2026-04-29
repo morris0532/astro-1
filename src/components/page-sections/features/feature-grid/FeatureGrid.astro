@@ -21,12 +21,15 @@ const {
     rounded: false,
     overhang: false,
   },
+  sectionLabel,
   maxContentWidth = "xl",
+  paddingHorizontal = "lg",
   paddingVertical = "4xl",
   colorScheme = "inherit",
   backgroundColor,
   contentBackground,
   verticalOffset = {},
+  background,
   rounded = false,
   class: className,
   useDefaultEditableBinding = false,
@@ -37,21 +40,24 @@ const {
 
 <CustomSection
   class:list={["feature-grid", className]}
+  label={sectionLabel}
   maxContentWidth=""
   paddingHorizontal=""
   paddingVertical={paddingVertical}
   rounded={rounded}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  background={background}
   verticalOffset={verticalOffset}
   id={id}
+  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <CustomSection
     class:list={["feature-grid-content", className]}
     style={`--padding-between: var(--spacing-${paddingVertical})`}
     maxContentWidth={maxContentWidth}
-    paddingHorizontal="md"
+    paddingHorizontal={paddingHorizontal}
     paddingVertical=""
     rounded={rounded}
     colorScheme={colorScheme}
@@ -60,7 +66,7 @@ const {
   >
     <Icon {...eyebrowIcon} />
     <SimpleText
-      alignX="center"
+      alignmentHorizontal="center"
       class="eyebrow"
       data-prop="eyebrowText"
     >
@@ -69,13 +75,13 @@ const {
     <Heading
       level="h2"
       size="lg"
-      alignX="center"
+      alignmentHorizontal="center"
       data-prop="heading"
       text={heading}
     />
     <Text
       class="feature-grid-subtext"
-      alignX="center"
+      alignmentHorizontal="center"
       data-prop="subtext"
       text={subtext}
     />
@@ -120,6 +126,7 @@ const {
     .feature-grid-content {
       padding-bottom: var(--padding-between);
     }
+    
     .feature-grid-background-overhang > .outer-content > .background {
       margin-top: var(--spacing-3xl);
       margin-bottom: var(--spacing-3xl);

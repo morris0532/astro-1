@@ -57,8 +57,12 @@ function initializeBuilder(): void {
   const sidebarTitle = document.getElementById("sidebar-title");
   const exportBtn = document.getElementById("export-btn") as HTMLElement;
   const exportBar = document.querySelector(".export-bar") as HTMLElement;
-  const exportBtnInner = exportBtn?.querySelector(".button-inner") as HTMLButtonElement | null;
-  const exportBtnLabel = exportBtn?.querySelector(".label-text") as HTMLElement | null;
+  const exportBtnInner = (
+    exportBtn?.classList.contains("button-inner")
+      ? exportBtn
+      : exportBtn?.querySelector(".button-inner")
+  ) as HTMLButtonElement | null;
+  const exportBtnLabel = exportBtnInner?.querySelector(".label-text") as HTMLElement | null;
 
   if (!sandbox || !sidebarContent || !sidebarTitle || !exportBtn || !exportBar || !exportBtnInner) {
     console.error("[ComponentBuilder] Missing required DOM elements");
@@ -101,6 +105,19 @@ function initializeBuilder(): void {
     e.preventDefault();
     e.stopPropagation();
     handleExport();
+  });
+
+  // Reset button handler
+  const resetBtn = document.getElementById("reset-btn");
+
+  resetBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!confirm("Reset the builder? All current progress will be lost.")) return;
+    builderState.reset();
+    const buildTab = document.querySelector('[data-view="build"]') as HTMLElement | null;
+
+    buildTab?.click();
   });
 
   // Update sidebar based on selection

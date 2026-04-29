@@ -1,6 +1,5 @@
 ---
 const {
-  id,
   html,
   aspectRatio = "landscape",
   class: className,
@@ -8,20 +7,17 @@ const {
   _component,
   ...htmlAttributes
 } = Astro.props;
-
-const slot = await Astro.slots.render("default");
-const content = slot || html;
 ---
 
 <div
   class:list={["embed-wrapper", className]}
   {...htmlAttributes}
 >
-  <div
-    id={id}
-    class:list={["embed-content", `ratio-${aspectRatio}`]}
-    set:html={content}
-  />
+  <div class:list={["embed-content", `ratio-${aspectRatio}`]}>
+    <slot>
+      <Fragment set:html={html} />
+    </slot>
+  </div>
 </div>
 
 <style is:global>

@@ -55,12 +55,15 @@ if (!_component && ((!hasTitle && !hasTitleSlotContent) || (!hasText && !hasSlot
   </dd>
 </div>
 
-<style>
+<style is:global>
   @layer components {
     .definition-list-item {
-      display: contents;
+      align-items: inherit;
+      display: grid;
+      grid-column: 1 / -1;
+      grid-template-columns: subgrid;
 
-      .title {
+      > .title {
         font-weight: var(--font-weight-bold);
       }
     }

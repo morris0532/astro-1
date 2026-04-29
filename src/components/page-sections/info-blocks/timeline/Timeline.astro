@@ -131,7 +131,7 @@ const {
 
     <div class="timeline-navigation">
       <ButtonGroup
-        alignX="end"
+        alignmentHorizontal="end"
         class="timeline-navigation-button-group"
       >
         <Button
@@ -236,7 +236,7 @@ const {
       .timeline-navigation-button-group {
         gap: var(--spacing-xl);
 
-        .button[disabled] {
+        .button[disabled] .button-inner {
           background-color: var(--color-disabled-bg);
           color: var(--color-text-on-brand);
           cursor: not-allowed;
