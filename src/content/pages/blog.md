@@ -69,7 +69,7 @@ heroSections:
           subtext: All-hands meetings to convince management
     maxContentWidth: 2xl
     paddingVertical: 4xl
-    colorScheme: light
+    colorScheme: inherit
     backgroundColor: base
     verticalOffset:
       size: xl
