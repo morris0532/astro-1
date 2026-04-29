@@ -24,6 +24,11 @@ collections_config:
         type: text
         comment: Controls the metadata title for the page.
         cascade: true
+      keywords:
+        type: array
+        comment: Optional meta keywords for this page.
+      keywords[*]:
+        type: text
     add_options:
       - name: Add New Page
         icon: pages
@@ -70,6 +75,11 @@ collections_config:
           required: true
         comment: The title of the blog post.
         cascade: false
+      keywords:
+        type: array
+        comment: Optional meta keywords for this page.
+      keywords[*]:
+        type: text
       description:
         type: textarea
         options:
