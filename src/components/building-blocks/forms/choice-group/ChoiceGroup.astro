@@ -16,54 +16,64 @@ const inputType = multiple ? "checkbox" : "radio";
 const inputName = multiple ? `${name}[]` : name;
 ---
 
-<fieldset
-  class:list={["choice-group", `orientation-${orientation}`, multiple && "multiple", className]}
-  role={multiple ? "group" : "radiogroup"}
+<div
+  class:list={["choice-group", className]}
   {...htmlAttributes}
 >
-  {
-    title && (
-      <legend class="legend">
-        {title}
-        {required && (
-          <span
-            class="choice-group-required"
-            aria-label="required"
-          >
-            *
-          </span>
-        )}
-      </legend>
-    )
-  }
-  <div class="choice-group-options">
+  <fieldset
+    class="choice-group-fieldset"
+    role={multiple ? "group" : "radiogroup"}
+  >
     {
-      options.map((option, index) => (
-        <label class="choice-group-option">
-          <input
-            type={inputType}
-            name={inputName}
-            value={option.value}
-            checked={option.checked || false}
-            required={required && index === 0}
-            aria-required={required && index === 0}
-            class="choice-group-field"
-          />
-          <span class="choice-group-label-text">{option.label}</span>
-        </label>
-      ))
+      title && (
+        <legend class="legend">
+          {title}
+          {required && (
+            <span
+              class="choice-group-required"
+              aria-label="required"
+            >
+              *
+            </span>
+          )}
+        </legend>
+      )
     }
-  </div>
-</fieldset>
+    <div
+      class:list={["choice-group-options", `orientation-${orientation}`, multiple && "multiple"]}
+    >
+      {
+        options.map((option, index) => (
+          <label class="choice-group-option">
+            <input
+              type={inputType}
+              name={inputName}
+              value={option.value}
+              checked={option.checked || false}
+              required={required && index === 0}
+              aria-required={required && index === 0}
+              class="choice-group-field"
+            />
+            <span class="choice-group-label-text">{option.label}</span>
+          </label>
+        ))
+      }
+    </div>
+  </fieldset>
+</div>
 
 <style is:global>
   @layer components {
     .choice-group {
+      margin-bottom: var(--spacing-md);
+      width: 100%;
+    }
+
+    .choice-group-fieldset {
       display: flex;
       flex-direction: column;
       gap: var(--spacing-sm);
       margin: 0;
-      margin-bottom: var(--spacing-md);
       padding: var(--spacing-md);
       width: 100%;
 

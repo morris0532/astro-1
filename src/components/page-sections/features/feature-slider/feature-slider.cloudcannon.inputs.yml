@@ -25,7 +25,6 @@ slides:
           description: Short description for this slide.
           imageSource: /src/assets/images/component-docs/sunset.jpg
           imageAlt: Slide image alt text
-          minSplitWidth: 0
         preview:
           text:
             - key: title
