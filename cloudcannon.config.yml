@@ -285,6 +285,25 @@ collections_config:
       need to update it in this one location.
     _enabled_editors:
       - data
+    schemas:
+      seo:
+        name: SEO Settings
+        path: .cloudcannon/schemas/seo.json
+        remove_extra_inputs: false
+        preview:
+          text:
+            - SEO
+        _inputs:
+          name:
+            comment: Site name used in structured data and as the fallback brand name in SEO metadata.
+          url:
+            comment: Production site URL used for canonical links and structured data.
+          description:
+            comment: Default meta description used when a page or blog post does not provide its own description.
+          logoSource:
+            comment: Default image used for social sharing metadata when a page or blog post does not provide its own image.
+          titleFormat:
+            comment: Browser title template. Include {title} where the page title should appear.
     _inputs:
       logoSource:
         type: image
@@ -292,6 +311,17 @@ collections_config:
           paths:
             uploads: src/assets/images
         cascade: true
+          resize_style: contain
+          width: 1920
+          height: 1280
+      logoAlternateSource:
+        type: image
+        options:
+          paths:
+            uploads: src/assets/images
+          resize_style: contain
+          width: 1920
+          height: 1280
       image:
         type: image
         options:
@@ -308,6 +338,8 @@ _inputs:
   logoSource:
     type: image
     cascade: true
+  logoAlternateSource:
+    type: image
 _select_data:
   icons:
     - id: academic-cap
