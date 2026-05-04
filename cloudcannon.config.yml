@@ -310,10 +310,10 @@ collections_config:
         options:
           paths:
             uploads: src/assets/images
-        cascade: true
           resize_style: contain
           width: 1920
           height: 1280
+        cascade: true
       logoAlternateSource:
         type: image
         options:
