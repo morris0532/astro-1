@@ -1,7 +1,11 @@
 ---
 _schema: default
 title: Jetstream | Astro Template for CloudCannon
-description: 'An Astro template built for CloudCannon with visual editing, flexible components, and an exceptional developer experience. Deploy your next project with speed and style.'
+description: >-
+  An Astro template built for CloudCannon with visual editing, flexible
+  components, and an exceptional developer experience. Deploy your next project
+  with speed and style.
+keywords: []
 pageSections:
   - _component: page-sections/heroes/hero-center
     eyebrowIcon: {}
@@ -16,16 +20,19 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: Deploy Jetstream on CloudCannon
         hideText: false
-        link: 'https://app.cloudcannon.com/register#sites/connect/github/cloudcannon/jetstream-astro-template'
+        link: >-
+          https://app.cloudcannon.com/register#sites/connect/github/cloudcannon/jetstream-astro-template
         iconName: arrow-up-right
+        iconColor: default
         iconPosition: after
         variant: primary
         size: md
       - _component: building-blocks/core-elements/button
         text: Check out the Component Starter
         hideText: false
-        link: 'https://github.com/CloudCannon/astro-component-starter'
+        link: https://github.com/CloudCannon/astro-component-starter
         iconName: arrow-up-right
+        iconColor: default
         iconPosition: after
         variant: tertiary
         size: md
@@ -60,25 +67,34 @@ pageSections:
     images:
       - source: /src/assets/images/apex.svg
         alt: Apex logo
+        link: ''
       - source: /src/assets/images/aura.svg
         alt: Aura logo
+        link: ''
       - source: /src/assets/images/business2.svg
         alt: Fake Business logo
+        link: ''
       - source: /src/assets/images/businesss.svg
         alt: Vantage logo
+        link: ''
       - source: /src/assets/images/dental.svg
         alt: Align logo
+        link: ''
       - source: /src/assets/images/fake-uni.svg
         alt: Fake University logo
+        link: ''
       - source: /src/assets/images/fintech.svg
         alt: Fintech logo
+        link: ''
       - source: /src/assets/images/medical.svg
         alt: Omnia logo
+        link: ''
     maxContentWidth: 2xl
     paddingVertical: 4xl
     colorScheme: light
     backgroundColor: surface-linear-gradient
     contentBackground: false
+    lockColorScheme: true
     verticalOffset:
       size: 2xl
       direction: front
@@ -228,14 +244,19 @@ pageSections:
             label: ''
             firstColumnContentSections:
               - _component: building-blocks/core-elements/image
-                id: ''
                 source: /src/assets/images/medi-connect.png
                 alt: Person thinking
+                sizes: '(max-width: 1280px) 100vw, 1280px'
+                widths:
+                  - 640
+                  - 1280
+                  - 2560
                 rounded: false
                 aspectRatio: none
                 positionVertical: center
                 positionHorizontal: center
                 priority: false
+                id: ''
             secondColumnContentSections:
               - _component: building-blocks/core-elements/counter
                 number: 94
@@ -246,6 +267,7 @@ pageSections:
               - _component: building-blocks/core-elements/text
                 text: '**Reduction in connection quality complaints**'
                 alignmentHorizontal: start
+                size: md
               - _component: building-blocks/core-elements/counter
                 number: 340
                 prefix:
@@ -255,6 +277,7 @@ pageSections:
               - _component: building-blocks/core-elements/text
                 text: '**More numbers than other companies**'
                 alignmentHorizontal: start
+                size: md
             distributionMode: three-quarters-quarter
             fixedWidth:
             minSplitWidth: 760
@@ -291,14 +314,19 @@ pageSections:
             label: ''
             firstColumnContentSections:
               - _component: building-blocks/core-elements/image
-                id: ''
                 source: /src/assets/images/fin-trust.png
                 alt: Fintrust dashboard
+                sizes: '(max-width: 1280px) 100vw, 1280px'
+                widths:
+                  - 640
+                  - 1280
+                  - 2560
                 rounded: false
                 aspectRatio: none
                 positionVertical: center
                 positionHorizontal: center
                 priority: false
+                id: ''
             secondColumnContentSections:
               - _component: building-blocks/core-elements/counter
                 number: 2.3
@@ -309,6 +337,7 @@ pageSections:
               - _component: building-blocks/core-elements/text
                 text: '**Average transaction completion time**'
                 alignmentHorizontal: start
+                size: md
               - _component: building-blocks/core-elements/counter
                 number: 100
                 prefix:
@@ -318,6 +347,7 @@ pageSections:
               - _component: building-blocks/core-elements/text
                 text: '**Mitigation rate against 12,000+ daily attack attempts**'
                 alignmentHorizontal: start
+                size: md
             distributionMode: three-quarters-quarter
             fixedWidth:
             minSplitWidth: 760
@@ -345,6 +375,14 @@ pageSections:
     paddingVertical: 2xl
     colorScheme: dark
     backgroundColor: highlight-radial-gradient
+    background:
+      type: image
+      positionVertical: top
+      positionHorizontal: center
+      priority: false
+      imageSource: ''
+      imageAlt: ''
+      overlay: 0
   - _component: page-sections/features/feature-grid
     eyebrowIcon:
       _component: building-blocks/core-elements/icon
@@ -394,6 +432,7 @@ pageSections:
             hideText: false
             link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
+            iconColor: default
             iconPosition: after
             variant: secondary
             size: md
@@ -431,6 +470,7 @@ pageSections:
             hideText: false
             link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
+            iconColor: default
             iconPosition: after
             variant: secondary
             size: md
@@ -461,6 +501,7 @@ pageSections:
         hideText: false
         link: ''
         iconName: calendar
+        iconColor: default
         iconPosition: before
         variant: primary
         size: md
