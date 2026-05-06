@@ -10,9 +10,11 @@ const {
   autoPlay = false,
   autoScroll = false,
   showIndicators = true,
+  /** `"dots"` (default) or `"fraction"` (e.g. `1/3`). */
+  indicatorStyle = "dots",
   showArrows = true,
   loop = true,
-  align = "center",
+  alignmentHorizontal = "center",
   slidesToScroll = "auto",
   slideWidthPercent = 100,
   minSlideWidth = 0,
@@ -32,10 +34,13 @@ if (!htmlAttributes.id && label) {
 
 const dataAttributes: Record<string, string> = {};
 
-dataAttributes["data-show-indicators"] = String(showIndicators);
-dataAttributes["data-show-arrows"] = String(showArrows);
+const effectiveShowIndicators = autoScroll ? false : showIndicators;
+const effectiveShowArrows = autoScroll ? false : showArrows;
+
+dataAttributes["data-show-indicators"] = String(effectiveShowIndicators);
+dataAttributes["data-show-arrows"] = String(effectiveShowArrows);
 dataAttributes["data-loop"] = String(loop);
-dataAttributes["data-align"] = String(align);
+dataAttributes["data-align"] = String(alignmentHorizontal);
 dataAttributes["data-slides-to-scroll"] = String(slidesToScroll);
 
 if (autoPlay) {
@@ -44,8 +49,6 @@ if (autoPlay) {
 
 if (autoScroll) {
   dataAttributes["data-autoscroll"] = "1";
-  dataAttributes["data-show-indicators"] = "false";
-  dataAttributes["data-show-arrows"] = "false";
 }
 
 const effectiveChildrenProp = childrenDataProp ?? (editable ? "slides" : null);
@@ -103,147 +106,54 @@ if (!_component && !hasSlides && !hasSlotContent) return;
       </div>
     </div>
 
-    <div class="controls-wrapper">
-      <Button
-        iconName="arrow-left"
-        size="md"
-        variant="tertiary"
-        hideText={true}
-        aria-label="Previous slide"
-        class="prev"
-        element="button"
-      />
+    {
+      (effectiveShowArrows || effectiveShowIndicators) && (
+        <div class="controls-wrapper">
+          {effectiveShowArrows && (
+            <Button
+              iconName="chevron-left"
+              size="none"
+              variant="tertiary"
+              hideText={true}
+              aria-label="Previous slide"
+              class="prev"
+              element="button"
+            />
+          )}
 
-      <div class="indicators"></div>
+          {effectiveShowIndicators &&
+            (indicatorStyle === "fraction" ? (
+              <div
+                class="carousel-fraction"
+                aria-live="polite"
+                aria-atomic="true"
+              />
+            ) : (
+              <div class="indicators" />
+            ))}
 
-      <Button
-        iconName="arrow-right"
-        size="md"
-        variant="tertiary"
-        hideText={true}
-        aria-label="Next slide"
-        class="next"
-        element="button"
-      />
-    </div>
+          {effectiveShowArrows && (
+            <Button
+              iconName="chevron-right"
+              size="none"
+              variant="tertiary"
+              hideText={true}
+              aria-label="Next slide"
+              class="next"
+              element="button"
+            />
+          )}
+        </div>
+      )
+    }
   </div>
 </section>
 
 <script>
-  import EmblaCarousel from "embla-carousel";
-  import AutoScroll from "embla-carousel-auto-scroll";
-  import Autoplay from "embla-carousel-autoplay";
+  import { onPageLoad } from "@component-utils/onPageLoad";
+  import { setupAllCarousels } from "./setup";
 
-  function setupCarousels() {
-    const carousels = document.querySelectorAll(".carousel");
-
-    carousels.forEach((carousel) => {
-      if (carousel.hasAttribute("data-embla-initialized")) {
-        return;
-      }
-
-      const inner = carousel.querySelector(".carousel-inner");
-      const viewport = inner?.querySelector(".viewport") as HTMLElement;
-      const track = viewport?.querySelector(".track");
-      const slides = track?.querySelectorAll(".slide");
-      const controlsWrapper = inner?.querySelector(".controls-wrapper");
-      const indicatorsContainer = controlsWrapper?.querySelector(".indicators");
-
-      if (!inner || !viewport || !track || !slides || !slides.length) {
-        console.warn("Carousel: Missing required elements");
-        return;
-      }
-
-      const loop = inner.hasAttribute("data-loop");
-      const slidesToScroll = inner.hasAttribute("data-slides-to-scroll")
-        ? Number(inner.getAttribute("data-slides-to-scroll")) || "auto"
-        : "auto";
-      const alignAttr = inner.getAttribute("data-align");
-      const align =
-        alignAttr === "start" || alignAttr === "center" || alignAttr === "end"
-          ? (alignAttr as "start" | "center" | "end")
-          : "start";
-
-      const plugins = [];
-      if (inner.hasAttribute("data-autoplay")) {
-        const autoplayInterval = Number(inner.getAttribute("data-autoplay")) * 1000 || 3000;
-        plugins.push(Autoplay({ delay: autoplayInterval, stopOnInteraction: false }));
-      }
-
-      let watchDrag = true;
-      if (inner.hasAttribute("data-autoscroll")) {
-        const scrollValue = parseFloat(inner.getAttribute("data-autoscroll") || "1");
-        const speed = isNaN(scrollValue) ? 1 : scrollValue;
-        plugins.push(AutoScroll({ speed }));
-        watchDrag = false;
-      }
-
-      const embla = EmblaCarousel(
-        viewport,
-        {
-          loop,
-          slidesToScroll,
-          align,
-          watchDrag,
-          duration: 20,
-          startIndex: 0,
-          skipSnaps: false,
-          inViewThreshold: 0.7,
-        },
-        plugins
-      );
-
-      carousel.setAttribute("data-embla-initialized", "true");
-
-      const prevButton = inner.querySelector(".prev > .button-inner") as HTMLButtonElement;
-      const nextButton = inner.querySelector(".next > .button-inner") as HTMLButtonElement;
-
-      const updateButtons = () => {
-        if (prevButton) prevButton.disabled = !embla.canScrollPrev();
-        if (nextButton) nextButton.disabled = !embla.canScrollNext();
-      };
-
-      updateButtons();
-      embla.on("select", updateButtons);
-      if (prevButton) prevButton.addEventListener("click", () => embla.scrollPrev());
-      if (nextButton) nextButton.addEventListener("click", () => embla.scrollNext());
-
-      if (indicatorsContainer) {
-        const renderDots = () => {
-          indicatorsContainer.innerHTML = "";
-          embla.scrollSnapList().forEach((_, index) => {
-            const dot = document.createElement("button");
-            dot.className = "indicator";
-            dot.setAttribute("type", "button");
-            dot.setAttribute("aria-label", `Go to position ${index + 1}`);
-            dot.setAttribute("data-selected", (index === embla.selectedScrollSnap()).toString());
-            dot.setAttribute("aria-selected", (index === embla.selectedScrollSnap()).toString());
-            dot.addEventListener("click", () => embla.scrollTo(index));
-            indicatorsContainer.appendChild(dot);
-          });
-        };
-
-        const updateSelectedDot = () => {
-          indicatorsContainer.querySelectorAll(".indicator").forEach((dot, index) => {
-            const isSelected = index === embla.selectedScrollSnap();
-            dot.setAttribute("data-selected", isSelected.toString());
-            dot.setAttribute("aria-selected", isSelected.toString());
-          });
-        };
-
-        embla.on("select", updateSelectedDot);
-        embla.on("reInit", renderDots);
-        renderDots();
-      }
-    });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupCarousels);
-  } else {
-    setupCarousels();
-  }
-  document.addEventListener("astro:page-load", setupCarousels);
+  onPageLoad(() => setupAllCarousels());
 </script>
 
 <style is:global>
@@ -284,6 +194,11 @@ if (!_component && !hasSlides && !hasSlotContent) return;
           justify-content: center;
           margin-bottom: var(--spacing-sm);
           margin-top: var(--spacing-sm);
+
+          svg {
+            width: 18px;
+            height: 18px;
+          }
         }
 
         > .controls-wrapper > .prev > .button-inner,
@@ -325,15 +240,26 @@ if (!_component && !hasSlides && !hasSlotContent) return;
         }
 
         &[data-show-indicators="false"] {
-          > .controls-wrapper > .indicators {
+          > .controls-wrapper > .indicators,
+          > .controls-wrapper > .carousel-fraction {
             display: none;
           }
         }
 
+        > .controls-wrapper > .carousel-fraction {
+          color: var(--color-text-muted);
+          flex-shrink: 0;
+          font-size: var(--font-size-sm);
+          font-variant-numeric: tabular-nums;
+          line-height: 1.2;
+          min-width: 3ch;
+          text-align: center;
+        }
+
         &[data-show-arrows="false"] {
-          > .controls-wrapper > .prev,
-          > .controls-wrapper > .next {
-            display: none;
+          .controls-wrapper > .prev,
+          .controls-wrapper > .next {
+            display: none !important;
           }
         }
       }

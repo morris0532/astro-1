@@ -5,6 +5,9 @@ value:
   _component: page-sections/features/feature-slider
   id:
   slides: []
+  maxContentWidth: xl
+  paddingHorizontal: lg
+  paddingVertical: 4xl
   colorScheme: inherit
   backgroundColor: base
   paddingVertical: 4xl

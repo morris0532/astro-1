@@ -34,7 +34,7 @@ examples:
       - alignment-end-horizontal
       - alignment-center-vertical-bullet
       - alignment-end-horizontal-numbered
-    title: AlignX
+    title: alignmentHorizontal
   - slugs:
       - size-xs
       - size-sm

@@ -32,7 +32,7 @@ blocks:
           distributionMode: three-quarters-quarter
           fixedWidth:
           minSplitWidth: 760
-          verticalAlignment: center
+          alignmentVertical: center
           reverse: false
           reverseOrderOnMobile: false
           gap: lg
@@ -70,7 +70,7 @@ blocks:
           distributionMode: three-quarters-quarter
           fixedWidth:
           minSplitWidth: 760
-          verticalAlignment: center
+          alignmentVertical: center
           reverse: false
           reverseOrderOnMobile: false
           gap: lg
@@ -95,7 +95,7 @@ blocks:
           distributionMode: three-quarters-quarter
           fixedWidth:
           minSplitWidth: 760
-          verticalAlignment: center
+          alignmentVertical: center
           reverse: false
           reverseOrderOnMobile: false
           gap: lg
@@ -133,7 +133,7 @@ blocks:
           distributionMode: three-quarters-quarter
           fixedWidth:
           minSplitWidth: 760
-          verticalAlignment: center
+          alignmentVertical: center
           reverse: false
           reverseOrderOnMobile: false
           gap: lg

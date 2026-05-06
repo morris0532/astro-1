@@ -52,7 +52,7 @@ export async function getStaticPaths() {
   const posts = await getCollection("blog");
 
   return posts.map((post: CollectionEntry<"blog">) => {
-    const slug = post.id?.replace(/\.mdx?$/, "") || post.slug;
+    const slug = post.id.replace(/\.mdx?$/, "");
 
     return {
       params: { slug },
@@ -83,12 +83,22 @@ const recentPosts = allPosts
 // Get author page from uuid
 const team = await getCollection("team");
 const author = team.find((m: any) => m.data.uuid === post.data.author);
+
+// Build article metadata for Open Graph
+const article = {
+  publishedTime: post.data.date.toISOString(),
+  author: author?.data.name,
+  tags: post.data.tag ? [post.data.tag] : undefined,
+};
 ---
 
 <Page
   title={post.data.title}
   description={post.data.description}
+  keywords={post.data.keywords}
   image={post.data.image}
+  type="article"
+  article={article}
 >
   <CustomSection
     class:list={["hero-feature"]}
@@ -210,6 +220,7 @@ const author = team.find((m: any) => m.data.uuid === post.data.author);
     colorScheme="inherit"
     backgroundColor="base"
     class="post-container"
+    data-pagefind-filter="Type:Article"
   >
     <Split
       distributionMode="three-quarters-quarter"
@@ -514,6 +525,18 @@ const author = team.find((m: any) => m.data.uuid === post.data.author);
       max-height: 150px;
       width: 100%;
     }
+  }
+
+  .post-tags .post-tag-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+  }
+
+  .post-tags .post-tag-link:hover {
+    color: var(--color-text-strong);
+    text-decoration-thickness: 2px;
   }
 </style>
 

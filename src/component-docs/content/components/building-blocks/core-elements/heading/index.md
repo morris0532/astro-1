@@ -12,7 +12,7 @@ examples:
       - types
   - slugs:
       - sizes
-  - title: AlignX
+  - title: alignmentHorizontal
     slugs:
       - align
   - slugs:

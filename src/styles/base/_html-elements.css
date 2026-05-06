@@ -20,6 +20,10 @@
       overflow: hidden !important;
     }
 
+    body[data-modal-scroll-lock] {
+      overflow: hidden !important;
+    }
+
     body,
     [data-theme="dark"],
     [data-theme="light"] {

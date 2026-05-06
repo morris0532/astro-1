@@ -333,7 +333,7 @@ pageSections:
             distributionMode: half
             fixedWidth:
             minSplitWidth: 760
-            verticalAlignment: center
+            alignmentVertical: center
             reverse: false
             reverseOrderOnMobile: false
             gap: lg
@@ -386,7 +386,7 @@ pageSections:
             distributionMode: half
             fixedWidth:
             minSplitWidth: 760
-            verticalAlignment: center
+            alignmentVertical: center
             reverse: false
             reverseOrderOnMobile: false
             gap: lg
@@ -440,7 +440,7 @@ pageSections:
             distributionMode: half
             fixedWidth:
             minSplitWidth: 760
-            verticalAlignment: center
+            alignmentVertical: center
             reverse: false
             reverseOrderOnMobile: false
             gap: lg

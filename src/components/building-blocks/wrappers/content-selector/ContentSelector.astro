@@ -176,7 +176,7 @@ if (!_component && !hasItems && !hasSlotContent) return;
         &.nav-start {
           column-gap: var(--spacing-em-lg);
           display: grid;
-          grid-template-columns: minmax(10rem, 20rem) minmax(0, 1fr);
+          grid-template-columns: minmax(min-content, max-content) minmax(0, 1fr);
 
           .content-selector-tab {
             border-inline-start: var(--content-selector-border-width) solid var(--color-bg-muted);

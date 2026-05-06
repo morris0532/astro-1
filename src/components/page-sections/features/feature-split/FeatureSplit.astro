@@ -18,6 +18,9 @@ const {
   imageAspectRatio = "portrait",
   imageRounded = true,
   reverse = false,
+  sectionLabel,
+  maxContentWidth = "xl",
+  paddingHorizontal = "lg",
   colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
@@ -33,8 +36,9 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
 
 <CustomSection
   class:list={["feature-split", className]}
-  maxContentWidth="xl"
-  paddingHorizontal="lg"
+  label={sectionLabel}
+  maxContentWidth={maxContentWidth}
+  paddingHorizontal={paddingHorizontal}
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}

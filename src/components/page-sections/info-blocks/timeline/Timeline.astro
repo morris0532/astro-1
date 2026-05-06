@@ -44,7 +44,7 @@ const {
 >
   <Icon {...eyebrowIcon} />
   <SimpleText
-    alignX="start"
+    alignmentHorizontal="start"
     class="eyebrow"
     data-prop="eyebrowText"
   >
@@ -53,13 +53,13 @@ const {
   <Heading
     level="h2"
     size="xl"
-    alignX="start"
+    alignmentHorizontal="start"
     data-prop="heading"
     text={heading}
   />
   <Text
     class="feature-carousel-grid-subtext"
-    alignX="start"
+    alignmentHorizontal="start"
     data-prop="subtext"
     text={subtext}
   />
@@ -108,7 +108,7 @@ const {
                     <Heading
                       level="h3"
                       size="md"
-                      alignX="start"
+                      alignmentHorizontal="start"
                       data-prop={`items.${index}.heading`}
                     >
                       {item.heading}
@@ -117,7 +117,7 @@ const {
                   {item.text && (
                     <Text
                       text={item.text}
-                      alignX="start"
+                      alignmentHorizontal="start"
                       data-prop={`items.${index}.text`}
                     />
                   )}
