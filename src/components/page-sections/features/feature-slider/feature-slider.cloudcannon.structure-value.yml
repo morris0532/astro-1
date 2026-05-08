@@ -116,21 +116,6 @@ _inputs:
     type: switch
     comment: Keep the selected color scheme from flipping when the visitor toggles the site theme.
     hidden: true
-  backgroundColor:
-    type: select
-    comment: Solid background color token behind the section content.
-    options:
-      values:
-        - id: none
-          name: None
-        - id: base
-          name: Base
-        - id: surface
-          name: Surface
-        - id: accent
-          name: Accent
-        - id: highlight
-          name: Highlight
   background:
     type: object
     comment: Optional background still image or looping HTML5 video (self-hosted). Shared positioning applies to whichever type you choose. Video is hidden when the user prefers reduced motion.
