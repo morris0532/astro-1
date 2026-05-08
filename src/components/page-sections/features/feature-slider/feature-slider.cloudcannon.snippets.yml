@@ -1,11 +1,11 @@
 featureSlider:
-  snippet: <FeatureSlider id=[[id]] slides={[[slides]]} colorScheme=[[colorScheme]] backgroundColor=[[backgroundColor]] />
+  snippet: <FeatureSlider id=[[id]] slides={[[slides]]} paddingVertical=[[paddingVertical]] colorScheme=[[colorScheme]] backgroundColor=[[backgroundColor]] rounded=[[rounded]] />
   inline: false
   preview:
     text:
       - Feature Slider
     subtext:
-      - key: heading
+      - key: id
     icon: view_carousel
   params:
     id:
@@ -22,6 +22,14 @@ featureSlider:
         model:
           editor_key: slides
           type: array
+    paddingVertical:
+      parser: argument
+      options:
+        model:
+          editor_key: paddingVertical
+          type: string
+          optional: true
+          remove_empty: true
     colorScheme:
       parser: argument
       options:
@@ -38,5 +46,13 @@ featureSlider:
           type: string
           optional: true
           remove_empty: true
+    rounded:
+      parser: argument
+      options:
+        model:
+          editor_key: rounded
+          type: boolean
+          optional: true
+          remove_empty: false
   _inputs_from_glob:
     - /src/components/page-sections/features/feature-slider/feature-slider.cloudcannon.inputs.yml

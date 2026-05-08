@@ -1,15 +1,6 @@
 id:
   type: text
   comment: Unique identifier for the section which can be used as an anchor link.
-eyebrow:
-  type: text
-  comment: Optional eyebrow text displayed above the heading.
-heading:
-  type: text
-  comment: Main heading for the slider section.
-subtext:
-  type: textarea
-  comment: Supporting copy beneath the heading.
 slides:
   type: array
   label: Slides
@@ -98,3 +89,26 @@ backgroundColor:
 rounded:
   type: switch
   comment: Whether to apply rounded corners to the section background.
+paddingVertical:
+  type: select
+  comment: Vertical padding for the section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: xs
+        name: Extra Small
+      - id: sm
+        name: Small
+      - id: md
+        name: Medium
+      - id: lg
+        name: Large
+      - id: xl
+        name: Extra Large
+      - id: 2xl
+        name: 2X Large
+      - id: 3xl
+        name: 3X Large
+      - id: 4xl
+        name: 4X Large
