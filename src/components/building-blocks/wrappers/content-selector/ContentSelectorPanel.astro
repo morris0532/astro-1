@@ -6,13 +6,10 @@ import Icon from "@core-elements/icon/Icon.astro";
 const {
   title,
   subtext,
-  iconName,
-  iconColor,
   contentSections,
   useDefaultEditableBinding = false,
   checked = false,
   groupName = "content-selector-tabs",
-  navigationPosition = "start",
   _component,
   "data-children-prop": childrenDataProp,
   ...htmlAttributes
@@ -58,13 +55,7 @@ const arrayDataAttributes = effectiveChildrenProp
       alignX="start"
       class="content-selector-tab-heading"
     />
-    {
-      subtext && (
-        <span class="content-selector-tab-subtext">
-          {subtext}
-        </span>
-      )
-    }
+    {subtext && <span class="content-selector-tab-subtext">{subtext}</span>}
     <Icon
       name="chevron-down"
       size="none"

@@ -24,46 +24,46 @@ const cardClasses = ["team-item", className].filter(Boolean).join(" ");
   <Card
     {...htmlAttributes}
     class:list={cardClasses || undefined}
-  paddingHorizontal="lg"
-  paddingVertical="sm"
-  rounded={false}
-  border={false}
-  backgroundColor=""
->
-  <div class="team-content">
-    <Heading
-      class="team-name"
-      level="h3"
-      size="md"
-      alignmentHorizontal="start"
-      style="margin-bottom: var(--spacing-xs); margin-top: 0;"
-      data-prop={ editable ? "name" : undefined }
-    >
-      {name}
-    </Heading>
-    <SimpleText
-      class="team-role"
-      size="sm"
-      alignmentHorizontal="start"
-      style="font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-sm);margin-top: 0;"
-      data-prop={editable ? "role" : undefined}
-    >
-      {role}
-    </SimpleText>
-  </div>
-  <div class="team-image-container">
-    <Image
-      class="team-image"
-      source={imageSource}
-      alt={imageAlt || name}
-      aspectRatio="square"
-      widths={[400, 800]}
-      sizes="400px"
-      data-prop-src={editable ? "imageSource" : undefined}
-      data-prop-alt={editable ? "imageAlt" : undefined}
-      slot="before"
-    />
-  </div>
+    paddingHorizontal="lg"
+    paddingVertical="sm"
+    rounded={false}
+    border={false}
+    backgroundColor=""
+  >
+    <div class="team-content">
+      <Heading
+        class="team-name"
+        level="h3"
+        size="md"
+        alignmentHorizontal="start"
+        style="margin-bottom: var(--spacing-xs); margin-top: 0;"
+        data-prop={editable ? "name" : undefined}
+      >
+        {name}
+      </Heading>
+      <SimpleText
+        class="team-role"
+        size="sm"
+        alignmentHorizontal="start"
+        style="font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-sm);margin-top: 0;"
+        data-prop={editable ? "role" : undefined}
+      >
+        {role}
+      </SimpleText>
+    </div>
+    <div class="team-image-container">
+      <Image
+        class="team-image"
+        source={imageSource}
+        alt={imageAlt || name}
+        aspectRatio="square"
+        widths={[400, 800]}
+        sizes="400px"
+        data-prop-src={editable ? "imageSource" : undefined}
+        data-prop-alt={editable ? "imageAlt" : undefined}
+        slot="before"
+      />
+    </div>
   </Card>
 </GridItem>
 

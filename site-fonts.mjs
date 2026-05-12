@@ -55,7 +55,7 @@ export const siteFonts = [
           weight: "700",
           style: "italic",
         },
-      ]
-    }
+      ],
+    },
   },
 ];

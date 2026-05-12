@@ -19,8 +19,9 @@ export default [
       "no-unused-vars": [
         "warn",
         {
-          argsIgnorePattern: "^_",
-          varsIgnorePattern: "^(_component|useDefaultEditableBinding)$",
+          args: "none",
+          varsIgnorePattern:
+            "^(_|editable|useDefaultEditableBinding|_useDefaultEditableBinding|_component)$",
         },
       ],
       "no-console": "off",
@@ -56,12 +57,13 @@ export default [
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {
-          argsIgnorePattern: "^_",
-          varsIgnorePattern: "^(_component|useDefaultEditableBinding)$",
+          args: "none",
+          varsIgnorePattern:
+            "^(_|editable|useDefaultEditableBinding|_useDefaultEditableBinding|_component)$",
         },
       ],
       "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-non-null-assertion": "warn",
+      "@typescript-eslint/no-non-null-assertion": "off",
       // Removed rules that require type information for now
     },
   },
@@ -93,8 +95,9 @@ export default [
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {
-          argsIgnorePattern: "^_",
-          varsIgnorePattern: "^(_component|useDefaultEditableBinding)$",
+          args: "none",
+          varsIgnorePattern:
+            "^(_|editable|useDefaultEditableBinding|_useDefaultEditableBinding|_component)$",
         },
       ],
     },

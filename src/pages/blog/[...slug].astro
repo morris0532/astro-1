@@ -29,18 +29,6 @@ const mdxComponents: Record<string, any> = {};
 Object.entries(componentImports).forEach(([path, module]) => {
   const pathParts = path.split("/");
   const fileName = pathParts[pathParts.length - 1].replace(".astro", "");
-  const folderName = pathParts[pathParts.length - 2];
-
-  // Convert PascalCase to component name (already PascalCase, so just use it)
-  // If filename matches folder (in kebab-case), use folder-based name
-  const kebabFileName = fileName
-    .replace(/([A-Z])/g, "-$1")
-    .toLowerCase()
-    .replace(/^-/, "");
-  const kebabFolderName = folderName
-    .replace(/([A-Z])/g, "-$1")
-    .toLowerCase()
-    .replace(/^-/, "");
 
   // Component name is already PascalCase from filename
   const componentName = fileName;
