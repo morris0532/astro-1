@@ -1,15 +1,17 @@
 ---
 import Icon from "@core-elements/icon/Icon.astro";
+import type { SegmentOption } from "../../../../types";
 
 const {
   name,
-  options = [],
+  options = [] as SegmentOption[],
   title,
   required = false,
   iconOnly = false,
   multiple = false,
   keepStateOnRefresh = false,
   class: className,
+  useDefaultEditableBinding: _useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -19,7 +21,7 @@ const inputType = multiple ? "checkbox" : "radio";
 ---
 
 <fieldset
-  class:list={["segments", iconOnly && "icon-only", multiple && "multiple", className]}
+  class:list={["segments", className]}
   role={multiple ? "group" : "radiogroup"}
   aria-labelledby={title ? `${groupId}-legend` : undefined}
   {...htmlAttributes}
@@ -43,11 +45,11 @@ const inputType = multiple ? "checkbox" : "radio";
     )
   }
   <div
-    class="segments-options"
+    class:list={["segments-options", iconOnly && "icon-only", multiple && "multiple"]}
     role="presentation"
   >
     {
-      options.map((option: any, index: number) => (
+      options.map((option, index: number) => (
         <label class="segments-option">
           <input
             type={inputType}
@@ -93,7 +95,7 @@ const inputType = multiple ? "checkbox" : "radio";
       padding: 0;
 
       .segments-required {
-        color: red;
+        color: var(--color-error);
         margin-inline-end: var(--spacing-em-xs);
       }
 
@@ -192,7 +194,7 @@ const inputType = multiple ? "checkbox" : "radio";
         border-inline-start: 0;
       }
 
-      &.icon-only .segments-option .segment .segment-icon {
+      > .segments-options.icon-only .segments-option .segment .segment-icon {
         margin-block: var(--spacing-xs);
       }
     }

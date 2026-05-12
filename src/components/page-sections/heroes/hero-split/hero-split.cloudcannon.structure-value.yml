@@ -15,6 +15,7 @@ value:
       hideText: false
       link: ""
       iconName: ""
+      iconColor: default
       iconPosition: before
       variant: primary
       size: md

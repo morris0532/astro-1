@@ -171,3 +171,6 @@ verticalOffset:
 rounded:
   type: switch
   comment: Whether to apply rounded corners to the section.
+lockColorScheme:
+  type: switch
+  comment: Keep the selected color scheme from flipping when the visitor toggles the site theme.

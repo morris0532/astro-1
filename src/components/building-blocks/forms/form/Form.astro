@@ -6,20 +6,21 @@ const {
   formBlocks = [],
   class: className,
   _component,
-  editable = false,
+  useDefaultEditableBinding = false,
   "data-children-prop": childrenDataProp,
   ...htmlAttributes
 } = Astro.props;
 
-const effectiveChildrenProp = childrenDataProp ?? (editable ? "formBlocks" : null);
+const effectiveChildrenProp = childrenDataProp ?? (useDefaultEditableBinding ? "formBlocks" : null);
 const arrayDataAttributes = effectiveChildrenProp
   ? { "data-editable": "array", "data-prop": effectiveChildrenProp }
   : {};
 
 const hasFormBlocks = formBlocks?.length > 0;
 const hasSlotContent = Astro.slots.has("default");
+const usesFormBlocks = !hasSlotContent;
 
-if (!_component && !hasFormBlocks && !hasSlotContent) return;
+if (!_component && !hasFormBlocks && !usesFormBlocks) return;
 ---
 
 <form
@@ -30,19 +31,20 @@ if (!_component && !hasFormBlocks && !hasSlotContent) return;
   {...htmlAttributes}
 >
   <div {...arrayDataAttributes}>
-    {
-      formBlocks && formBlocks.length > 0 && (
-        <RenderBlock
-          contentSections={formBlocks}
-          editable={!!effectiveChildrenProp}
-        />
-      )
-    }
-    <slot />
+    <slot>
+      {
+        formBlocks && (
+          <RenderBlock
+            contentSections={formBlocks}
+            useDefaultEditableBinding={!!effectiveChildrenProp}
+          />
+        )
+      }
+    </slot>
   </div>
 </form>
 
-<style>
+<style is:global>
   @layer components {
     .form {
       margin-top: var(--spacing-lg);

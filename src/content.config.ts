@@ -2,19 +2,24 @@ import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
 const contentBlockSchema = z.object({ _component: z.string() }).passthrough();
+const docsViewerSizeSchema = z.enum(["sm", "md", "lg", "xl"]);
 
 const pageSchema = z.object({
   url: z.string().optional(),
   title: z.string(),
+  description: z.string().optional(),
+  keywords: z.array(z.string()).optional(),
+  image: z.string().optional(),
+  canonical: z.string().optional(),
   pageSections: z.array(contentBlockSchema).optional(),
   heroSections: z.array(contentBlockSchema).optional(),
   ctaSections: z.array(contentBlockSchema).optional(),
-  description: z.string().optional(),
   cta: z.any().optional(),
 });
 
 const docsPageSchema = z.object({
   title: z.string(),
+  description: z.string().optional(),
   contentSections: z.array(contentBlockSchema),
 });
 
@@ -23,6 +28,7 @@ const docsComponentSchema = z.object({
   name: z.string().optional(),
   order: z.number().optional(),
   overview: z.string().optional(),
+  defaultSize: docsViewerSizeSchema.optional(),
   spacing: z.string().optional().nullable(),
   component: z.string().optional(),
   component_path: z.string().optional(),
@@ -51,7 +57,7 @@ const docsComponentSchema = z.object({
         z.object({
           title: z.string().optional(),
           slugs: z.array(z.string()),
-          size: z.string().optional(),
+          size: docsViewerSizeSchema.optional(),
         })
       ),
       z.null(),
@@ -68,7 +74,7 @@ const docsComponentSchema = z.object({
               example.slugs[0].replace(/-/g, " ").slice(1)
             : "Example"),
         slugs: example.slugs,
-        size: example.size ?? "md",
+        size: example.size,
       }));
     }),
 });
@@ -95,8 +101,8 @@ const blogPostSchema = z.object({
   author: z.string().default("Anonymous"),
   image: z.string().optional(),
   tag: z.string().default("Uncategorized"),
-  tags: z.array(z.string()).default([]),
   counters: z.array(z.any()).optional(),
+  keywords: z.array(z.string()).optional(),
 });
 
 const blogCollection = defineCollection({

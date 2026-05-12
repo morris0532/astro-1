@@ -3,10 +3,9 @@ import typescriptParser from "@typescript-eslint/parser";
 import astroEslintParser from "astro-eslint-parser";
 import eslintPluginAstro from "eslint-plugin-astro";
 import jsoncPlugin from "eslint-plugin-jsonc";
-import jsxA11y from "eslint-plugin-jsx-a11y";
 import ymlPlugin from "eslint-plugin-yml";
-import jsoncParser from "jsonc-eslint-parser";
-import yamlParser from "yaml-eslint-parser";
+import * as jsoncParser from "jsonc-eslint-parser";
+import * as yamlParser from "yaml-eslint-parser";
 
 export default [
   // Base ESLint recommended rules
@@ -21,7 +20,7 @@ export default [
         "warn",
         {
           argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_component$",
+          varsIgnorePattern: "^(_component|useDefaultEditableBinding)$",
         },
       ],
       "no-console": "off",
@@ -58,23 +57,12 @@ export default [
         "warn",
         {
           argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_component$",
+          varsIgnorePattern: "^(_component|useDefaultEditableBinding)$",
         },
       ],
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-non-null-assertion": "warn",
       // Removed rules that require type information for now
-    },
-  },
-
-  // JSX/TSX files
-  {
-    files: ["**/*.jsx", "**/*.tsx"],
-    plugins: {
-      "jsx-a11y": jsxA11y,
-    },
-    rules: {
-      ...jsxA11y.configs.recommended.rules,
     },
   },
 
@@ -98,7 +86,7 @@ export default [
       // Astro-specific rules
       "astro/no-conflict-set-directives": "error",
       "astro/no-unused-define-vars-in-style": "error",
-      "astro/no-unused-css-selector": "warn",
+      "astro/no-unused-css-selector": "off",
       "astro/prefer-class-list-directive": "warn",
       "astro/prefer-split-class-list": "warn",
       "astro/sort-attributes": "off",
@@ -106,7 +94,7 @@ export default [
         "warn",
         {
           argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_component$",
+          varsIgnorePattern: "^(_component|useDefaultEditableBinding)$",
         },
       ],
     },

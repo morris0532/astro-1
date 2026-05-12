@@ -9,6 +9,7 @@
  * @module index
  */
 
+import { onPageLoad } from "../../../components/utils/onPageLoad";
 import { debugLog } from "./constants";
 import { showExportConfigModal } from "./modules/exportModal";
 import { initLivePreview } from "./modules/livePreview";
@@ -18,11 +19,24 @@ import { builderState } from "./state";
 import type { BuilderData } from "./types";
 import { generateExport } from "./utils/exportGenerator";
 
+const BUILDER_READY_EVENT = "component-builder:ready";
+const BUILDER_INIT_GLOBAL = "__initComponentBuilder";
+let cleanupCallbacks: Array<() => void> = [];
+
+type BuilderWindow = Window & {
+  [BUILDER_INIT_GLOBAL]?: () => void;
+};
+
 /** Initialize the component builder */
 function initializeBuilder(): void {
   const builderElement = document.querySelector(".component-builder");
 
   if (!builderElement) return;
+  if (builderElement.getAttribute("data-builder-initialized") === "true") return;
+
+  cleanupCallbacks.forEach((cleanup) => cleanup());
+  cleanupCallbacks = [];
+  builderElement.setAttribute("data-builder-initialized", "true");
 
   // Load builder data from data attribute
   const dataAttr = builderElement.getAttribute("data-builder-data");
@@ -53,10 +67,16 @@ function initializeBuilder(): void {
   const sandbox = document.getElementById("sandbox");
   const sidebarContent = document.getElementById("sidebar-content");
   const sidebarTitle = document.getElementById("sidebar-title");
-  const exportBtn = document.getElementById("export-btn") as HTMLButtonElement;
+  const exportBtn = document.getElementById("export-btn") as HTMLElement;
   const exportBar = document.querySelector(".export-bar") as HTMLElement;
+  const exportBtnInner = (
+    exportBtn?.classList.contains("button-inner")
+      ? exportBtn
+      : exportBtn?.querySelector(".button-inner")
+  ) as HTMLButtonElement | null;
+  const exportBtnLabel = exportBtnInner?.querySelector(".label-text") as HTMLElement | null;
 
-  if (!sandbox || !sidebarContent || !sidebarTitle || !exportBtn || !exportBar) {
+  if (!sandbox || !sidebarContent || !sidebarTitle || !exportBtn || !exportBar || !exportBtnInner) {
     console.error("[ComponentBuilder] Missing required DOM elements");
     return;
   }
@@ -71,32 +91,51 @@ function initializeBuilder(): void {
   setRenderCallback(render);
 
   // Selection change handler
-  builderState.on("selectionChange", () => {
-    updateSidebar();
-  });
+  cleanupCallbacks.push(
+    builderState.on("selectionChange", () => {
+      updateSidebar();
+    })
+  );
 
   // Tree change handler
-  builderState.on("treeChange", () => {
-    if (builderState.propEditInProgress) {
-      renderSandbox(sandbox);
-      updateExportButton();
-    } else {
-      render();
-    }
-    builderState.saveToLocalStorage();
-  });
+  cleanupCallbacks.push(
+    builderState.on("treeChange", () => {
+      if (builderState.propEditInProgress) {
+        renderSandbox(sandbox);
+        updateExportButton();
+      } else {
+        render();
+      }
+      builderState.saveToLocalStorage();
+    })
+  );
 
   // Validation change handler
-  builderState.on("validationChange", () => {
-    updateExportButton();
-    updateValidationPanel();
-  });
+  cleanupCallbacks.push(
+    builderState.on("validationChange", () => {
+      updateExportButton();
+      updateValidationPanel();
+    })
+  );
 
   // Export button handler
   exportBtn.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
     handleExport();
+  });
+
+  // Reset button handler
+  const resetBtn = document.getElementById("reset-btn");
+
+  resetBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!confirm("Reset the builder? All current progress will be lost.")) return;
+    builderState.reset();
+    const buildTab = document.querySelector('[data-view="build"]') as HTMLElement | null;
+
+    buildTab?.click();
   });
 
   // Update sidebar based on selection
@@ -151,24 +190,30 @@ function initializeBuilder(): void {
 
     // Disable if no components
     if (!hasComponents) {
-      exportBtn.disabled = true;
+      exportBtn.setAttribute("disabled", "");
+      exportBtnInner.disabled = true;
       exportBtn.classList.remove("has-errors");
+      if (exportBtnLabel) exportBtnLabel.textContent = "Export Component";
       return;
     }
 
     // Show error state if validation fails
     if (!validation.isValid) {
-      exportBtn.disabled = false; // Keep enabled to show errors
+      exportBtn.removeAttribute("disabled");
+      exportBtnInner.disabled = false; // Keep enabled to show errors
       exportBtn.classList.add("has-errors");
 
       // Update button text to show error count
       const errorCount = validation.duplicateProps.length;
 
-      exportBtn.textContent = `Export Component (${errorCount} error${errorCount > 1 ? "s" : ""})`;
+      if (exportBtnLabel) {
+        exportBtnLabel.textContent = `Export Component (${errorCount} error${errorCount > 1 ? "s" : ""})`;
+      }
     } else {
-      exportBtn.disabled = false;
+      exportBtn.removeAttribute("disabled");
+      exportBtnInner.disabled = false;
       exportBtn.classList.remove("has-errors");
-      exportBtn.textContent = "Export Component";
+      if (exportBtnLabel) exportBtnLabel.textContent = "Export Component";
     }
   }
 
@@ -294,9 +339,6 @@ function initializeBuilder(): void {
   updateValidationPanel();
 }
 
-// Initialize when DOM is ready
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initializeBuilder);
-} else {
-  initializeBuilder();
-}
+(window as BuilderWindow)[BUILDER_INIT_GLOBAL] = initializeBuilder;
+document.addEventListener(BUILDER_READY_EVENT, initializeBuilder);
+onPageLoad(initializeBuilder);

@@ -15,6 +15,6 @@ examples:
       - alignment-start
       - alignment-center
       - alignment-end
-    title: AlignX
+    title: alignmentHorizontal
     size: md
 ---

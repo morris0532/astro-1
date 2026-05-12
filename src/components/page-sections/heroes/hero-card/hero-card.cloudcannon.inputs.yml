@@ -22,19 +22,23 @@ card:
             post:
               type: select
               comment: Select a blog post to use for the card content.
+              hidden: "!usePost"
               options:
                 values: collections.blog
             eyebrowText:
               type: text
               comment: Optional label displayed above the heading.
+              hidden: "usePost"
             heading:
               type: html
               comment: Main heading text for the card section.
+              hidden: "usePost"
               options:
                 styles: .cloudcannon/styles/editor.css
             subtext:
               type: markdown
               comment: Optional subtext displayed beneath the heading.
+              hidden: "usePost"
               options:
                 bold: true
                 italic: true
@@ -43,10 +47,12 @@ card:
             buttonSections:
               type: array
               comment: Calls-to-action shown beneath the copy block.
+              hidden: "usePost"
               options:
                 structures: _structures.buttonSections
             image:
               type: object
+              hidden: "usePost"
               options:
                 structures:
                   values:
@@ -71,6 +77,7 @@ card:
                           type: switch
                           comment: Whether to apply rounded corners to the image.
             counters:
+              hidden: "usePost"
               options:
                 structures:
                   values:

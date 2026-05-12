@@ -94,7 +94,7 @@ const getPageUrl = (pageNum: number) => {
         aria-label="Go to previous page"
       >
         <Icon
-          name="arrow-left"
+          name="chevron-left"
           size="sm"
         />
       </a>
@@ -145,7 +145,7 @@ const getPageUrl = (pageNum: number) => {
         aria-label="Go to next page"
       >
         <Icon
-          name="arrow-right"
+          name="chevron-right"
           size="sm"
         />
       </a>
@@ -161,8 +161,8 @@ const getPageUrl = (pageNum: number) => {
       justify-content: center;
       margin-top: var(--spacing-lg);
 
-      a,
-      span {
+      > a,
+      > span {
         background-color: var(--color-bg);
         border: 1px solid var(--color-border);
         border-inline-start: none;
@@ -176,13 +176,13 @@ const getPageUrl = (pageNum: number) => {
           color: var(--color-text-strong);
         }
 
-        &:first-child:not(.pagination-arrow) {
+        &:first-child {
           border-bottom-left-radius: var(--radius-sm);
           border-inline-start: 1px solid var(--color-border);
           border-top-left-radius: var(--radius-sm);
         }
 
-        &:last-child:not(.pagination-arrow) {
+        &:last-child {
           border-bottom-right-radius: var(--radius-sm);
           border-top-right-radius: var(--radius-sm);
         }
@@ -209,7 +209,6 @@ const getPageUrl = (pageNum: number) => {
         display: flex;
         align-items: center;
         justify-content: center;
-        min-width: 2.5rem;
 
         .icon {
           display: flex;

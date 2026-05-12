@@ -3,8 +3,8 @@ icon: view_list
 description: Form field for selecting one option from a list.
 value:
   _component: building-blocks/forms/select
-  label: null
-  name: null
+  label: My Select
+  name: my_select
   required: false
   options:
     - value: option1
@@ -15,6 +15,8 @@ value:
       label: Option 3
   placeholder: null
   value: null
+  iconName: null
+  iconColor: default
 preview:
   text:
     - Select

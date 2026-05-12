@@ -5,7 +5,7 @@ import Icon from "@core-elements/icon/Icon.astro";
 const {
   title,
   contentSections,
-  editable = false,
+  useDefaultEditableBinding = false,
   isOpen = false,
   accordionName,
   _component,
@@ -13,7 +13,8 @@ const {
   ...htmlAttributes
 } = Astro.props;
 
-const effectiveChildrenProp = childrenDataProp ?? (editable ? "contentSections" : null);
+const effectiveChildrenProp =
+  childrenDataProp ?? (useDefaultEditableBinding ? "contentSections" : null);
 const arrayDataAttributes = effectiveChildrenProp
   ? { "data-editable": "array", "data-prop": effectiveChildrenProp }
   : {};
@@ -42,7 +43,7 @@ const arrayDataAttributes = effectiveChildrenProp
         contentSections && (
           <RenderBlock
             contentSections={contentSections}
-            editable={!!effectiveChildrenProp}
+            useDefaultEditableBinding={!!effectiveChildrenProp}
           />
         )
       }
@@ -87,8 +88,7 @@ const arrayDataAttributes = effectiveChildrenProp
       }
 
       > .accordion-item-detail {
-        padding-inline: var(--spacing-md);
-        padding-bottom: var(--spacing-md);
+        padding: var(--spacing-md);
 
         > *:first-child {
           margin-top: 0 !important;
@@ -101,8 +101,32 @@ const arrayDataAttributes = effectiveChildrenProp
         transform: rotate(180deg);
       }
 
-      > .accordion-item-detail {
-        animation: grow-out 300ms ease-out;
+      &::details-content {
+        animation: grow-out var(--animation-normal) ease-out;
+      }
+    }
+
+    @supports (interpolate-size: allow-keywords) and selector(::details-content) {
+      :root {
+        interpolate-size: allow-keywords;
+      }
+
+      .accordion-item::details-content {
+        height: 0;
+        overflow: clip;
+        transition:
+          height var(--animation-normal) ease-out,
+          content-visibility var(--animation-normal) ease-out allow-discrete;
+      }
+
+      .accordion-item[open]::details-content {
+        height: auto;
+      }
+
+      .accordion-item[open] {
+        &::details-content {
+          animation: none;
+        }
       }
     }
   }

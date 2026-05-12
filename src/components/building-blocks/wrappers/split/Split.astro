@@ -6,13 +6,13 @@ const {
   firstColumnContentSections = [],
   secondColumnContentSections = [],
   distributionMode = "half",
-  verticalAlignment = "top",
+  alignmentVertical = "top",
   reverse = false,
   reverseOrderOnMobile = true,
   fixedWidth,
   minSplitWidth = 700,
   gap = "lg",
-  editable = false,
+  useDefaultEditableBinding = false,
   class: className,
   label,
   "data-first-prop": customFirstDataProp,
@@ -25,9 +25,10 @@ if (!htmlAttributes.id && label) {
   htmlAttributes.id = slugifyLabel(label);
 }
 
-const effectiveFirstProp = customFirstDataProp ?? (editable ? "firstColumnContentSections" : null);
+const effectiveFirstProp =
+  customFirstDataProp ?? (useDefaultEditableBinding ? "firstColumnContentSections" : null);
 const effectiveSecondProp =
-  customSecondDataProp ?? (editable ? "secondColumnContentSections" : null);
+  customSecondDataProp ?? (useDefaultEditableBinding ? "secondColumnContentSections" : null);
 
 // Get content blocks and prop names based on reverse setting
 const firstSplitBlocks = reverse ? secondColumnContentSections : firstColumnContentSections;
@@ -77,7 +78,7 @@ const splitId = `split-${crypto.randomUUID()}`;
   <div
     class:list={[
       "split-inner",
-      `align-${verticalAlignment}`,
+      `align-${alignmentVertical}`,
       finalDistributionMode,
       `gap-${gap}`,
       { reversed: reverse },
@@ -95,7 +96,7 @@ const splitId = `split-${crypto.randomUUID()}`;
             {firstSplitBlocks && (
               <Component
                 contentSections={firstSplitBlocks}
-                editable={firstPaneEditable}
+                useDefaultEditableBinding={firstPaneEditable}
               />
             )}
           </slot>
@@ -104,7 +105,7 @@ const splitId = `split-${crypto.randomUUID()}`;
             {firstSplitBlocks && (
               <Component
                 contentSections={firstSplitBlocks}
-                editable={firstPaneEditable}
+                useDefaultEditableBinding={firstPaneEditable}
               />
             )}
           </slot>
@@ -121,7 +122,7 @@ const splitId = `split-${crypto.randomUUID()}`;
             {secondSplitBlocks && (
               <Component
                 contentSections={secondSplitBlocks}
-                editable={secondPaneEditable}
+                useDefaultEditableBinding={secondPaneEditable}
               />
             )}
           </slot>
@@ -130,7 +131,7 @@ const splitId = `split-${crypto.randomUUID()}`;
             {secondSplitBlocks && (
               <Component
                 contentSections={secondSplitBlocks}
-                editable={secondPaneEditable}
+                useDefaultEditableBinding={secondPaneEditable}
               />
             )}
           </slot>
@@ -180,6 +181,10 @@ const splitId = `split-${crypto.randomUUID()}`;
         display: grid;
         gap: var(--spacing-lg);
         grid-template-columns: var(--split-columns-desktop);
+
+        &.gap-none {
+          gap: 0;
+        }
 
         &.gap-xs {
           gap: var(--spacing-xs);
@@ -233,7 +238,6 @@ const splitId = `split-${crypto.randomUUID()}`;
           container-type: inline-size;
           min-width: 0;
           overflow-wrap: break-word;
-          word-wrap: break-word;
 
           > *:first-child {
             margin-top: 0 !important;
@@ -269,6 +273,10 @@ const splitId = `split-${crypto.randomUUID()}`;
         }
 
         @media (width < 640px) {
+          &.gap-none {
+            gap: 0;
+          }
+
           &.gap-xs {
             gap: var(--spacing-xs);
           }

@@ -1,13 +1,15 @@
 ---
 import RenderBlock from "@components/utils/renderBlock.astro";
 import Heading from "@core-elements/heading/Heading.astro";
-import Text from "@core-elements/text/Text.astro";
+import Icon from "@core-elements/icon/Icon.astro";
 
 const {
   title,
   subtext,
+  iconName,
+  iconColor,
   contentSections,
-  editable = false,
+  useDefaultEditableBinding = false,
   checked = false,
   groupName = "content-selector-tabs",
   navigationPosition = "start",
@@ -21,7 +23,8 @@ const tabId = `tab-${uniqueId}`;
 const panelId = `panel-${uniqueId}`;
 const tabLabelId = `tablabel-${uniqueId}`;
 
-const effectiveChildrenProp = childrenDataProp ?? (editable ? "contentSections" : null);
+const effectiveChildrenProp =
+  childrenDataProp ?? (useDefaultEditableBinding ? "contentSections" : null);
 const arrayDataAttributes = effectiveChildrenProp
   ? { "data-editable": "array", "data-prop": effectiveChildrenProp }
   : {};
@@ -43,6 +46,10 @@ const arrayDataAttributes = effectiveChildrenProp
     class="content-selector-tab"
     id={tabLabelId}
     for={tabId}
+    role="tab"
+    aria-controls={panelId}
+    aria-selected={checked ? "true" : "false"}
+    tabindex="0"
   >
     <Heading
       text={title}
@@ -53,18 +60,24 @@ const arrayDataAttributes = effectiveChildrenProp
     />
     {
       subtext && (
-        <Text
-          text={subtext}
-          alignX="start"
-          class="content-selector-tab-subtext"
-        />
+        <span class="content-selector-tab-subtext">
+          {subtext}
+        </span>
       )
     }
+    <Icon
+      name="chevron-down"
+      size="none"
+      class="content-selector-tab-chevron"
+      aria-hidden="true"
+    />
   </label>
   <div
     class="content-selector-panel"
     id={panelId}
     aria-labelledby={tabLabelId}
+    aria-hidden={checked ? "false" : "true"}
+    role="tabpanel"
   >
     <div
       class="content-selector-panel-content"
@@ -75,7 +88,7 @@ const arrayDataAttributes = effectiveChildrenProp
           contentSections && (
             <RenderBlock
               contentSections={contentSections}
-              editable={!!effectiveChildrenProp}
+              useDefaultEditableBinding={!!effectiveChildrenProp}
             />
           )
         }
@@ -136,6 +149,28 @@ const arrayDataAttributes = effectiveChildrenProp
     .content-selector-input:checked + .content-selector-tab,
     .content-selector-input:checked + .content-selector-tab * {
       color: var(--color-text-strong);
+    }
+
+    .content-selector-tab-subtext {
+      color: var(--color-text-muted);
+      display: block;
+      font-size: var(--font-size-body-xs);
+      font-weight: var(--font-weight-normal);
+      margin-top: var(--spacing-2xs);
+
+      &.align-center {
+        text-align: center;
+      }
+
+      &.align-start {
+        text-align: start;
+      }
+    }
+
+    .content-selector-tab-chevron {
+      display: none;
+      flex: 0 0 auto;
+      transition: transform var(--animation-normal) ease-out;
     }
 
     .content-selector-input:checked + .content-selector-tab::before {

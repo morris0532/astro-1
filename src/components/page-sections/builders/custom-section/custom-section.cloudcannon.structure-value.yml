@@ -10,14 +10,18 @@ value:
   paddingVertical: md
   colorScheme: inherit
   backgroundColor: base
-  backgroundImage:
-    source: ""
-    alt: ""
+  background:
+    type: image
     positionVertical: top
     positionHorizontal: center
+    priority: false
+    imageSource: ""
+    imageAlt: ""
+    videoSource: null
+    overlay: 0
   rounded: false
   contentBackground: false
-  editable: true
+  useDefaultEditableBinding: true
 preview:
   text:
     - Custom Section

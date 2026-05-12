@@ -10,7 +10,7 @@ blocks:
     color: brand-gradient
     background: true
     iconOffset: true
-    alignX: start
+    alignmentHorizontal: start
   heading: The engineering journal
   subtext: >-
     Insights, updates, and occasional technical deep-dives from the team that

@@ -17,7 +17,7 @@ const {
   rowSpan,
   class: className,
   _component,
-  editable = false,
+  useDefaultEditableBinding = false,
   ...htmlAttributes
 } = Astro.props;
 ---
@@ -39,7 +39,7 @@ const {
       eyebrowIcon?.name && (
         <Icon
           {...eyebrowIcon}
-          alignX="start"
+          alignmentHorizontal="start"
         />
       )
     }
@@ -59,7 +59,7 @@ const {
           class="feature-slide-heading"
           level="h3"
           size="md"
-          alignX="start"
+          alignmentHorizontal="start"
           data-prop="heading"
         >
           {heading}
@@ -70,7 +70,7 @@ const {
       text && (
         <Text
           class="feature-slide-text"
-          alignX="start"
+          alignmentHorizontal="start"
           data-prop="text"
           text={text}
         />

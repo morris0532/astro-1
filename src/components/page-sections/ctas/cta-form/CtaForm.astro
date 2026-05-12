@@ -33,6 +33,7 @@ const {
 
 <CustomSection
   class:list={["cta-form", className]}
+  label={id}
   maxContentWidth={maxContentWidth}
   paddingHorizontal="lg"
   paddingVertical={paddingVertical}
@@ -47,14 +48,14 @@ const {
   <Split
     class="split"
     distributionMode="two-thirds-third"
-    verticalAlignment="center"
+    alignmentVertical="center"
     reverse={reverse}
     minSplitWidth={640}
   >
     <Fragment slot="first">
       <Icon {...eyebrowIcon} />
       <SimpleText
-        alignX="start"
+        alignmentHorizontal="start"
         class="eyebrow"
         data-prop="eyebrowText"
       >
@@ -67,7 +68,7 @@ const {
         text={heading}
       />
       <Text
-        alignX="start"
+        alignmentHorizontal="start"
         data-prop="subtext"
         text={subtext}
         style="max-width: 540px;"
@@ -78,11 +79,9 @@ const {
       <Form
         class="form"
         action={formAction}
-        formBlocks={formBlocks?.length > 0 ? formBlocks : []}
+        formBlocks={formBlocks}
         data-children-prop="formBlocks"
-      >
-        <slot />
-      </Form>
+      />
     </Fragment>
   </Split>
 </CustomSection>

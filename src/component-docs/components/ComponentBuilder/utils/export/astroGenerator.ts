@@ -251,7 +251,7 @@ ${propsDestructuring}
 
 ${componentUsage}
 
-<style is:global>
+<style>
   @layer page-sections {
     .${componentName} {
      
@@ -295,6 +295,7 @@ function formatComponentBlock(
   delete props._isRootComponent;
   delete props._nodeId;
   delete props.editable;
+  delete props.useDefaultEditableBinding;
 
   const metadata = metadataMap[componentPath];
   const componentInfo = components.find((c) => c.path === componentPath);
@@ -398,9 +399,7 @@ function formatComponentBlock(
   if (isMapPatternSlot) {
     const mapSlotName = originalNode?.[`_renamed_${fallbackProp}`] || fallbackProp;
 
-    if (mapSlotName !== fallbackProp) {
-      propsList.push(`data-children-prop="${mapSlotName}"`);
-    }
+    propsList.push(`data-children-prop="${mapSlotName}"`);
   }
 
   if (!isRootComponent) {
@@ -537,9 +536,7 @@ function formatComponentBlock(
             const renamedKey = templateOriginal?.[`_renamed_${sp}`] || sp;
 
             childPropsList.push(`${sp}={${singularName}.${renamedKey}}`);
-            if (renamedKey !== sp) {
-              childPropsList.push(`data-children-prop="${renamedKey}"`);
-            }
+            childPropsList.push(`data-children-prop="${renamedKey}"`);
           }
         }
 

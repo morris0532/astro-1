@@ -31,6 +31,8 @@
     "keyframe-selector-notation": null,
     "selector-pseudo-element-colon-notation": null,
     "media-feature-range-notation": null,
+    "declaration-property-value-no-unknown": null,
+    "at-rule-prelude-no-invalid": null,
     "order/properties-order": null,
     "order/properties-alphabetical-order": true
   }

@@ -11,7 +11,7 @@ pageSections:
       color: brand-gradient
       background: true
       iconOffset: true
-      alignX: start
+      alignmentHorizontal: start
     eyebrowText:
     heading: >-
       <p><span class="highlight-text">We exist to make the internet work</span>
@@ -25,7 +25,7 @@ pageSections:
     reverse: false
     maxContentWidth: 3xl
     paddingVertical: 4xl
-    colorScheme: light
+    colorScheme: inherit
     backgroundColor: highlight-grid
     contentBackground: true
     verticalOffset:
@@ -40,7 +40,7 @@ pageSections:
       color: brand-gradient
       background: true
       iconOffset: true
-      alignX: start
+      alignmentHorizontal: start
     eyebrowText:
     heading: Our core commitments
     subtext:
@@ -57,7 +57,7 @@ pageSections:
               color: default
               background: true
               iconOffset: false
-              alignX: start
+              alignmentHorizontal: start
             eyebrowText: Global reach
             heading: 847 edge nodes, six continents
             text: >-
@@ -85,7 +85,7 @@ pageSections:
               color: default
               background: true
               iconOffset: false
-              alignX: start
+              alignmentHorizontal: start
             eyebrowText: Automatic everything
             heading: Infrastructure that manages itself
             text: >-
@@ -113,7 +113,7 @@ pageSections:
               color: default
               background: true
               iconOffset: false
-              alignX: start
+              alignmentHorizontal: start
             eyebrowText: Real-time visibility
             heading: Analytics that update in a snap
             text: >-
@@ -132,7 +132,7 @@ pageSections:
               color: default
               background: true
               iconOffset: false
-              alignX: start
+              alignmentHorizontal: start
             eyebrowText: Zero-trust security
             heading: Assume everything is a threat
             text: >-
@@ -171,7 +171,7 @@ pageSections:
               color: default
               background: true
               iconOffset: false
-              alignX: start
+              alignmentHorizontal: start
             eyebrowText: Obsessive redundancy
             heading: Multiple backups for our backups
             text: >-
@@ -199,7 +199,7 @@ pageSections:
               color: default
               background: true
               iconOffset: false
-              alignX: start
+              alignmentHorizontal: start
             eyebrowText: Obsessive redundancy
             heading: Redundancy layers all the way down
             text: >-
@@ -235,7 +235,7 @@ pageSections:
               color: default
               background: true
               iconOffset: false
-              alignX: start
+              alignmentHorizontal: start
             eyebrowText: Obsessive redundancy
             heading: Trust nothing, backup everything
             text: >-
@@ -312,7 +312,7 @@ pageSections:
           200 who share their pathological intolerance for downtime.
     maxContentWidth: 2xl
     paddingVertical: 4xl
-    colorScheme: light
+    colorScheme: inherit
     backgroundColor: base
     contentBackground: false
     verticalOffset:
