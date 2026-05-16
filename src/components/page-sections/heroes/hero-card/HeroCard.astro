@@ -14,7 +14,6 @@ import { getCollection } from "astro:content";
 const {
   id = "",
   eyebrowIcon = {},
-  eyebrowText = "",
   heading = "",
   subtext = "",
   card = {
@@ -34,7 +33,7 @@ const {
   verticalOffset = {},
   rounded = false,
   class: className,
-  editable = false,
+  useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -187,14 +186,14 @@ const snakePath =
       <Heading
         level="h1"
         size="xl"
-        alignX="left"
+        alignmentHorizontal="left"
         class="heading"
         data-prop="heading"
         text={heading}
       />
       <Text
         text={subtext}
-        alignX="left"
+        alignmentHorizontal="left"
         data-prop="subtext"
         class="subtext"
       />
@@ -214,24 +213,21 @@ const snakePath =
         <Fragment slot="first">
           <Text
             text={finalCard.eyebrowText}
-            alignX="left"
+            alignmentHorizontal="left"
             {...!card.usePost && { "data-prop": "card.eyebrowText" }}
-            editable={!card.usePost}
             class="eyebrow-title"
           />
           <Heading
             level="h2"
             size="2xl"
             text={finalCard.heading}
-            alignX="left"
+            alignmentHorizontal="left"
             {...!card.usePost && { "data-prop": "card.heading" }}
-            editable={!card.usePost}
           />
           <SimpleText
             text={finalCard.subtext}
-            alignX="left"
+            alignmentHorizontal="left"
             {...!card.usePost && { "data-prop": "card.subtext" }}
-            editable={!card.usePost}
           />
           <ButtonGroup
             buttonSections={finalCard.buttonSections}
@@ -245,7 +241,6 @@ const snakePath =
               "data-prop-src": "card.image.source",
               "data-prop-alt": "card.image.alt",
             }}
-            editable={!card.usePost}
           />
         </Fragment>
       </Split>
@@ -261,14 +256,13 @@ const snakePath =
             >
               <Counter
                 {...counter.counter}
-                alignX="left"
+                alignmentHorizontal="left"
                 size="2xl"
               />
               <Text
                 text={counter.subtext}
-                alignX="left"
+                alignmentHorizontal="left"
                 {...(!card.usePost && { "data-prop": `subtext` })}
-                editable={!card.usePost}
               />
             </div>
           ))

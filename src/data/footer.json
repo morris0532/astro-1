@@ -1,5 +1,6 @@
 {
   "logoSource": "/src/assets/images/jetstream-logo.svg",
+  "logoAlternateSource": "/src/assets/images/jetstream-dark-theme.svg",
   "logoAlt": "Jetstream Logo",
   "links": [
     {

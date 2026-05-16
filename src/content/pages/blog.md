@@ -1,6 +1,10 @@
 ---
 _schema: blog-index
 title: Blog
+description: >-
+  Read our latest articles and insights on web development, design, and
+  technology.
+keywords: []
 heroSections:
   - _component: page-sections/heroes/hero-card
     id:
@@ -11,7 +15,7 @@ heroSections:
       color: brand-gradient
       background: true
       iconOffset: true
-      alignX: start
+      alignmentHorizontal: start
     heading: The engineering journal
     subtext: >-
       Insights, updates, and occasional technical deep-dives from the team that
@@ -21,9 +25,8 @@ heroSections:
       post: /src/content/blog/why-we-rebuilt-our-dns-resolver-from-scratch-again.mdx
       eyebrowText:
       heading: >-
-        <h1><strong>Why we rebuilt our DNS resolver from scratch (</strong><span
-        class="highlight-text"><strong>again</strong></span><strong>)</strong>
-        </h1>
+        Why we rebuilt our DNS resolver from scratch (<span
+        class="highlight-text">again</span>)
       subtext: >-
         Sometimes good enough isn't good enough, especially when our engineers
         have strong opinions about query optimization.
@@ -66,7 +69,7 @@ heroSections:
           subtext: All-hands meetings to convince management
     maxContentWidth: 2xl
     paddingVertical: 4xl
-    colorScheme: light
+    colorScheme: inherit
     backgroundColor: base
     verticalOffset:
       size: xl
@@ -94,7 +97,4 @@ ctaSections:
     backgroundColor: highlight-radial-gradient
     contentBackground: false
     rounded: false
-description: >-
-  Read our latest articles and insights on web development, design, and
-  technology.
 ---

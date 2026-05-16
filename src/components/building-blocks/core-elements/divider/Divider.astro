@@ -1,5 +1,11 @@
 ---
-const { paddingVertical = "md", class: className, _component, ...htmlAttributes } = Astro.props;
+const {
+  paddingVertical = "md",
+  class: className,
+  useDefaultEditableBinding: _useDefaultEditableBinding = false,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
 ---
 
 <div
@@ -10,7 +16,7 @@ const { paddingVertical = "md", class: className, _component, ...htmlAttributes 
   <hr class="rule" />
 </div>
 
-<style>
+<style is:global>
   @layer components {
     .divider.padding-y-none {
       padding: 0;

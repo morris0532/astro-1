@@ -1,6 +1,8 @@
 ---
 _schema: default
 title: Pricing
+description: ''
+keywords: []
 pageSections:
   - _component: page-sections/heroes/hero-center
     id:
@@ -11,7 +13,7 @@ pageSections:
       color: brand-gradient
       background: true
       iconOffset: true
-      alignX: center
+      alignmentHorizontal: center
     eyebrowText:
     heading: >-
       Pricing designed<br />by <span class="highlight-text">engineers</span><br
@@ -27,12 +29,22 @@ pageSections:
         hideText: false
         link: ''
         iconName: arrow-long-right
+        iconColor: default
         iconPosition: after
         variant: primary
         size: md
-    maxContentWidth: 2xl
+    icons:
+      - name: globe-asia-australia
+        color: brand-gradient
+        background: true
+        size: 4xl
+      - name: rocket-launch
+        color: brand-gradient
+        background: true
+        size: 4xl
     backgroundDecoration: false
     sectionHeight: content
+    maxContentWidth: 2xl
     colorScheme: inherit
     backgroundColor: highlight-grid
     contentBackground: true
@@ -71,7 +83,7 @@ pageSections:
                 iconName: heart
                 iconColor: default
             direction: vertical
-            alignX: start
+            alignmentHorizontal: start
             size: md
             listType: icon
           button:
@@ -80,6 +92,7 @@ pageSections:
             hideText: false
             link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
+            iconColor: default
             iconPosition: after
             variant: secondary
             size: md
@@ -108,7 +121,7 @@ pageSections:
                 iconName: heart
                 iconColor: default
             direction: vertical
-            alignX: start
+            alignmentHorizontal: start
             size: md
             listType: icon
           button:
@@ -117,6 +130,7 @@ pageSections:
             hideText: false
             link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
+            iconColor: default
             iconPosition: after
             variant: secondary
             size: md
@@ -171,7 +185,7 @@ pageSections:
                 iconName: heart
                 iconColor: default
             direction: vertical
-            alignX: start
+            alignmentHorizontal: start
             size:
             listType: icon
           button:
@@ -180,6 +194,7 @@ pageSections:
             hideText: false
             link: https://cloudcannon.com/templates/jetstream/
             iconName: arrow-right
+            iconColor: default
             iconPosition: after
             variant: secondary
             size: md
@@ -259,7 +274,7 @@ pageSections:
                 - 25/8, 15-minute response with dedicated team
     maxContentWidth: 2xl
     paddingVertical: 4xl
-    colorScheme: light
+    colorScheme: inherit
     backgroundColor: base
     contentBackground: false
     verticalOffset:
@@ -267,11 +282,7 @@ pageSections:
       direction: front
     rounded: false
   - _component: page-sections/info-blocks/faq-section
-    id:
-    eyebrowIcon: {}
-    eyebrowText: ''
     heading: Common questions
-    subtext: ''
     items:
       - _component: building-blocks/wrappers/accordion/accordion-item
         title: How quickly can I get started?
@@ -294,20 +305,21 @@ pageSections:
 
 
                   We've timed it. Multiple times. With stopwatches.
-                alignX: start
+                alignmentHorizontal: start
               - _component: building-blocks/wrappers/button-group
                 label:
                 buttonSections:
                   - _component: building-blocks/core-elements/button
                     text: Get started
                     hideText: false
-                    link: 'https://cloudcannon.com/templates/jetstream/'
+                    link: https://cloudcannon.com/templates/jetstream/
                     iconName: arrow-right
+                    iconColor: default
                     iconPosition: after
                     variant: secondary
                     size: md
                 direction: row
-                alignX: start
+                alignmentHorizontal: start
             secondColumnContentSections:
               - _component: building-blocks/core-elements/image
                 id: ''
@@ -321,7 +333,7 @@ pageSections:
             distributionMode: half
             fixedWidth:
             minSplitWidth: 760
-            verticalAlignment: center
+            alignmentVertical: center
             reverse: false
             reverseOrderOnMobile: false
             gap: lg
@@ -346,20 +358,21 @@ pageSections:
                   suggest upgrading to a tier that matches your actual usage —
                   our billing team considers surprises a sign of poor
                   communication.
-                alignX: start
+                alignmentHorizontal: start
               - _component: building-blocks/wrappers/button-group
                 label:
                 buttonSections:
                   - _component: building-blocks/core-elements/button
                     text: Get started
                     hideText: false
-                    link: 'https://cloudcannon.com/templates/jetstream/'
+                    link: https://cloudcannon.com/templates/jetstream/
                     iconName: arrow-right
+                    iconColor: default
                     iconPosition: after
                     variant: secondary
                     size: md
                 direction: row
-                alignX: start
+                alignmentHorizontal: start
             secondColumnContentSections:
               - _component: building-blocks/core-elements/image
                 id: ''
@@ -373,7 +386,7 @@ pageSections:
             distributionMode: half
             fixedWidth:
             minSplitWidth: 760
-            verticalAlignment: center
+            alignmentVertical: center
             reverse: false
             reverseOrderOnMobile: false
             gap: lg
@@ -399,20 +412,21 @@ pageSections:
                   our legal team insists is still too generous but our
                   engineering team considers appropriately respectful of
                   people's time.
-                alignX: start
+                alignmentHorizontal: start
               - _component: building-blocks/wrappers/button-group
                 label:
                 buttonSections:
                   - _component: building-blocks/core-elements/button
                     text: Get started
                     hideText: false
-                    link: 'https://cloudcannon.com/templates/jetstream/'
+                    link: https://cloudcannon.com/templates/jetstream/
                     iconName: arrow-right
+                    iconColor: default
                     iconPosition: after
                     variant: secondary
                     size: md
                 direction: row
-                alignX: start
+                alignmentHorizontal: start
             secondColumnContentSections:
               - _component: building-blocks/core-elements/image
                 id: ''
@@ -426,16 +440,20 @@ pageSections:
             distributionMode: half
             fixedWidth:
             minSplitWidth: 760
-            verticalAlignment: center
+            alignmentVertical: center
             reverse: false
             reverseOrderOnMobile: false
             gap: lg
-    singleOpen: true
-    openFirst: false
-    maxContentWidth: xl
     paddingVertical: 4xl
     colorScheme: inherit
     backgroundColor: base
+    id:
+    eyebrowIcon: {}
+    eyebrowText: ''
+    subtext: ''
+    singleOpen: true
+    openFirst: false
+    maxContentWidth: xl
     contentBackground: false
     verticalOffset:
       size: xl
@@ -456,11 +474,15 @@ pageSections:
         name: name
         type: text
         required: true
+        iconColor: default
+        iconPosition: before
       - _component: building-blocks/forms/input
         label: Email
         name: email
         type: email
         required: true
+        iconColor: default
+        iconPosition: before
       - _component: building-blocks/forms/textarea
         label: Message
         name: message
@@ -469,6 +491,7 @@ pageSections:
         text: Send message
         variant: primary
         size: md
+        iconColor: default
         iconPosition: before
         hideText: false
         disabled: false
@@ -483,5 +506,4 @@ pageSections:
       size: xl
       direction: front
     rounded: false
-description: ''
 ---

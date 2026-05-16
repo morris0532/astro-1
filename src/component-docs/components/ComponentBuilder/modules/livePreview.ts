@@ -9,11 +9,14 @@
  * @module livePreview
  */
 
-import type { HighlighterGeneric } from "shiki";
-
 import { builderState } from "../state";
 import type { ComponentNode } from "../types";
 import { generateExportPreview } from "../utils/exportGenerator";
+import astroLang from "@shikijs/langs/astro";
+import yamlLang from "@shikijs/langs/yaml";
+import githubDarkTheme from "@shikijs/themes/github-dark";
+import { createHighlighterCore } from "shiki/core";
+import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
 
 type ViewMode = "build" | "preview" | "code";
 
@@ -28,16 +31,23 @@ const DEFAULT_COMPONENT_NAME = "my-component";
 
 // Shiki highlighter — lazily loaded and cached
 
-let highlighterPromise: Promise<HighlighterGeneric<any, any>> | null = null;
+type CodeHighlighter = {
+  codeToHtml: (code: string, options: { lang: string; theme: string }) => string;
+};
 
-function getHighlighter(): Promise<HighlighterGeneric<any, any>> {
+let highlighterPromise: Promise<CodeHighlighter> | null = null;
+
+function getHighlighter(): Promise<CodeHighlighter> {
   if (!highlighterPromise) {
-    highlighterPromise = import("shiki").then((shiki) =>
-      shiki.createHighlighter({
-        themes: ["github-dark"],
-        langs: ["astro", "yaml"],
-      })
-    );
+    highlighterPromise = createHighlighterCore({
+      themes: [githubDarkTheme],
+      langs: [...astroLang, ...yamlLang],
+      engine: createJavaScriptRegexEngine({ forgiving: true }),
+    }).catch((error) => {
+      // Allow retry if initialization fails once.
+      highlighterPromise = null;
+      throw error;
+    });
   }
 
   return highlighterPromise;
@@ -48,6 +58,21 @@ const CODE_TAB_LANG: Record<string, string> = {
   inputs: "yaml",
   structure: "yaml",
 };
+
+function createCodeMarkup(renderedHtml: string, code: string): string {
+  const lineCount = Math.max(code.split("\n").length, 1);
+  const lineNumbers = Array.from({ length: lineCount }, (_, i) => `<span>${i + 1}</span>`).join("");
+
+  return `<div class="builder-code-render"><div class="builder-code-lines" aria-hidden="true">${lineNumbers}</div><div class="builder-code-html">${renderedHtml}</div></div>`;
+}
+
+function escapeHtml(str: string): string {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function createPlainCodeMarkup(code: string): string {
+  return createCodeMarkup(`<pre><code>${escapeHtml(code)}</code></pre>`, code);
+}
 
 function cleanTree(nodes: ComponentNode[]): Record<string, unknown>[] {
   return nodes.map((node) => {
@@ -193,40 +218,20 @@ export function initLivePreview(
         .then((hl) => {
           if (currentView !== "code") return;
 
-          const html = hl.codeToHtml(code, { lang, theme: "github-dark" });
-          const copyBtn = codeContentEl.querySelector(".code-copy-btn");
+          const highlighted = hl.codeToHtml(code, { lang, theme: "github-dark" });
+          const html = createCodeMarkup(highlighted, code);
 
-          if (copyBtn) {
-            const existing = codeContentEl.querySelector("pre");
-
-            if (existing) existing.remove();
-            copyBtn.insertAdjacentHTML("afterend", html);
-          } else {
-            codeContentEl.innerHTML = html;
-          }
+          codeContentEl.innerHTML = html;
         })
-        .catch(() => {
-          const copyBtn = codeContentEl.querySelector(".code-copy-btn");
-          const fallback = `<pre><code>${escapeHtml(code)}</code></pre>`;
-
-          if (copyBtn) {
-            const existing = codeContentEl.querySelector("pre");
-
-            if (existing) existing.remove();
-            copyBtn.insertAdjacentHTML("afterend", fallback);
-          } else {
-            codeContentEl.innerHTML = fallback;
-          }
+        .catch((error) => {
+          codeContentEl.innerHTML = createPlainCodeMarkup(code);
+          console.warn("[ComponentBuilder] Shiki highlight failed. Rendering plain code.", error);
         });
     } catch (error) {
       const message = error instanceof Error ? error.message : "Unknown error";
 
       codeContentEl.innerHTML = `<pre><code>// Error generating code preview\n// ${escapeHtml(message)}</code></pre>`;
     }
-  }
-
-  function escapeHtml(str: string): string {
-    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
 
   if (codeTabs) {

@@ -200,7 +200,7 @@ featureGridItems:
               iconName: heart
               iconColor: default
           direction: vertical
-          alignX: start
+          alignmentHorizontal: start
           size: md
           listType: icon
         button:

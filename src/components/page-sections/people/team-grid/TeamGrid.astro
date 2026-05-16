@@ -24,7 +24,7 @@ const {
   verticalOffset = {},
   rounded = false,
   class: className,
-  editable = false,
+  useDefaultEditableBinding = false,
   ...htmlAttributes
 } = Astro.props;
 
@@ -66,14 +66,15 @@ if (useCollection) {
   verticalOffset={verticalOffset}
   rounded={rounded}
   id={id}
+  useDefaultEditableBinding={useDefaultEditableBinding}
   {...htmlAttributes}
 >
   <Icon
-    alignX="center"
+    alignmentHorizontal="center"
     {...eyebrowIcon}
   />
   <SimpleText
-    alignX="center"
+    alignmentHorizontal="center"
     class="eyebrow"
     data-prop="eyebrowText"
   >
@@ -83,14 +84,14 @@ if (useCollection) {
     class="team-grid-heading"
     level="h2"
     size="lg"
-    alignX="center"
+    alignmentHorizontal="center"
     data-prop="heading"
     text={heading}
   />
   <SimpleText
     class="team-grid-subtext"
     size="md"
-    alignX="center"
+    alignmentHorizontal="center"
     data-prop="subtext"
   >
     {subtext}

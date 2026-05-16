@@ -11,6 +11,7 @@ value:
   colorScheme: light
   backgroundColor: base
   contentBackground: false
+  lockColorScheme: false
   verticalOffset: {}
   rounded: true
 _inputs_from_glob:

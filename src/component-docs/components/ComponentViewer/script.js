@@ -1,11 +1,15 @@
-document.addEventListener("DOMContentLoaded", () => {
+import { onPageLoad } from "../../../components/utils/onPageLoad";
+
+function initializeComponentViewers() {
   const componentViewers = document.querySelectorAll(".component-viewer");
 
   componentViewers.forEach((viewer) => {
+    if (viewer.hasAttribute("data-viewer-initialized")) return;
+    viewer.setAttribute("data-viewer-initialized", "true");
+
     const segments = {
       deviceSize: viewer.querySelector('[data-action="device-size-toggle"]'),
       direction: viewer.querySelector('[data-action="direction-toggle"]'),
-      theme: viewer.querySelector('[data-action="theme-toggle"]'),
       view: viewer.querySelector('[data-action="view-toggle"]'),
     };
 
@@ -158,10 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(syncCodeViewHeight, 50);
     });
 
-    initSegment(segments.theme, "theme-mode", (value) => {
-      previews.forEach((preview) => preview.setAttribute("data-theme", value));
-    });
-
     initSegment(segments.direction, "direction-mode", (value) => {
       previews.forEach((preview) => preview.setAttribute("dir", value));
     });
@@ -194,10 +194,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     setTimeout(syncCodeViewHeight, 200);
   });
-});
+}
 
 // Copy code functionality
-document.addEventListener("DOMContentLoaded", () => {
+let copyCodeHandlerBound = false;
+
+function initializeCopyCode() {
+  if (copyCodeHandlerBound) return;
+  copyCodeHandlerBound = true;
+
   document.addEventListener("click", async (event) => {
     const button = event.target.closest('[data-action="copy-code"]');
 
@@ -247,4 +252,44 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+}
+
+function handleHashNavigation() {
+  const hash = window.location.hash.slice(1);
+
+  if (!hash) return;
+
+  const directTarget = document.getElementById(hash);
+
+  if (directTarget) {
+    directTarget.scrollIntoView({ behavior: "instant" });
+    return;
+  }
+
+  // Check if the hash matches an example slug inside a viewer dropdown
+  const allOptions = document.querySelectorAll(".example-select option[data-slug]");
+
+  for (const option of allOptions) {
+    if (option.dataset.slug === hash) {
+      const select = option.closest("select");
+
+      if (select) {
+        select.value = option.value;
+        select.dispatchEvent(new Event("change"));
+
+        const viewer = select.closest(".component-viewer");
+
+        if (viewer) {
+          viewer.scrollIntoView({ behavior: "instant" });
+        }
+      }
+      return;
+    }
+  }
+}
+
+onPageLoad(() => {
+  initializeComponentViewers();
+  initializeCopyCode();
+  handleHashNavigation();
 });

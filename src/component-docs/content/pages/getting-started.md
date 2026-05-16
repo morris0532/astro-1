@@ -131,7 +131,7 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
     fixedWidth="400"
     minSplitWidth={minSplitWidth}
     reverse={reverse}
-    verticalAlignment="center"
+    alignmentVertical="center"
     gap="2xl"
     reverseOrderOnMobile={true}
   >
@@ -157,7 +157,7 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
             class="feature-buttons"
             buttonSections={buttonSections}
             direction="row"
-            alignX="start"
+            alignmentHorizontal="start"
           />
         )
       }

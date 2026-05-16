@@ -14,13 +14,22 @@ value:
       hideText: false
       link: ""
       iconName: ""
+      iconColor: default
       iconPosition: before
       variant: primary
       size: md
   reverse: false
   colorScheme: light
   backgroundColor: base
-  rounded: false
+  background:
+    type: image
+    positionVertical: top
+    positionHorizontal: center
+    priority: false
+    imageSource: ""
+    imageAlt: ""
+    videoSource: null
+    overlay: 0
 preview:
   text:
     - CTA Split

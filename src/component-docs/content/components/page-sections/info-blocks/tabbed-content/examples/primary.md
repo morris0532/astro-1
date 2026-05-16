@@ -26,13 +26,13 @@ blocks:
                 Doctors can read patient expressions in real-time, and medical
                 care is delivered at the speed of actual conversation — which,
                 our research indicates, is how medical care should work.
-              alignX: start
+              alignmentHorizontal: start
               size: md
           secondColumnContentSections: []
           distributionMode: three-quarters-quarter
           fixedWidth:
           minSplitWidth: 760
-          verticalAlignment: center
+          alignmentVertical: center
           reverse: false
           reverseOrderOnMobile: false
           gap: lg
@@ -53,24 +53,24 @@ blocks:
               number: 94
               prefix:
               suffix: '%'
-              alignX: start
+              alignmentHorizontal: start
               size: xl
             - _component: building-blocks/core-elements/text
               text: '**Reduction in connection quality complaints**'
-              alignX: start
+              alignmentHorizontal: start
             - _component: building-blocks/core-elements/counter
               number: 340
               prefix:
               suffix: x
-              alignX: start
+              alignmentHorizontal: start
               size: xl
             - _component: building-blocks/core-elements/text
               text: '**More numbers than other companies**'
-              alignX: start
+              alignmentHorizontal: start
           distributionMode: three-quarters-quarter
           fixedWidth:
           minSplitWidth: 760
-          verticalAlignment: center
+          alignmentVertical: center
           reverse: false
           reverseOrderOnMobile: false
           gap: lg
@@ -89,13 +89,13 @@ blocks:
                 attempted attacks are neutralized before they even realize
                 they've failed. Banking infrastructure that's faster than
                 fraud and more reliable than gravity.
-              alignX: start
+              alignmentHorizontal: start
               size: md
           secondColumnContentSections: []
           distributionMode: three-quarters-quarter
           fixedWidth:
           minSplitWidth: 760
-          verticalAlignment: center
+          alignmentVertical: center
           reverse: false
           reverseOrderOnMobile: false
           gap: lg
@@ -116,24 +116,24 @@ blocks:
               number: 2.3
               prefix:
               suffix: s
-              alignX: start
+              alignmentHorizontal: start
               size: xl
             - _component: building-blocks/core-elements/text
               text: '**Average transaction completion time**'
-              alignX: start
+              alignmentHorizontal: start
             - _component: building-blocks/core-elements/counter
               number: 100
               prefix:
               suffix: '%'
-              alignX: start
+              alignmentHorizontal: start
               size: xl
             - _component: building-blocks/core-elements/text
               text: '**Mitigation rate against 12,000+ daily attack attempts**'
-              alignX: start
+              alignmentHorizontal: start
           distributionMode: three-quarters-quarter
           fixedWidth:
           minSplitWidth: 760
-          verticalAlignment: center
+          alignmentVertical: center
           reverse: false
           reverseOrderOnMobile: false
           gap: lg

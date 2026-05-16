@@ -24,6 +24,11 @@ collections_config:
         type: text
         comment: Controls the metadata title for the page.
         cascade: true
+      keywords:
+        type: array
+        comment: Optional meta keywords for this page.
+      keywords[*]:
+        type: text
     add_options:
       - name: Add New Page
         icon: pages
@@ -70,6 +75,11 @@ collections_config:
           required: true
         comment: The title of the blog post.
         cascade: false
+      keywords:
+        type: array
+        comment: Optional meta keywords for this page.
+      keywords[*]:
+        type: text
       description:
         type: textarea
         options:
@@ -275,13 +285,43 @@ collections_config:
       need to update it in this one location.
     _enabled_editors:
       - data
+    schemas:
+      seo:
+        name: SEO Settings
+        path: .cloudcannon/schemas/seo.json
+        remove_extra_inputs: false
+        preview:
+          text:
+            - SEO
+        _inputs:
+          name:
+            comment: Site name used in structured data and as the fallback brand name in SEO metadata.
+          url:
+            comment: Production site URL used for canonical links and structured data.
+          description:
+            comment: Default meta description used when a page or blog post does not provide its own description.
+          logoSource:
+            comment: Default image used for social sharing metadata when a page or blog post does not provide its own image.
+          titleFormat:
+            comment: Browser title template. Include {title} where the page title should appear.
     _inputs:
       logoSource:
         type: image
         options:
           paths:
             uploads: src/assets/images
+          resize_style: contain
+          width: 1920
+          height: 1280
         cascade: true
+      logoAlternateSource:
+        type: image
+        options:
+          paths:
+            uploads: src/assets/images
+          resize_style: contain
+          width: 1920
+          height: 1280
       image:
         type: image
         options:
@@ -298,7 +338,10 @@ _inputs:
   logoSource:
     type: image
     cascade: true
+  logoAlternateSource:
+    type: image
 _select_data:
+  # Selectable UI icons match [Heroicons](https://heroicons.com/); SVGs live in src/icons/.
   icons:
     - id: academic-cap
       name: Academic Cap

@@ -11,7 +11,7 @@ blocks:
     color: brand-gradient
     background: true
     iconOffset: true
-    alignX: center
+    alignmentHorizontal: center
   eyebrowText:
   heading: >-
     Pricing designed<br />by <span class="highlight-text">engineers</span><br

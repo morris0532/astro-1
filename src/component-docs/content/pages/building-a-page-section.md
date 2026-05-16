@@ -19,7 +19,7 @@ import CustomSection from '@builders/custom-section/CustomSection.astro';
 import Heading from '@core-elements/heading/Heading.astro';
 import Text from '@core-elements/text/Text.astro';
 
-const { heading = '', subtext = '', _component, editable = true, ...htmlAttributes } = Astro.props;
+const { heading = '', subtext = '', _component, ...htmlAttributes } = Astro.props;
 ---
 
 <CustomSection
@@ -28,8 +28,8 @@ const { heading = '', subtext = '', _component, editable = true, ...htmlAttribut
   paddingVertical="4xl"
   {...htmlAttributes}
 >
-  <Heading level="h1" size="2xl" alignX="center" data-prop="heading" text={heading} />
-  <Text alignX="center" data-prop="subtext" text={subtext} />
+  <Heading level="h1" size="2xl" alignmentHorizontal="center" data-prop="heading" text={heading} />
+  <Text alignmentHorizontal="center" data-prop="subtext" text={subtext} />
 </CustomSection>
 ```
 
@@ -124,12 +124,11 @@ CTA Center is a good example:
 
 ```astro
 <CustomSection maxContentWidth="lg" paddingVertical={paddingVertical} {...htmlAttributes}>
-  <Heading level="h2" size="xl" alignX="center" data-prop="heading" text={heading} />
-  <Text alignX="center" data-prop="subtext" text={subtext} />
+  <Heading level="h2" size="xl" alignmentHorizontal="center" data-prop="heading" text={heading} />
+  <Text alignmentHorizontal="center" data-prop="subtext" text={subtext} />
   <ButtonGroup
     buttonSections={buttonSections}
-    alignX="center"
-    editable={true}
+    alignmentHorizontal="center"
     data-children-prop="buttonSections"
   />
 </CustomSection>

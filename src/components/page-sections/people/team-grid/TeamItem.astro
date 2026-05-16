@@ -9,11 +9,11 @@ const {
   name = "",
   role = "",
   imageSource = "",
-  hoverImageSource = "",
   imageAlt = "",
   editable = false,
   class: className,
   _component,
+  useDefaultEditableBinding: _useDefaultEditableBinding = false,
   ...htmlAttributes
 } = Astro.props;
 
@@ -35,7 +35,7 @@ const cardClasses = ["team-item", className].filter(Boolean).join(" ");
         class="team-name"
         level="h3"
         size="md"
-        alignX="start"
+        alignmentHorizontal="start"
         style="margin-bottom: var(--spacing-xs); margin-top: 0;"
         data-prop={editable ? "name" : undefined}
       >
@@ -44,7 +44,7 @@ const cardClasses = ["team-item", className].filter(Boolean).join(" ");
       <SimpleText
         class="team-role"
         size="sm"
-        alignX="start"
+        alignmentHorizontal="start"
         style="font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-sm);margin-top: 0;"
         data-prop={editable ? "role" : undefined}
       >

@@ -41,6 +41,7 @@ const snakePath =
 <CustomSection
   class:list={["hero-center", className]}
   id={id}
+  label={id}
   maxContentWidth=""
   paddingHorizontal=""
   paddingVertical=""
@@ -48,7 +49,8 @@ const snakePath =
   contentBackground={false}
   backgroundColor={backgroundColor}
   verticalOffset={verticalOffset}
-  contentClass=`section-height-${sectionHeight}`
+  contentClass={`section-height-${sectionHeight}`}
+  useDefaultEditableBinding={true}
   {...htmlAttributes}
 >
   <CustomSection
@@ -64,7 +66,7 @@ const snakePath =
   >
     <Icon {...eyebrowIcon} />
     <SimpleText
-      alignX="center"
+      alignmentHorizontal="center"
       class="eyebrow"
       data-prop="eyebrowText"
     >
@@ -73,12 +75,12 @@ const snakePath =
     <Heading
       level="h1"
       size={headingSize}
-      alignX="center"
+      alignmentHorizontal="center"
       text={heading}
       data-prop="heading"
     />
     <Text
-      alignX="center"
+      alignmentHorizontal="center"
       class="subtext"
       data-prop="subtext"
       text={subtext}
@@ -86,7 +88,7 @@ const snakePath =
     <ButtonGroup
       class="buttons"
       buttonSections={buttonSections}
-      alignX="center"
+      alignmentHorizontal="center"
       data-children-prop="buttonSections"
     />
   </CustomSection>
@@ -268,7 +270,6 @@ const snakePath =
       >
         <Image
           {...image}
-          editable={true}
           data-prop-src="image.source"
           data-prop-alt="image.alt"
         />

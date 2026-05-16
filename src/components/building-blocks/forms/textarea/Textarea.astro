@@ -6,6 +6,7 @@ const {
   required = false,
   value,
   class: className,
+  useDefaultEditableBinding: _useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -13,7 +14,10 @@ const {
 const fieldId = htmlAttributes.id || `textarea-${crypto.randomUUID()}`;
 ---
 
-<div class:list={["textarea", className]}>
+<div
+  class:list={["textarea", className]}
+  {...htmlAttributes}
+>
   {
     label && (
       <label
@@ -39,12 +43,11 @@ const fieldId = htmlAttributes.id || `textarea-${crypto.randomUUID()}`;
     required={required}
     aria-required={required}
     class="field"
-    {...htmlAttributes}
     >{value}</textarea
   >
 </div>
 
-<style>
+<style is:global>
   @layer components {
     .textarea {
       display: flex;

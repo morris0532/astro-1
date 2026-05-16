@@ -18,8 +18,8 @@ const {
   description = "",
   columnSpan,
   rowSpan,
-  editable = false,
   class: className,
+  useDefaultEditableBinding: _useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -42,7 +42,6 @@ const {
     <Fragment slot="before">
       <Image
         {...image}
-        editable={true}
         data-prop-src="image.source"
         data-prop-alt="image.alt"
       />
@@ -60,14 +59,14 @@ const {
       class="feature-title"
       level="h3"
       size="md"
-      alignX="start"
+      alignmentHorizontal="start"
       data-prop="title"
     >
       {title}
     </Heading>
     <Text
       class="feature-description"
-      alignX="start"
+      alignmentHorizontal="start"
       data-prop="description"
       text={description}
     />
@@ -79,9 +78,12 @@ const {
     .feature-item {
       display: flex;
       flex-direction: column;
+      height: 100%;
+
       .card-content {
         display: flex;
         flex-direction: column;
+        flex: 1;
         justify-content: center;
       }
     }

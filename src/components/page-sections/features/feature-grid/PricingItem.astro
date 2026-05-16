@@ -20,7 +20,7 @@ const {
   rowSpan,
   class: className,
   _component,
-  editable = false,
+  useDefaultEditableBinding = false,
   ...htmlAttributes
 } = Astro.props;
 ---
@@ -44,7 +44,7 @@ const {
       class="feature-title"
       level="h3"
       size="lg"
-      alignX="start"
+      alignmentHorizontal="start"
       data-prop="title"
     >
       {title}
@@ -53,8 +53,7 @@ const {
       class="feature-price"
       level="h4"
       size="xl"
-      alignX="start"
-      editable={false}
+      alignmentHorizontal="start"
     >
       {
         price?.prefix && (
@@ -90,7 +89,7 @@ const {
     </Heading>
     <Text
       class="feature-subtext"
-      alignX="start"
+      alignmentHorizontal="start"
       data-prop="subtext"
       text={subtext}
     />

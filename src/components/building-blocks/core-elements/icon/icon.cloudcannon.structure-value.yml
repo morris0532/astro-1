@@ -8,7 +8,7 @@ value:
   color: default
   background: true
   iconOffset: false
-  alignX: start
+  alignmentHorizontal: start
 preview:
   text:
     - Icon

@@ -12,7 +12,7 @@ examples:
       - alignment-start
       - alignment-center
     size: sm
-    title: AlignX
+    title: alignmentHorizontal
   - slugs:
       - author-description
     size: sm

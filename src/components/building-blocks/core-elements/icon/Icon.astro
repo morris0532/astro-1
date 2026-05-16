@@ -8,8 +8,9 @@ const {
   color = "default",
   background = false,
   iconOffset = false,
-  alignX = "",
+  alignmentHorizontal = "",
   class: className,
+  useDefaultEditableBinding: _useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = props || {};
@@ -31,7 +32,7 @@ const gradientId = color === "brand-gradient" ? `icon-brand-gradient-${crypto.ra
     `color-${color}`,
     background && "background",
     background && iconOffset && "icon-offset",
-    alignX && `align-${alignX}`,
+    alignmentHorizontal && `align-${alignmentHorizontal}`,
     name?.includes("social/") && "fill",
     className,
   ]}
@@ -102,6 +103,7 @@ const gradientId = color === "brand-gradient" ? `icon-brand-gradient-${crypto.ra
     .icon.background {
       background-color: var(--color-bg-surface);
       padding: var(--spacing-em-xs);
+      width: fit-content;
     }
 
     .icon.icon-offset {

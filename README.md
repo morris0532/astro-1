@@ -64,4 +64,30 @@ Jetstream features advanced visual editing capabilities with CloudCannon's split
 - **Navigation**: Fully accessible, responsive navigation management
 - **Footer**: Configurable footer elements and links
 
+## Prerequisites
+
+- Node.js >= 24.0.0
+
+## Updating Dependencies
+
+When adding, removing, or updating packages (on macOS especially), use:
+
+```bash
+npm run deps:sync
+```
+
+This regenerates `package-lock.json` with resolutions for all target platforms (Linux, Windows, macOS) so CI doesn't break. Plain `npm install` on macOS silently strips Linux-only peer dependencies out of the lockfile, which causes `npm ci` to fail on GitHub Actions.
+
+You can verify the lockfile is CI-ready at any time with:
+
+```bash
+npm run deps:check
+```
+
+## Learn More
+
 For more details on the component architecture and development workflow, view the [Astro Component Starter README](https://github.com/CloudCannon/astro-component-starter).
+
+## License
+
+MIT

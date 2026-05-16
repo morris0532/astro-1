@@ -2,7 +2,7 @@
 const {
   size = "md",
   class: className,
-  editable = true,
+  useDefaultEditableBinding: _useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -15,7 +15,7 @@ const {
 >
 </div>
 
-<style>
+<style is:global>
   @layer components {
     .spacer {
       height: 0;
