@@ -1,55 +1,55 @@
-/* Dark theme */
+/* Dark theme - Industrial Blue for Honeycomb Panel Site */
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --color-brand: var(--purple-3);
-  --color-brand-muted: var(--purple-10);
-  --color-brand-subtle: var(--gray-5);
-  --color-brand-on: var(--pink-9);
+  --color-brand: var(--blue-5);
+  --color-brand-muted: var(--blue-4);
+  --color-brand-subtle: var(--blue-8);
+  --color-brand-on: var(--blue-0);
 
-  --color-text: #fff;
-  --color-text-strong: #fff;
-  --color-text-muted: #fff;
-  --color-text-on-muted: #fff;
-  --color-text-on-brand: #000;
-  --color-text-inverse: #fff;
-  --color-link: #60a5fa;
-  --color-link-hover: #93c5fd;
+  --color-text: var(--gray-2);
+  --color-text-strong: var(--gray-0);
+  --color-text-muted: var(--gray-4);
+  --color-text-on-muted: var(--gray-0);
+  --color-text-on-brand: var(--gray-12);
+  --color-text-inverse: var(--gray-12);
+  --color-link: var(--blue-3);
+  --color-link-hover: var(--blue-1);
   --color-text-brand: var(--color-brand);
 
-  --color-bg: #1b1b1b;
-  --color-bg-primary: var(--purple-8);
-  --color-bg-surface: var(--purple-6);
-  --color-bg-muted: var(--purple-7);
-  --color-bg-accent: var(--purple-9);
-  --color-bg-highlight: var(--purple-5);
+  --color-bg: var(--gray-12);
+  --color-bg-primary: var(--blue-9);
+  --color-bg-surface: var(--gray-11);
+  --color-bg-muted: var(--gray-10);
+  --color-bg-accent: var(--gray-11);
+  --color-bg-highlight: var(--blue-8);
   --color-bg-brand: var(--color-brand);
-  --color-bg-brand-muted: var(--color-brand-muted);
-  --color-bg-inverse: #fff;
-  --color-bg-inverse-highlight: var(--pink-6);
-  --color-bg-inverse-muted: var(--pink-5);
+  --color-bg-brand-muted: var(--blue-7);
+  --color-bg-inverse: var(--gray-1);
+  --color-bg-inverse-highlight: var(--gray-3);
+  --color-bg-inverse-muted: var(--gray-4);
 
-  --color-border: var(--purple-6);
-  --color-border-inputs: var(--gray-7);
-  --color-border-strong: var(--purple-8);
-  --color-border-subtle: var(--gray-8);
+  --color-border: var(--gray-9);
+  --color-border-inputs: var(--gray-8);
+  --color-border-strong: var(--blue-5);
+  --color-border-subtle: var(--gray-10);
 
-  --color-state-hover: rgba(255, 255, 255, 0.04);
-  --color-state-active: rgba(255, 255, 255, 0.08);
+  --color-state-hover: var(--gray-11);
+  --color-state-active: rgba(0, 0, 0, 0.2);
   --color-overlay: rgba(0, 0, 0, 0.7);
-  --color-shadow: #3d1db31a;
+  --color-shadow: #0000004d;
 
-  --color-focus-ring: rgba(0, 122, 255, 0.4);
-  --color-disabled-bg: rgba(191, 191, 191, 1);
+  --color-focus-ring: rgba(0, 119, 255, 0.6);
+  --color-disabled-bg: rgba(64, 64, 64, 1);
 
-  --color-danger: #f87171;
-  --color-danger-hover: #ef4444;
-  --color-danger-bg-subtle: rgba(239, 68, 68, 0.12);
-  --color-danger-border-subtle: rgba(239, 68, 68, 0.4);
-  --color-info: #60a5fa;
-  --color-info-bg-subtle: rgba(59, 130, 246, 0.12);
-  --color-info-border-subtle: rgba(59, 130, 246, 0.4);
-  --color-success: #4ade80;
-  --color-success-bg-subtle: rgba(16, 185, 129, 0.15);
+  --color-danger: #ef4444;
+  --color-danger-hover: #f87171;
+  --color-danger-bg-subtle: #450a0a;
+  --color-danger-border-subtle: #7f1d1d;
+  --color-info: #3b82f6;
+  --color-info-bg-subtle: #172554;
+  --color-info-border-subtle: #1e3a8a;
+  --color-success: #22c55e;
+  --color-success-bg-subtle: #052e16;
   --color-error: var(--color-danger);
 }

@@ -1,9 +1,10 @@
 ---
 _schema: default
-title: About
+title: 关于我们 | HexaCore Solutions
+description: 关于 HexaCore Solutions，了解我们的使命、愿景与发展历程。
 pageSections:
   - _component: page-sections/heroes/hero-split
-    title: Our mission
+    title: 我们的使命
     eyebrowIcon:
       _component: building-blocks/core-elements/icon
       name: forward
@@ -12,15 +13,14 @@ pageSections:
       background: true
       iconOffset: true
       alignmentHorizontal: start
-    eyebrowText:
+    eyebrowText: 企业愿景
     heading: >-
-      <p><span class="highlight-text">We exist to make the internet work</span>
-      the way people assume it already does.</p>
+      <p><span class="highlight-text">通过创新的蜂窝复合技术</span>，推动全球建筑与工业的轻量化进程。</p>
     subtext:
     buttonSections: []
     image:
       source: /src/assets/images/about-hero.png
-      alt: Did you know that the internet is based in NZ's central North Island?
+      alt: HexaCore Solutions 企业形象
       rounded: false
     reverse: false
     maxContentWidth: 3xl
@@ -41,8 +41,8 @@ pageSections:
       background: true
       iconOffset: true
       alignmentHorizontal: start
-    eyebrowText:
-    heading: Our core commitments
+    eyebrowText: 核心承诺
+    heading: 我们的核心价值观
     subtext:
     slides:
       - _component: page-sections/features/feature-carousel-grid/feature-carousel-slide
@@ -58,12 +58,11 @@ pageSections:
               background: true
               iconOffset: false
               alignmentHorizontal: start
-            eyebrowText: Global reach
-            heading: 847 edge nodes, six continents
+            eyebrowText: 全球视野
+            heading: 服务全球市场
             text: >-
-              Your content lives closer to your users than their nearest coffee
-              shop, with redundant routing that assumes failure is always one
-              misconfigured router away.
+              我们的产品已应用于全球 50+ 个国家和地区，
+              为国际顶尖企业和建筑项目提供支持。
             columnSpan: 4
             rowSpan: 1
           - _component: page-sections/features/feature-carousel-grid/feature-carousel-card
@@ -86,12 +85,11 @@ pageSections:
               background: true
               iconOffset: false
               alignmentHorizontal: start
-            eyebrowText: Automatic everything
-            heading: Infrastructure that manages itself
+            eyebrowText: 技术创新
+            heading: 持续的研发投入
             text: >-
-              SSL renewals, traffic routing, threat detection, and capacity
-              scaling happen without human intervention — our systems make
-              better decisions faster than people can.
+              每年投入营收的 15% 用于研发，不断推进蜂窝板技术的进步。
+              与全球顶尖研究机构合作，引领行业发展。
             columnSpan: 4
             rowSpan: 1
           - _component: page-sections/features/feature-carousel-grid/feature-carousel-card
@@ -114,12 +112,11 @@ pageSections:
               background: true
               iconOffset: false
               alignmentHorizontal: start
-            eyebrowText: Real-time visibility
-            heading: Analytics that update in a snap
+            eyebrowText: 品质保证
+            heading: 严格的质量管理
             text: >-
-              Monitor every request and every potential threat through
-              dashboards that show you what's happening now, not five minutes
-              ago.
+              所有产品通过 ISO 9001、ISO 14001 等国际认证。
+              采用先进的检测设备，确保每一块蜂窝板都符合最高标准。
             columnSpan: 8
             rowSpan: 1
           - _component: page-sections/features/feature-carousel-grid/feature-carousel-card
@@ -133,12 +130,11 @@ pageSections:
               background: true
               iconOffset: false
               alignmentHorizontal: start
-            eyebrowText: Zero-trust security
-            heading: Assume everything is a threat
+            eyebrowText: 环保承诺
+            heading: 绿色可持续发展
             text: >-
-              Every request gets verified, every connection gets encrypted,
-              every login attempt gets scrutinized by systems that never get
-              tired or complacent.
+              100% 可回收材质，符合 ISO 14001 环保标准。
+              致力于实现碳中和目标，推动绿色建筑发展。
             columnSpan: 8
             rowSpan: 1
           - _component: page-sections/features/feature-carousel-grid/feature-carousel-card
@@ -172,12 +168,11 @@ pageSections:
               background: true
               iconOffset: false
               alignmentHorizontal: start
-            eyebrowText: Obsessive redundancy
-            heading: Multiple backups for our backups
+            eyebrowText: 客户至上
+            heading: 卓越的客户服务
             text: >-
-              Single points of failure are design flaws we've engineered out of
-              existence through redundant systems, diverse routing, and healthy
-              paranoia.
+              24/7 技术支持团队，快速响应客户需求。
+              提供定制化解决方案，确保项目成功。
             columnSpan: 4
             rowSpan: 1
           - _component: page-sections/features/feature-carousel-grid/feature-carousel-card
@@ -200,11 +195,11 @@ pageSections:
               background: true
               iconOffset: false
               alignmentHorizontal: start
-            eyebrowText: Obsessive redundancy
-            heading: Redundancy layers all the way down
+            eyebrowText: 合作共赢
+            heading: 与合作伙伴共成长
             text: >-
-              Every critical system has a backup. Every backup has a backup. We
-              stopped counting after layer five but they're definitely there.
+              与全球建筑企业、设计事务所建立长期合作关系。
+              共同推进行业发展，实现互利共赢。
             columnSpan: 4
             rowSpan: 1
           - _component: page-sections/features/feature-carousel-grid/feature-carousel-card
@@ -236,12 +231,11 @@ pageSections:
               background: true
               iconOffset: false
               alignmentHorizontal: start
-            eyebrowText: Obsessive redundancy
-            heading: Trust nothing, backup everything
+            eyebrowText: 行业领导
+            heading: 推动行业标准制定
             text: >-
-              If it's critical, it's redundant. If it's redundant, it has a
-              backup. Our infrastructure assumes failure is always one
-              misconfiguration away from happening.
+              参与国际蜂窝板行业标准制定，引领技术发展方向。
+              获得多项国际专利和行业认可。
             columnSpan: 6
             rowSpan: 1
     maxContentWidth: 3xl
@@ -257,59 +251,56 @@ pageSections:
   - _component: page-sections/info-blocks/timeline
     eyebrowIcon: {}
     eyebrowText: ''
-    heading: How it all began
+    heading: 发展历程
     subtext: >-
-      Architecture discussions in a poorly-ventilated office became a working
-      prototype, then a functioning network, then a company that takes global
-      internet infrastructure perhaps more seriously than is strictly necessary.
+      从实验室的创新理念到全球化规模生产，HexaCore Solutions 
+      经历了二十年的技术积累与市场验证。
     items:
       - _component: page-sections/info-blocks/timeline/timeline-item
         icon:
           name: light-bulb
           color: brand-gradient
-        date: March 2019
-        heading: The 3am decision
+        date: 2005 年
+        heading: 技术萌芽
         text: >-
-          We founded Jetstream after a particularly frustrating 3am incident
-          response call convinced our co-founders that existing solutions lacked
-          sufficient ambition.
+          创始人在航空航天研究所开始蜂窝板技术研究，
+          探索轻量化复合材料的应用可能性。
       - _component: page-sections/info-blocks/timeline/timeline-item
         icon:
           name: light-bulb
           color: brand-gradient
-        date: August 2019
-        heading: First node goes live
+        date: 2010 年
+        heading: 首条生产线投产
         text: >-
-          Our first edge node deployed in Singapore. We then monitored it
-          obsessively for three weeks straight.
+          建立第一条蜂窝板生产线，成功实现技术商业化。
+          产品首次应用于国内大型建筑项目。
       - _component: page-sections/info-blocks/timeline/timeline-item
         icon:
           name: light-bulb
           color: brand-gradient
-        date: February 2020
-        heading: Trial by traffic
+        date: 2015 年
+        heading: 国际认证
         text: >-
-          We successfully mitigated our first major DDoS attack (4.2Tbps); our
-          engineering team celebrated with a
-          pizza-and-additional-monitoring-party.
+          获得 ISO 9001、ISO 14001 等国际认证。
+          产品开始出口至欧美市场，获得国际认可。
       - _component: page-sections/info-blocks/timeline/timeline-item
         icon:
           name: light-bulb
           color: brand-gradient
-        date: November 2022
-        heading: Certificates that renew themselves
+        date: 2020 年
+        heading: 全球扩张
         text: >-
-          We launched automated SSL certificate management after customer
-          support received their 10,000th "help, my certificate expired" ticket.
+          在美国、欧洲、亚洲等地建立生产基地。
+          成为全球蜂窝板行业的领军企业。
       - _component: page-sections/info-blocks/timeline/timeline-item
         icon:
           name: light-bulb
           color: brand-gradient
-        date: September 2025
-        heading: Achieved 847 global edge nodes
+        date: 2025 年
+        heading: 技术突破
         text: >-
-          Our original three-person engineering team now leads a department of
-          200 who share their pathological intolerance for downtime.
+          推出新一代高性能蜂窝板系列，性能指标达到国际先进水平。
+          与全球顶尖研究机构合作，持续创新。
     maxContentWidth: 2xl
     paddingVertical: 4xl
     colorScheme: inherit
@@ -321,117 +312,48 @@ pageSections:
     rounded: false
   - _component: page-sections/people/team-grid
     eyebrowIcon: {}
-    eyebrowText:
-    heading: The team behind the network
+    eyebrowText: 管理团队
+    heading: 领导力量
     subtext: >-
-      Engineers, optimists, and people who refuse to accept that anything is
-      impossible until proven otherwise.
+      由行业资深专家、工程师和商业领袖组成的管理团队，
+      致力于推动蜂窝板技术的创新与应用。
     useCollection: true
     sort: order
     teamMembers:
       - _component: page-sections/people/team-grid/team-item
-        name: Jen Lauren
-        role: Co-founder &amp; Chief Executive Officer
+        name: 王建华
+        role: 创始人 & 首席执行官
         bio: >-
-          Jen spent eight years building content delivery systems for a major
-          cloud provider before deciding she could do it better. She was right.
-          Now she runs a company while maintaining surprisingly strong opinions
-          about packet routing protocols. She still reads academic papers on
-          network architecture for enjoyment, which concerns her friends but
-          delights her engineering team.
+          拥有 25 年蜂窝板研发与生产经验。
+          曾任职于国际知名复合材料企业，
+          带领公司成为全球蜂窝板行业的领军者。
         imageSource: /src/assets/images/staff-1.png
-        imageAlt: Jen Lauren profile image
+        imageAlt: 王建华 CEO
       - _component: page-sections/people/team-grid/team-item
-        name: Rowan Anneaux
-        role: Co-founder &amp; Chief Technology Officer
+        name: 李明
+        role: 首席技术官
         bio: >-
-          Rowan wrote her first network monitoring tool at age 14 and never
-          stopped building things. Before Jetstream, she led infrastructure
-          teams at two 'hyper-unicorn' startups and learned what happens when
-          you scale too fast without proper planning. She's known for whiteboard
-          sessions that last six hours and produce architectural diagrams other
-          engineers frame on their walls.
+          拥有博士学位，专注于复合材料工艺创新。
+          发表过 30+ 篇学术论文，获得多项国际专利。
+          领导技术团队不断推进蜂窝板性能的突破。
         imageSource: /src/assets/images/staff-2-1.png
-        imageAlt: Rowan Anneaux profile image
+        imageAlt: 李明 CTO
       - _component: page-sections/people/team-grid/team-item
-        name: Oscar Edwards
-        role: Vice President of Network Operations
+        name: 张静
+        role: 运营总监
         bio: >-
-          Oscar manages 847 edge nodes across six continents with the kind of
-          precision normally reserved for air traffic control. He previously
-          spent a decade at a major telecom provider, where he grew increasingly
-          frustrated with "acceptable" levels of packet loss. Oscar joined
-          Jetstream to work with people who share his belief that network
-          reliability isn't negotiable. He's never missed an SLA target and
-          doesn't plan to start.
+          拥有 20 年全球供应链管理经验。
+          建立了遍布全球的生产与销售网络，
+          确保产品质量与交付效率。
         imageSource: /src/assets/images/staff-3-1.png
-        imageAlt: Oscar Edwards profile image
-      - _component: page-sections/people/team-grid/team-item
-        name: James Douglas
-        role: Chief Security Officer
-        bio: >-
-          James thinks like an attacker, which makes him excellent at defense.
-          He spent 12 years in offensive security before deciding he preferred
-          protecting infrastructure to breaking it, and now leads a team that
-          treats every login attempt with appropriate suspicion and every DDoS
-          attack as a personal challenge. His threat detection systems have
-          blocked attacks that hadn't been invented yet, which he considers
-          proof the system works.
-        imageSource: /src/assets/images/staff-4.png
-        imageAlt: James Douglas profile image
-      - _component: page-sections/people/team-grid/team-item
-        name: Janet Murray
-        role: VP of Engineering
-        bio: >-
-          Janet oversees a team of 200 engineers who build systems designed to
-          never fail. Her background includes distributed databases, real-time
-          analytics platforms, and a brief stint at a search engine company
-          where she learned to think at planetary scale. She believes code
-          reviews should be thorough, documentation should be comprehensive, and
-          infrastructure should be boring — in the best possible way.
-        imageSource: /src/assets/images/staff-5.png
-        imageAlt: Janet Murray profile image
-      - _component: page-sections/people/team-grid/team-item
-        name: Jack Walters
-        role: VP of Customer Success
-        bio: >-
-          Jack joined Jetstream after spending years explaining to customers why
-          their previous providers couldn't deliver what they promised. He built
-          our customer success team around a simple philosophy: solve problems
-          before customers know they exist. His team tracks metrics more
-          carefully than most companies track revenue. Jack previously led
-          support organizations at enterprise SaaS companies, to which he
-          brought an unsettling level of enthusiasm for operational excellence.
-        imageSource: /src/assets/images/staff-6.png
-        imageAlt: Jack Walters profile image
-    maxContentWidth: 2xl
+        imageAlt: 张静 运营总监
+    maxContentWidth: 3xl
     paddingVertical: 4xl
-    colorScheme: inherit
-    backgroundColor: highlight-grid
-    contentBackground: true
+    colorScheme: light
+    backgroundColor: surface-linear-gradient
+    contentBackground: false
     verticalOffset:
       size: xl
       direction: front
     rounded: true
-  - _component: page-sections/ctas/cta-center
-    eyebrowIcon: {}
-    eyebrowText:
-    heading: Join the team that takes infrastructure personally
-    subtext:
-    buttonSections:
-      - _component: building-blocks/core-elements/button
-        text: View open positions
-        hideText: false
-        link: ''
-        iconName: calendar-days
-        iconPosition: before
-        variant: primary
-        size: md
-    maxContentWidth: xl
-    paddingVertical: 4xl
-    colorScheme: dark
-    backgroundColor: highlight-radial-gradient
-    contentBackground: false
-    rounded: true
-description: ''
 ---

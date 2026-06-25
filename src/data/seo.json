@@ -1,9 +1,9 @@
 {
   "_schema": "seo",
-  "name": "Jetstream Astro Template for CloudCannon",
-  "url": "https://example.com",
-  "description": "",
+  "name": "HexaCore Solutions | 蜂窝板专家",
+  "url": "https://hexacore-solutions.com",
+  "description": "采用航空级复合技术，为现代建筑与工业提供轻量化、高强度的蜂窝板解决方案。极致轻量、卓越平整、防火耐候、绿色环保。",
   "logoSource": "/images/logo.svg",
-  "titleFormat": "{title} | Jetstream Astro Template for CloudCannon",
-  "twitterHandle": "@yourusername"
+  "titleFormat": "{title} | HexaCore Solutions",
+  "twitterHandle": "@HexaCoreSolutions"
 }

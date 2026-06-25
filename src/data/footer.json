@@ -1,50 +1,42 @@
 {
   "logoSource": "/src/assets/images/jetstream-logo.svg",
   "logoAlternateSource": "/src/assets/images/jetstream-dark-theme.svg",
-  "logoAlt": "Jetstream Logo",
+  "logoAlt": "HexaCore Solutions Logo",
   "links": [
     {
-      "name": "Home",
+      "name": "首页",
       "path": "/"
     },
     {
-      "name": "Pricing",
-      "path": "/pricing/"
+      "name": "产品",
+      "path": "/products/"
     },
     {
-      "name": "Blog",
-      "path": "/blog/"
-    },
-    {
-      "name": "About",
+      "name": "关于我们",
       "path": "/about/"
     },
     {
-      "name": "Contact",
+      "name": "联系我们",
       "path": "/contact/"
     }
   ],
   "socials": [
     {
-      "icon": "social/bluesky",
-      "link": "https://bsky.app/"
+      "icon": "social/linkedin",
+      "link": "https://linkedin.com"
     },
     {
       "icon": "social/github",
       "link": "https://github.com"
     },
     {
-      "icon": "social/gitlab",
-      "link": "https://about.gitlab.com/"
+      "icon": "social/bluesky",
+      "link": "https://bsky.app/"
     },
     {
       "icon": "social/discord",
       "link": "https://discord.com/"
-    },
-    {
-      "icon": "social/linkedin",
-      "link": "https://linkedin.com"
     }
   ],
-  "footerText": "© 2026 All rights reserved."
+  "footerText": "© 2026 HexaCore Solutions. 保留所有权利。"
 }

@@ -1,42 +1,42 @@
 {
   "logoSource": "/src/assets/images/jetstream-logo.svg",
   "logoAlternateSource": "/src/assets/images/jetstream-dark-theme.svg",
-  "logoAlt": "Logo",
+  "logoAlt": "HexaCore Solutions Logo",
   "themeToggle": true,
   "navData": [
     {
-      "name": "Features",
-      "path": null,
+      "name": "产品",
+      "path": "/products/",
       "children": [
         {
-          "name": "What we do best ↓",
-          "path": "/#services",
+          "name": "铝蜂窝板 ↓",
+          "path": "/products/#aluminum",
           "children": []
         },
         {
-          "name": "Problems we've solved ↓",
-          "path": "/#solutions",
+          "name": "不锈钢蜂窝板 ↓",
+          "path": "/products/#stainless",
+          "children": []
+        },
+        {
+          "name": "石材蜂窝板 ↓",
+          "path": "/products/#stone",
           "children": []
         }
       ]
     },
     {
-      "name": "Blog",
-      "path": "/blog/",
+      "name": "应用",
+      "path": "/#solutions",
       "children": []
     },
     {
-      "name": "Pricing",
-      "path": "/pricing/",
-      "children": []
-    },
-    {
-      "name": "About",
+      "name": "关于我们",
       "path": "/about/",
       "children": []
     },
     {
-      "name": "Contact",
+      "name": "联系我们",
       "path": "/contact/",
       "children": []
     }
@@ -44,7 +44,7 @@
   "buttonSections": [
     {
       "_component": "building-blocks/core-elements/button",
-      "text": "Search",
+      "text": "搜索",
       "hideText": true,
       "link": "/search/",
       "iconName": "magnifying-glass",
@@ -55,9 +55,9 @@
     },
     {
       "_component": "building-blocks/core-elements/button",
-      "text": "Get started",
+      "text": "获取方案",
       "hideText": false,
-      "link": "https://cloudcannon.com/templates/jetstream/",
+      "link": "/contact/",
       "iconName": "arrow-right",
       "iconColor": "default",
       "iconPosition": "after",
