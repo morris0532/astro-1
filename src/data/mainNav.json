@@ -1,7 +1,7 @@
 {
-  "logoSource": "/src/assets/images/jetstream-logo.svg",
-  "logoAlternateSource": "/src/assets/images/jetstream-dark-theme.svg",
-  "logoAlt": "PP Honeycomb Panel Logo",
+  "logoSource": "/src/assets/images/jetstream-logo.png",
+  "logoAlternateSource": "/src/assets/images/jetstream-logo.png",
+  "logoAlt": "PP Honeycomb Solutions Logo",
   "themeToggle": true,
   "navData": [
     {
