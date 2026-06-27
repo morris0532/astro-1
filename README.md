@@ -9,7 +9,7 @@ Jetstream is a polished, high-performance marketing website template for Astro. 
 
 [![Deploy to CloudCannon](https://buttons.cloudcannon.com/deploy.svg)](https://app.cloudcannon.com/register#sites/connect/github/cloudcannon/jetstream-astro-template)
 
-## Features 
+## Features  
 
 - **Modern Architecture**: Built with Astro for optimal performance and minimal JavaScript
 - **Visual Editing**: Visual editing with [CloudCannon](https://cloudcannon.com/) editable regions - edit directly on the pages
