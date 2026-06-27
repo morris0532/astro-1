@@ -1,22 +1,30 @@
 {
   "logoSource": "/src/assets/images/jetstream-logo.svg",
   "logoAlternateSource": "/src/assets/images/jetstream-dark-theme.svg",
-  "logoAlt": "HexaCore Solutions Logo",
+  "logoAlt": "PP Honeycomb Panel Logo",
   "links": [
     {
-      "name": "首页",
+      "name": "Home",
       "path": "/"
     },
     {
-      "name": "产品",
+      "name": "Products",
       "path": "/products/"
     },
     {
-      "name": "关于我们",
+      "name": "Applications",
+      "path": "/applications/"
+    },
+    {
+      "name": "Technical",
+      "path": "/technical/"
+    },
+    {
+      "name": "About Us",
       "path": "/about/"
     },
     {
-      "name": "联系我们",
+      "name": "Contact",
       "path": "/contact/"
     }
   ],
@@ -28,15 +36,7 @@
     {
       "icon": "social/github",
       "link": "https://github.com"
-    },
-    {
-      "icon": "social/bluesky",
-      "link": "https://bsky.app/"
-    },
-    {
-      "icon": "social/discord",
-      "link": "https://discord.com/"
     }
   ],
-  "footerText": "© 2026 HexaCore Solutions. 保留所有权利。"
+  "footerText": "© 2026 PP Honeycomb Panel Solutions. All rights reserved."
 }

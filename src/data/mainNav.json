@@ -1,50 +1,149 @@
 {
   "logoSource": "/src/assets/images/jetstream-logo.svg",
   "logoAlternateSource": "/src/assets/images/jetstream-dark-theme.svg",
-  "logoAlt": "HexaCore Solutions Logo",
+  "logoAlt": "PP Honeycomb Panel Logo",
   "themeToggle": true,
   "navData": [
     {
-      "name": "产品",
+      "name": "Products",
       "path": "/products/",
       "children": [
         {
-          "name": "铝蜂窝板 ↓",
-          "path": "/products/#aluminum",
+          "name": "Standard PP Honeycomb",
+          "path": "/products/standard-series/",
           "children": []
         },
         {
-          "name": "不锈钢蜂窝板 ↓",
-          "path": "/products/#stainless",
+          "name": "Anti-static / Flame Retardant",
+          "path": "/products/special-series/",
           "children": []
         },
         {
-          "name": "石材蜂窝板 ↓",
-          "path": "/products/#stone",
+          "name": "Custom Specifications / OEM",
+          "path": "/products/custom-oem/",
+          "children": []
+        },
+        {
+          "name": "Product Comparison",
+          "path": "/products/comparison/",
           "children": []
         }
       ]
     },
     {
-      "name": "应用",
-      "path": "/#solutions",
-      "children": []
+      "name": "Applications",
+      "path": "/applications/",
+      "children": [
+        {
+          "name": "Logistics & Packaging",
+          "path": "/applications/logistics/",
+          "children": []
+        },
+        {
+          "name": "Automotive Industry",
+          "path": "/applications/automotive/",
+          "children": []
+        },
+        {
+          "name": "Building & Decoration",
+          "path": "/applications/construction/",
+          "children": []
+        },
+        {
+          "name": "Agriculture & Greenhouse",
+          "path": "/applications/agriculture/",
+          "children": []
+        },
+        {
+          "name": "Advertising & Display",
+          "path": "/applications/advertising/",
+          "children": []
+        }
+      ]
     },
     {
-      "name": "关于我们",
+      "name": "Technical",
+      "path": "/technical/",
+      "children": [
+        {
+          "name": "Technical Specifications",
+          "path": "/technical/specifications/",
+          "children": []
+        },
+        {
+          "name": "TDS / MSDS Download",
+          "path": "/technical/downloads/",
+          "children": []
+        },
+        {
+          "name": "Certifications",
+          "path": "/technical/certifications/",
+          "children": []
+        },
+        {
+          "name": "FAQ",
+          "path": "/technical/faq/",
+          "children": []
+        },
+        {
+          "name": "Blog / SEO Articles",
+          "path": "/blog/",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "About Us",
       "path": "/about/",
-      "children": []
+      "children": [
+        {
+          "name": "Company Profile",
+          "path": "/about/",
+          "children": []
+        },
+        {
+          "name": "Factory & Production",
+          "path": "/about/factory/",
+          "children": []
+        },
+        {
+          "name": "Qualifications",
+          "path": "/about/qualifications/",
+          "children": []
+        },
+        {
+          "name": "Customer Cases",
+          "path": "/cases/",
+          "children": []
+        }
+      ]
     },
     {
-      "name": "联系我们",
+      "name": "Get a Quote",
       "path": "/contact/",
-      "children": []
+      "children": [
+        {
+          "name": "Online Inquiry Form",
+          "path": "/contact/",
+          "children": []
+        },
+        {
+          "name": "WhatsApp / WeChat",
+          "path": "/contact/#social",
+          "children": []
+        },
+        {
+          "name": "Sample Request",
+          "path": "/contact/#sample",
+          "children": []
+        }
+      ]
     }
   ],
   "buttonSections": [
     {
       "_component": "building-blocks/core-elements/button",
-      "text": "搜索",
+      "text": "Search",
       "hideText": true,
       "link": "/search/",
       "iconName": "magnifying-glass",
@@ -55,7 +154,7 @@
     },
     {
       "_component": "building-blocks/core-elements/button",
-      "text": "获取方案",
+      "text": "Get Quote",
       "hideText": false,
       "link": "/contact/",
       "iconName": "arrow-right",

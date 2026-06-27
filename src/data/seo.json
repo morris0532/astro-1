@@ -1,9 +1,9 @@
 {
   "_schema": "seo",
-  "name": "HexaCore Solutions | 蜂窝板专家",
-  "url": "https://hexacore-solutions.com",
-  "description": "采用航空级复合技术，为现代建筑与工业提供轻量化、高强度的蜂窝板解决方案。极致轻量、卓越平整、防火耐候、绿色环保。",
-  "logoSource": "/images/logo.svg",
-  "titleFormat": "{title} | HexaCore Solutions",
-  "twitterHandle": "@HexaCoreSolutions"
+  "name": "PP Honeycomb Panel Specialist",
+  "url": "https://pp-honeycomb-solutions.com",
+  "description": "Advanced PP honeycomb technology providing lightweight, high-strength solutions for logistics, automotive, and construction industries.",
+  "logoSource": "/src/assets/images/jetstream-logo.svg",
+  "titleFormat": "{title} | PP Honeycomb Panel Specialist",
+  "twitterHandle": "@PPHoneycomb"
 }
